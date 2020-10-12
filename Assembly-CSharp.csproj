@@ -59,17 +59,17 @@
     <Compile Include="Assets\Scripts\Interfaces\Interface1.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementInfo.cs" />
-    <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\MovementManager.cs" />
+    <Compile Include="Assets\Scripts\Movement\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Movement\Steering.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Align.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Arrive.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\AuxMethods.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\CopyVelocity.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Flee.cs" />
-    <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\MovementManager.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Seek.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Separation.cs" />
-    <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Steering.cs" />
-    <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\SteeringBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Movement\SteeringBehaviour.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
