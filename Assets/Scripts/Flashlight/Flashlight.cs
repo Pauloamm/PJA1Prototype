@@ -12,8 +12,10 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
     [SerializeField]
     Transform player, playerCamera;
+    GameObject playerObject;
 
     private Vector3 offset;
+    private Vector3 initialOffset;
 
     public MovementInfo info;
 
@@ -34,13 +36,17 @@ public class Flashlight : MonoBehaviour, IRechargeable
     {
         if (flashlightLight == null) flashlightLight = this.GetComponentInChildren<Light>();
 
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+         playerObject = GameObject.FindGameObjectWithTag("Player");
 
         player = playerObject.transform;
         playerCamera = playerObject.GetComponentInChildren<Camera>().transform;
 
         offset = playerCamera.position - this.transform.position;
 
+        initialOffset = player.transform.localPosition - this.transform.position;
+        initialOffset.Normalize();
+
+        //this.transform.forward = initialOffset + playerCamera.transform.forward;
 
         RemainingCharges = 0;
         isRecharging = false;
@@ -145,13 +151,21 @@ public class Flashlight : MonoBehaviour, IRechargeable
     {
         //this.transform.position = player.position + offset;
 
+        GameObject lookCube = GameObject.Find("InvisibleTarget");
+        Vector3 newForward = lookCube.transform.position - this.transform.position;
+
 
         //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, playerCamera.transform.rotation + offset, 3.0f * Time.deltaTime);
 
-        
-        this.transform.forward = Vector3.Lerp(player.transform.forward , player.transform.forward + offset, 3.0f * Time.deltaTime);
-        
-        
+        //Vector3 lastCameraForward = player.GetComponentInChildren<PlayerMovement>().lastFrameForward;
+
+
+        //Vector3 offset = playerCamera.transform.forward - this.transform.forward/*lastCameraForward*/;
+        this.transform.forward = newForward;
+        //this.transform.forward = Vector3.Lerp(transform.forward ,  newForward , 2.5f *  Time.deltaTime);
+        //this.transform.forward = transform.forward + offset;
+
+
     }
 
     //IEnumerator Offset()

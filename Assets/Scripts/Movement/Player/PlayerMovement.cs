@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float walkVelocity = 8f;
 
     public MovementInfo GetInfo => info;
+    public Vector3 lastFrameForward;
 
     [SerializeField]
     private GameObject playerCamera, flashlight;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         // Initializes 
         info.position = transform.position;
         Vector3 forward = transform.forward;
+        lastFrameForward = playerCamera.transform.forward;
 
         //info.orientationV2.x = Mathf.Atan2(forward.x, forward.z);
         //info.orientationV2.y = Mathf.Atan2(forward.y, forward.x);
@@ -117,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.identity;
         transform.rotation = Quaternion.identity;
 
+        lastFrameForward = cameraTransform.forward;
         // Rotates all player right-left
         playerTransform.Rotate(playerTransform.up, info.orientationV2.x * Mathf.Rad2Deg);
 
