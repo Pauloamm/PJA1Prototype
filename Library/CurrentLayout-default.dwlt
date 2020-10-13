@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 21
+  controlID: 107
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 22
+  controlID: 108
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 67
+  controlID: 109
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,11 +338,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Inventory
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Inventory
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "E:\\Ficheiros\\Faculdade\\5\xBA Semestre\\Projeto Aplicado
     I\\PJA1Prototype\\PJA1Prototype"
@@ -350,9 +350,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e8390000
-    m_LastClickedID: 14824
-    m_ExpandedIDs: 00000000f6360000423800006e3900005e3b0000e43c000000ca9a3b
+    m_SelectedIDs: 003d0000
+    m_LastClickedID: 15616
+    m_ExpandedIDs: 00000000103700005c3800008a3900007a3b0000003d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -380,7 +380,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f6360000423800006e3900005e3b0000e43c0000
+    m_ExpandedIDs: 00000000103700005c3800008a3900007a3b0000003d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -503,9 +503,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6a3e0000
-      m_LastClickedID: 15978
-      m_ExpandedIDs: 6cfbffff463e00006a3e0000a83e0000ba3e0000c23e0000e23e0000183f0000
+      m_SelectedIDs: 0e3f0000
+      m_LastClickedID: 16142
+      m_ExpandedIDs: 58fbffff543e0000783e0000ae3e0000b83e0000c03e00000e3f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -565,9 +565,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 377.32898, y: 256.143, z: 286.16394}
+    m_Target: {x: 559.61487, y: 320.38095, z: -9.177612}
     speed: 2
-    m_Value: {x: 377.32898, y: 256.143, z: 286.16394}
+    m_Value: {x: 559.61487, y: 320.38095, z: -9.177612}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -613,13 +613,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.044229835, y: -0.21557398, z: 0.0097661745, w: 0.9754522}
+    m_Target: {x: 0.07969466, y: -0.028409325, z: 0.0022598754, w: 0.9964311}
     speed: 2
-    m_Value: {x: 0.044229154, y: -0.21557067, z: 0.009766025, w: 0.97543716}
+    m_Value: {x: 0.07969313, y: -0.028408779, z: 0.002259832, w: 0.996412}
   m_Size:
-    m_Target: 506.84952
+    m_Target: 242.19789
     speed: 2
-    m_Value: 506.84952
+    m_Value: 242.19789
   m_Ortho:
     m_Target: 0
     speed: 2

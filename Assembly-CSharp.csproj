@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Inventory\SlotManager.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementInfo.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementManager.cs" />
+    <Compile Include="Assets\Scripts\Movement\Player\ItemPickUp.cs" />
     <Compile Include="Assets\Scripts\Movement\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Movement\Steering.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Align.cs" />

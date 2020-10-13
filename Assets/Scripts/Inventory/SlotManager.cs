@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class SlotManager : MonoBehaviour
 {
-
     List<GameObject> slots;
-
+    ItemPickUp itemPickUpScript;
     [SerializeField] GameObject referenceSlot;
 
     private void Awake()
     {
         slots = new List<GameObject>();
+        itemPickUpScript = GameObject.Find("Player").GetComponent<ItemPickUp>();
+        itemPickUpScript.OnPickUpEvent += AddSlot;
     }
 
 
@@ -32,6 +33,12 @@ public class SlotManager : MonoBehaviour
 
         DisplaySlotUpdate(temp, tempSlot);
         Debug.Log("slot Added");
+        DestroyItem(item);
+    }
+
+    public void DestroyItem(GameObject item)
+    {
+        GameObject.Destroy(item);
     }
 
 

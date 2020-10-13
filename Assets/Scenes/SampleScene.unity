@@ -1484,6 +1484,7 @@ GameObject:
   - component: {fileID: 973707722}
   - component: {fileID: 973707721}
   - component: {fileID: 973707724}
+  - component: {fileID: 973707723}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1609,6 +1610,18 @@ MonoBehaviour:
   walkVelocity: 8
   playerCamera: {fileID: 534669902}
   flashlight: {fileID: 2083006177}
+--- !u!114 &973707723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973707716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03898822248dbfa40ab669b0d5c139e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &973707724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,7 +1635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 14142497}
-  slotHolder: {fileID: 790738982}
 --- !u!1 &1017679281
 GameObject:
   m_ObjectHideFlags: 0

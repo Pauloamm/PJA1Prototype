@@ -7,15 +7,13 @@ public class Inventory : MonoBehaviour
     public GameObject inventory;
     private bool inventoryEnabled;
 
-    private int slotsCount;
     private int enabledSlots;
-    public GameObject slotHolder;
     SlotManager slotManager;
 
-    void Start()
-    {
-        slotManager = GameObject.Find("ListContent").GetComponent<SlotManager>();
-    }
+    //void Start()
+    //{
+    //    slotManager = GameObject.Find("ListContent").GetComponent<SlotManager>();
+    //}
 
     public void Update()
     {
@@ -26,16 +24,5 @@ public class Inventory : MonoBehaviour
             inventory.SetActive(true);
         else
             inventory.SetActive(false);
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Item")
-        {
-            GameObject itemPickedUp = other.gameObject;
-
-            slotManager.AddSlot(itemPickedUp);
-        }
     }
 }
