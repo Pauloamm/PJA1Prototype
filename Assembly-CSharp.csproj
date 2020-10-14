@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Seek.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Separation.cs" />
     <Compile Include="Assets\Scripts\Movement\SteeringBehaviour.cs" />
+    <Compile Include="Assets\UI\Crosshair.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/fabio/Documents/GitHub/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
