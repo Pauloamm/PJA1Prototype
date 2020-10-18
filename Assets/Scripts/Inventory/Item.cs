@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[CreateAssetMenu(menuName ="Interactable/Item")]
+
 public class Item : MonoBehaviour
 {
     public bool pickedUp;
@@ -10,6 +12,10 @@ public class Item : MonoBehaviour
     public string description;
     public Sprite icon;
 
+    //void OnEnable()
+    //{
+
+    //}
     public Item(bool pickedUp, int iD, string type, string description, Sprite icon)
     {
         this.pickedUp = pickedUp;

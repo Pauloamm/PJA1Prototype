@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject inventory;
-    private bool inventoryEnabled;
 
-    private int enabledSlots;
-    SlotManager slotManager;
-
-    //void Start()
-    //{
-    //    slotManager = GameObject.Find("ListContent").GetComponent<SlotManager>();
-    //}
-
-    public void Update()
+    public void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-            inventoryEnabled = !inventoryEnabled;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
-        if (inventoryEnabled)
-            inventory.SetActive(true);
-        else
-            inventory.SetActive(false);
+    public void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
