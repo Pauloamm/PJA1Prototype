@@ -40,6 +40,7 @@ public class Crosshair : MonoBehaviour
         {
             crosshair.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, currentSize = (currentSize > minSize) ? --currentSize : currentSize);
             crosshair.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentSize);
+            
         }
 
     }
