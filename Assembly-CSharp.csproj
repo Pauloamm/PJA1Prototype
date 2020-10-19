@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Inventory\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\DisplayPanel.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inspect.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InspectItemRender.cs" />
     <Compile Include="Assets\Scripts\Inventory\InspectMode.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory\PlayerLockManager.cs" />

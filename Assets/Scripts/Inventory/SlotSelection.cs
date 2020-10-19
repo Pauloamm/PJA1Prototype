@@ -30,31 +30,4 @@ public class SlotSelection : MonoBehaviour
     GameObject GameObjectReturns() => this.gameObject;
     
 
-    //[SerializeField] GameObject panelPrefeb;
-    //GameObject currentPanel;
-    //DisplayPanel displayPanel;
-    //Button currentButton;
-    //bool isOpen = false;
-    //void Awake()
-    //{
-    //    currentButton = this.GetComponent<Button>();
-    //    currentButton.onClick.AddListener(ze);
-    //}
-
-    //void ze()
-    //{
-    //    if (!isOpen)
-    //    {
-    //        currentPanel = Instantiate(panelPrefeb);
-    //        currentPanel.transform.parent = GameObject.Find("UI_Inventory").transform;
-    //        currentPanel.transform.position = Input.mousePosition;
-    //        isOpen = !isOpen;
-    //    }
-    //    else
-    //    {
-    //        Destroy(currentPanel);
-    //        isOpen = !isOpen;
-    //    }
-    //}
-
 }

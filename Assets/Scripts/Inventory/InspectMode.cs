@@ -10,6 +10,20 @@ public class InspectMode : MonoBehaviour
     public event ChangeUI InspectOpened;
     public event ChangeUI InspectClosed;
 
+    //---------------
+    public delegate void InspectOpenForLoadItem(Slot currentSlot);
+    public event InspectOpenForLoadItem InspectOpenedForLoadItem;
+    //---------------
+
+    public delegate Slot SlotSelect();
+    public event SlotSelect SlotSelected;
+
+    [SerializeField]
+    InspectItemRender inspectItemRender;
+
+    [SerializeField]
+    Slot currentSlot;
+
     [SerializeField]
     Button openInspectButton, leaveInspectButton;
 
@@ -22,10 +36,18 @@ public class InspectMode : MonoBehaviour
     private void OpenInspectMode()
     {
         InspectOpened?.Invoke();
+
+        currentSlot = SlotSelected?.Invoke();
+
+        InspectOpenedForLoadItem?.Invoke(currentSlot);
+
+        //inspectItemRender.ItemLoad(currentSlot);
+
     }
 
     private void CloseInspectMode()
     {
         InspectClosed?.Invoke();
+        //InspectClosedPaulo?.Invoke(null);
     }
 }

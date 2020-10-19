@@ -12,4 +12,9 @@ public class Slot : MonoBehaviour
     public string description;
     public Sprite icon;
 
+
+    //
+    public GameObject itemGameObjectForInspectPaulo;
+
+
 }

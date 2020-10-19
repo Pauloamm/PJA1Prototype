@@ -269,6 +269,7 @@ MonoBehaviour:
   type: Weapon
   description: dwdad
   icon: {fileID: 21300000, guid: eca1b581312dd834e854a2baf8a7a9c8, type: 3}
+  itemGameObjectForInspectPaulo: {fileID: 0}
 --- !u!54 &33915860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Back
 --- !u!222 &90213900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -773,6 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8325da79eae81a840b3f2ba0b0b0cbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inspectItemRender: {fileID: 626995488}
+  currentSlot: {fileID: 0}
   openInspectButton: {fileID: 700991757}
   leaveInspectButton: {fileID: 756041584}
 --- !u!1 &401860920
@@ -891,6 +894,8 @@ MonoBehaviour:
   type: Weapon
   description: dwdad
   icon: {fileID: 21300000, guid: c2830a54ff5ae8840b01d42a5e2d0b6b, type: 3}
+  itemGameObjectForInspectPaulo: {fileID: 8242575050228443915, guid: bf73878b4d51f7e458f8632df86b55c1,
+    type: 3}
 --- !u!54 &421290791
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1019,6 +1024,8 @@ MonoBehaviour:
   type: Weapon
   description: dwdad
   icon: {fileID: 21300000, guid: f55b97b1106edd344b4b1445eca14428, type: 3}
+  itemGameObjectForInspectPaulo: {fileID: 6333029920157430872, guid: 0e0b178bb922d314398533619bf2513b,
+    type: 3}
 --- !u!54 &433189632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1646,6 +1653,7 @@ GameObject:
   - component: {fileID: 626995485}
   - component: {fileID: 626995484}
   - component: {fileID: 626995483}
+  - component: {fileID: 626995488}
   m_Layer: 5
   m_Name: Inspect Item Test
   m_TagString: Untagged
@@ -1665,7 +1673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ee3775786f12a49ab74bfe7523dd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICam: {fileID: 0}
 --- !u!65 &626995484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1686,7 +1693,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626995482}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1735,11 +1742,24 @@ Transform:
   m_GameObject: {fileID: 626995482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.099303246, y: -0.42023557, z: 0.06330824}
-  m_LocalScale: {x: 0.46121964, y: 0.09009754, z: 0.50242066}
+  m_LocalScale: {x: 0.57208, y: 0.57208, z: 0.57208}
   m_Children: []
   m_Father: {fileID: 370269981}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &626995488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626995482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ae8380bb33db44a9fffe00ab57419c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inspectMode: {fileID: 370269982}
 --- !u!1 &700991755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,6 +3025,8 @@ MonoBehaviour:
   type: Weapon
   description: dwdad
   icon: {fileID: 21300000, guid: fe796f3ff70961e428e1dc55aa11d214, type: 3}
+  itemGameObjectForInspectPaulo: {fileID: 5521909474607071903, guid: 925ced2b37d8b6b44972edcf45a04d70,
+    type: 3}
 --- !u!54 &1619316237
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3707,6 +3729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1944660692}
+  inspectMode: {fileID: 370269982}
 --- !u!222 &2016606304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3886,7 +3909,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582840658}
   m_HandleRect: {fileID: 582840657}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

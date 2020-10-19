@@ -6,7 +6,6 @@ public class Inspect : MonoBehaviour
 {
 
     protected Vector3 postLastTime;
-    public Camera UICam;
 
     // Update is called once per frame
     void Update()

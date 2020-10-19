@@ -28,6 +28,7 @@ public class SlotManager : MonoBehaviour
         tempSlot.type = itemItem.type;
         tempSlot.description = itemItem.description;
         tempSlot.icon = itemItem.icon;
+        tempSlot.itemGameObjectForInspectPaulo = itemItem.itemGameObjectForInspectPaulo;
 
         slots.Add(temp);
 

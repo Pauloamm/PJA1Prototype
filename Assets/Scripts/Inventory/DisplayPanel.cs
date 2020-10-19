@@ -9,11 +9,20 @@ public class DisplayPanel : MonoBehaviour
     public delegate GameObject OnClick();
     public event OnClick OnMouseClick;
     GameObject slotSelected;
+    Slot currentSlot;
+
+    [SerializeField]
+    InspectMode inspectMode;
 
     public delegate void Inspect();
     public event Inspect Inspected;
 
     bool isOpen = false;
+    void Awake()
+    {
+        inspectMode.SlotSelected += ReturnSlot;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -23,12 +32,12 @@ public class DisplayPanel : MonoBehaviour
                 slotSelected = OnMouseClick?.Invoke();
                 if (slotSelected != null)
                 {
-                    panel.transform.position = Input.mousePosition;
-                    panel.SetActive(true);
-                    slotSelected.GetComponent<Slot>();
-                    isOpen = !isOpen;
+                    panel.transform.position = Input.mousePosition; // Mete o o painel junto ao rato
+                    panel.SetActive(true); // ativa painel
+                    currentSlot = slotSelected.GetComponent<Slot>(); // Get Slot
 
-                    //Inspected?.Invoke();
+                    isOpen = !isOpen; // Altera o bool do painel 
+
                 }
             }
             else
@@ -39,4 +48,8 @@ public class DisplayPanel : MonoBehaviour
 
         }
     }
+
+
+    private Slot ReturnSlot() => currentSlot;
+    
 }
