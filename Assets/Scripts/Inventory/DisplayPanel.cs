@@ -5,14 +5,14 @@ using UnityEngine;
 public class DisplayPanel : MonoBehaviour
 {
     public GameObject panel;
+
     public delegate GameObject OnClick();
-
     public event OnClick OnMouseClick;
-    GameObject ze;
+    GameObject slotSelected;
 
-    void Awake()
-    {
-    }
+    public delegate void Inspect();
+    public event Inspect Inspected;
+
     bool isOpen = false;
     void Update()
     {
@@ -20,14 +20,15 @@ public class DisplayPanel : MonoBehaviour
         {
             if (!isOpen)
             {
-                ze = OnMouseClick?.Invoke();
-                if (ze != null)
+                slotSelected = OnMouseClick?.Invoke();
+                if (slotSelected != null)
                 {
-                    Debug.Log("a tua mae");
                     panel.transform.position = Input.mousePosition;
                     panel.SetActive(true);
-                    ze.GetComponent<Slot>();
+                    slotSelected.GetComponent<Slot>();
                     isOpen = !isOpen;
+
+                    //Inspected?.Invoke();
                 }
             }
             else

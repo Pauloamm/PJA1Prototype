@@ -17,17 +17,17 @@ public class SlotSelection : MonoBehaviour
 
     public void OnPointerEnter()
     {
-        displayPanel.OnMouseClick += bacalhau;
+        displayPanel.OnMouseClick += GameObjectReturns;
         Debug.Log("entrou");
     }
     public void OnPointerExit()
     {
-        displayPanel.OnMouseClick -= bacalhau;
+        displayPanel.OnMouseClick -= GameObjectReturns;
         Debug.Log("saiu");
 
     }
 
-    GameObject bacalhau() => this.gameObject;
+    GameObject GameObjectReturns() => this.gameObject;
     
 
     //[SerializeField] GameObject panelPrefeb;

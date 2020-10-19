@@ -60,9 +60,12 @@
     <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
     <Compile Include="Assets\Scripts\Interfaces\Interface1.cs" />
+    <Compile Include="Assets\Scripts\Inventory\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\DisplayPanel.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Inspect.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InspectMode.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
+    <Compile Include="Assets\Scripts\Inventory\PlayerLockManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
     <Compile Include="Assets\Scripts\Inventory\SlotManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\SlotSelection.cs" />

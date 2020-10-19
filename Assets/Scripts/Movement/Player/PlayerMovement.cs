@@ -28,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
 
         // Checks for camera 
         if (playerCamera != null) playerCamera = GameObject.Find("Main Camera");

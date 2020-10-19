@@ -7,12 +7,15 @@ public class ItemPickUp : MonoBehaviour
     public delegate void OnPickUp(GameObject item);
 
     public event OnPickUp OnPickUpEvent;
-
+    //[SerializeField]
+    //Camera playerCamera;
 
     private void Update()
     {
         RaycastHit raycast;
         Ray ray = this.GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         if (Physics.Raycast(ray, out raycast, 5f))
         {
