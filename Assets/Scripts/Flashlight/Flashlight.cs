@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour, IRechargeable
 {
+    //--------------------------------------------------
+
+    // Action variables
     private float holdKeyDelay = 1f, currentTimer = 0f;
     private bool isRecharging;
+    public bool canBeUsed { get; set; }
 
+    
     [SerializeField]
     private Light flashlightLight;
 
+
+    // TEST
     [SerializeField]
     Transform player, playerCamera;
     GameObject playerObject;
@@ -18,20 +25,30 @@ public class Flashlight : MonoBehaviour, IRechargeable
     private Vector3 initialOffset;
 
     public MovementInfo info;
-
-
+  
     float angularDrag = 0.95f;
 
+    [SerializeField]
+    private int remainingCharges;
     public int RemainingCharges
     {
-        get { return RemainingCharges; }
+        get { return remainingCharges; }
 
-        set { if (value < 0) value = 0; }
+        set {
+            if (value < 0)
+            {
+                remainingCharges = 0;
+            }
+            else remainingCharges = value;
+        }
     }
-    public bool canBeUsed { get; set; }
+    
+    int chargeDuration;
 
+    public float currentChargeDurationRemaining;
+    
+    //--------------------------------------------------
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (flashlightLight == null) flashlightLight = this.GetComponentInChildren<Light>();
@@ -45,21 +62,41 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
         initialOffset = player.transform.localPosition - this.transform.position;
         initialOffset.Normalize();
-
-        //this.transform.forward = initialOffset + playerCamera.transform.forward;
+        
 
         RemainingCharges = 0;
+        currentChargeDurationRemaining = 300;
+        chargeDuration = 300;
         isRecharging = false;
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
         UpdatePosition();
+
+        CurrentChargeRemaining();
+        FlashLightAction();
         //MouseFollow();
 
+
+
+
+    }
+
+    private void CurrentChargeRemaining()
+    {
+        if (currentChargeDurationRemaining > 0)
+            currentChargeDurationRemaining -= Time.deltaTime;
+        
+        else currentChargeDurationRemaining = 0;
+
+        Debug.Log(currentChargeDurationRemaining);
+    }
+
+    private void FlashLightAction()
+    {
 
         // If it is only a click
         if (Input.GetKeyUp(KeyCode.F))
@@ -67,7 +104,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
             currentTimer = 0f;
 
             //Turn On/Off
-            if (canBeUsed)
+            if (canBeUsed && currentChargeDurationRemaining > 0)
             {
                 flashlightLight.enabled = !flashlightLight.enabled;
             }
@@ -80,7 +117,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
         else if (Input.GetKey(KeyCode.F))
         {
 
-            if (currentTimer >= holdKeyDelay && canBeUsed)
+            if (currentTimer >= holdKeyDelay && canBeUsed && RemainingCharges > 0)
             {
                 flashlightLight.enabled = false;
                 Recharge();
@@ -92,60 +129,66 @@ public class Flashlight : MonoBehaviour, IRechargeable
             else
                 currentTimer += Time.deltaTime;
         }
-
-
-
-
-
-
     }
-
-    public void Recharge()
+     public void Recharge()
     {
-
-    }
-
-    public void MouseFollow()
-    {
-        // Update our position according to current rotation vector 
-        info.orientationV2 += info.rotationV2 * Time.deltaTime;
-
-        // Add drag
-        info.rotationV2 *= angularDrag;
-
-
-        // Read Mouse Movement
-        Vector2 mouseXY = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
-        float nextAngular;
-
-        float mousesens = 20f;
-        // Gets mouse inputs
-        if (Mathf.Abs(mouseXY.x) != 0 || Mathf.Abs(mouseXY.y) != 0)
+        if (RemainingCharges > 0)
         {
-            // Adds angular X
-            nextAngular = mouseXY.x * Time.deltaTime * mousesens;
-            info.rotationV2.x += nextAngular;
+            RemainingCharges--;
+            currentChargeDurationRemaining = chargeDuration;
 
-            //Adds angular Y
-            nextAngular = mouseXY.y * Time.deltaTime * mousesens;
-            info.rotationV2.y -= nextAngular;
         }
 
-        //Normalize orientation
-        info.orientationV2 = AuxMethods.NormAngle(info.orientationV2);
 
-        //Y axis clamp
-        info.orientationV2.y = Mathf.Clamp(info.orientationV2.y, -Mathf.PI / 2, Mathf.PI / 2);
 
-        // Resets rotations for next frame(values are additive and odnt reset after update)
-        /*flashlightLight.*/transform.rotation = Quaternion.identity;
 
-        // Rotates flashlight right-left
-        /*flashlightLight.*/transform.Rotate(flashlightLight.transform.up, info.orientationV2.x * Mathf.Rad2Deg,Space.World);
-        /*flashlightLight.*/transform.Rotate(flashlightLight.transform.right, info.orientationV2.y * Mathf.Rad2Deg, Space.World);
+
+
 
     }
+
+
+    //public void MouseFollow()
+    //{
+    //    // Update our position according to current rotation vector 
+    //    info.orientationV2 += info.rotationV2 * Time.deltaTime;
+
+    //    // Add drag
+    //    info.rotationV2 *= angularDrag;
+
+
+    //    // Read Mouse Movement
+    //    Vector2 mouseXY = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+    //    float nextAngular;
+
+    //    float mousesens = 20f;
+    //    // Gets mouse inputs
+    //    if (Mathf.Abs(mouseXY.x) != 0 || Mathf.Abs(mouseXY.y) != 0)
+    //    {
+    //        // Adds angular X
+    //        nextAngular = mouseXY.x * Time.deltaTime * mousesens;
+    //        info.rotationV2.x += nextAngular;
+
+    //        //Adds angular Y
+    //        nextAngular = mouseXY.y * Time.deltaTime * mousesens;
+    //        info.rotationV2.y -= nextAngular;
+    //    }
+
+    //    //Normalize orientation
+    //    info.orientationV2 = AuxMethods.NormAngle(info.orientationV2);
+
+    //    //Y axis clamp
+    //    info.orientationV2.y = Mathf.Clamp(info.orientationV2.y, -Mathf.PI / 2, Mathf.PI / 2);
+
+    //    // Resets rotations for next frame(values are additive and odnt reset after update)
+    //    /*flashlightLight.*/transform.rotation = Quaternion.identity;
+
+    //    // Rotates flashlight right-left
+    //    /*flashlightLight.*/transform.Rotate(flashlightLight.transform.up, info.orientationV2.x * Mathf.Rad2Deg,Space.World);
+    //    /*flashlightLight.*/transform.Rotate(flashlightLight.transform.right, info.orientationV2.y * Mathf.Rad2Deg, Space.World);
+
+    //}
 
     public void UpdatePosition()
     {
@@ -168,10 +211,8 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
     }
 
-    //IEnumerator Offset()
-    //{
-    //    yield return new WaitForSeconds(0.3f);
-    //    this.transform.
-    //}
+
+
+
 
 }
