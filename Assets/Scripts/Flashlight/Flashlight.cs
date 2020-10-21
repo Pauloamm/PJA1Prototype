@@ -11,7 +11,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
     private bool isRecharging;
     public bool canBeUsed { get; set; }
 
-    
+
     [SerializeField]
     private Light flashlightLight;
 
@@ -25,7 +25,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
     private Vector3 initialOffset;
 
     public MovementInfo info;
-  
+
     float angularDrag = 0.95f;
 
     [SerializeField]
@@ -34,7 +34,8 @@ public class Flashlight : MonoBehaviour, IRechargeable
     {
         get { return remainingCharges; }
 
-        set {
+        set
+        {
             if (value < 0)
             {
                 remainingCharges = 0;
@@ -42,18 +43,18 @@ public class Flashlight : MonoBehaviour, IRechargeable
             else remainingCharges = value;
         }
     }
-    
+
     int chargeDuration;
 
     public float currentChargeDurationRemaining;
-    
+
     //--------------------------------------------------
 
     void Awake()
     {
         if (flashlightLight == null) flashlightLight = this.GetComponentInChildren<Light>();
 
-         playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
 
         player = playerObject.transform;
         playerCamera = playerObject.GetComponentInChildren<Camera>().transform;
@@ -62,45 +63,38 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
         initialOffset = player.transform.localPosition - this.transform.position;
         initialOffset.Normalize();
-        
+
 
         RemainingCharges = 0;
         currentChargeDurationRemaining = 300;
         chargeDuration = 300;
         isRecharging = false;
+        canBeUsed = true;
 
     }
-    
+
     void Update()
     {
-
+        // TEST    small rotation upwards and down with camera movement
         UpdatePosition();
 
-        CurrentChargeRemaining();
+        // Timer counting battery time left
+        if (flashlightLight.enabled)
+            BatteryTimer();
+
+        // Input
         FlashLightAction();
-        //MouseFollow();
-
-
-
 
     }
 
-    private void CurrentChargeRemaining()
-    {
-        if (currentChargeDurationRemaining > 0)
-            currentChargeDurationRemaining -= Time.deltaTime;
-        
-        else currentChargeDurationRemaining = 0;
-
-        Debug.Log(currentChargeDurationRemaining);
-    }
 
     private void FlashLightAction()
     {
 
-        // If it is only a click
-        if (Input.GetKeyUp(KeyCode.F))
+        // If it is only a click and has battery
+        if (Input.GetKeyUp(KeyCode.F) && currentChargeDurationRemaining > 0)
         {
+            //Resets timer for click/hold separation
             currentTimer = 0f;
 
             //Turn On/Off
@@ -129,8 +123,28 @@ public class Flashlight : MonoBehaviour, IRechargeable
             else
                 currentTimer += Time.deltaTime;
         }
+
+
+
     }
-     public void Recharge()
+
+    private void BatteryTimer()
+    {
+        // Counts down
+        if (currentChargeDurationRemaining > 0)
+            currentChargeDurationRemaining -= Time.deltaTime;
+
+        // Clamps when goes below 0 and turns off lantern
+        else
+        {
+            currentChargeDurationRemaining = 0;
+            flashlightLight.enabled = false;
+
+        }
+        
+    }
+
+    public void Recharge()
     {
         if (RemainingCharges > 0)
         {
@@ -148,65 +162,15 @@ public class Flashlight : MonoBehaviour, IRechargeable
     }
 
 
-    //public void MouseFollow()
-    //{
-    //    // Update our position according to current rotation vector 
-    //    info.orientationV2 += info.rotationV2 * Time.deltaTime;
-
-    //    // Add drag
-    //    info.rotationV2 *= angularDrag;
-
-
-    //    // Read Mouse Movement
-    //    Vector2 mouseXY = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
-    //    float nextAngular;
-
-    //    float mousesens = 20f;
-    //    // Gets mouse inputs
-    //    if (Mathf.Abs(mouseXY.x) != 0 || Mathf.Abs(mouseXY.y) != 0)
-    //    {
-    //        // Adds angular X
-    //        nextAngular = mouseXY.x * Time.deltaTime * mousesens;
-    //        info.rotationV2.x += nextAngular;
-
-    //        //Adds angular Y
-    //        nextAngular = mouseXY.y * Time.deltaTime * mousesens;
-    //        info.rotationV2.y -= nextAngular;
-    //    }
-
-    //    //Normalize orientation
-    //    info.orientationV2 = AuxMethods.NormAngle(info.orientationV2);
-
-    //    //Y axis clamp
-    //    info.orientationV2.y = Mathf.Clamp(info.orientationV2.y, -Mathf.PI / 2, Mathf.PI / 2);
-
-    //    // Resets rotations for next frame(values are additive and odnt reset after update)
-    //    /*flashlightLight.*/transform.rotation = Quaternion.identity;
-
-    //    // Rotates flashlight right-left
-    //    /*flashlightLight.*/transform.Rotate(flashlightLight.transform.up, info.orientationV2.x * Mathf.Rad2Deg,Space.World);
-    //    /*flashlightLight.*/transform.Rotate(flashlightLight.transform.right, info.orientationV2.y * Mathf.Rad2Deg, Space.World);
-
-    //}
-
+  
     public void UpdatePosition()
     {
-        //this.transform.position = player.position + offset;
 
         GameObject lookCube = GameObject.Find("InvisibleTarget");
+
         Vector3 newForward = lookCube.transform.position - this.transform.position;
-
-
-        //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, playerCamera.transform.rotation + offset, 3.0f * Time.deltaTime);
-
-        //Vector3 lastCameraForward = player.GetComponentInChildren<PlayerMovement>().lastFrameForward;
-
-
-        //Vector3 offset = playerCamera.transform.forward - this.transform.forward/*lastCameraForward*/;
+        
         this.transform.forward = newForward;
-        //this.transform.forward = Vector3.Lerp(transform.forward ,  newForward , 2.5f *  Time.deltaTime);
-        //this.transform.forward = transform.forward + offset;
 
 
     }
