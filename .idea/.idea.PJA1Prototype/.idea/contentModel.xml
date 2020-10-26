@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\s11p1\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\s11p1\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_PJA1Prototype.-1031082629.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\PJA1Prototype" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Enemies" t="Include">
+          <e p="Enemy.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Flashlight" t="Include">
+            <e p="Flashlight.cs" t="Include" />
+          </e>
+          <e p="Gun" t="Include">
+            <e p="GunManager.cs" t="Include" />
+            <e p="RaycastShoot.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="Interface1.cs" t="Include" />
+            <e p="IRechargeable.cs" t="Include" />
+          </e>
+          <e p="Inventory" t="Include">
+            <e p="CanvasManager.cs" t="Include" />
+            <e p="DisplayPanel.cs" t="Include" />
+            <e p="InspectItemRender.cs" t="Include" />
+            <e p="InspectMode.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
+            <e p="ItemInspect.cs" t="Include" />
+            <e p="PlayerLockManager.cs" t="Include" />
+            <e p="Slot.cs" t="Include" />
+            <e p="SlotManager.cs" t="Include" />
+            <e p="SlotSelection.cs" t="Include" />
+            <e p="UiStateManager.cs" t="Include" />
+          </e>
+          <e p="Movement" t="Include">
+            <e p="MovementInfo.cs" t="Include" />
+            <e p="MovementManager.cs" t="Include" />
+            <e p="Steering.cs" t="Include" />
+            <e p="SteeringAlgorithms" t="Include">
+              <e p="Align.cs" t="Include" />
+              <e p="Arrive.cs" t="Include" />
+              <e p="AuxMethods.cs" t="Include" />
+              <e p="CopyVelocity.cs" t="Include" />
+              <e p="Flee.cs" t="Include" />
+              <e p="Seek.cs" t="Include" />
+              <e p="Separation.cs" t="Include" />
+            </e>
+            <e p="SteeringBehaviour.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Interactables" t="Include">
+              <e p="DragRigidBody.cs" t="Include" />
+              <e p="IRaycastable.cs" t="Include" />
+              <e p="PlayerRaycast.cs" t="Include" />
+            </e>
+            <e p="PlayerMovement.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UI" t="Include">
+          <e p="Crosshair.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="PJA1Prototype.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

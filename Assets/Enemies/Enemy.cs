@@ -33,8 +33,8 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             //if health has fallen below zero, kill it
-            GameObject targetBoxPrefab = Resources.Load("Prefabs/Target Box") as GameObject;
-            GameObject targetBox = Instantiate(targetBoxPrefab, new Vector3(0f, 3f, 0f), Quaternion.identity);
+            // GameObject targetBoxPrefab = Resources.Load("Prefabs/Target Box") as GameObject;
+            // GameObject targetBox = Instantiate(targetBoxPrefab, new Vector3(0f, 3f, 0f), Quaternion.identity);
             
             StartCoroutine (DestroyWithDelay()); // Destroy with delay in order to be able to listen the audio clip and to see the material color change
         }

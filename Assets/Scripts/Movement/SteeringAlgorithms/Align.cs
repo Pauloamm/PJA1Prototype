@@ -42,8 +42,6 @@ public class Align : SteeringBehaviour
 
         return steering;
     }
-
-    
 }
 
 

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerLockManager : MonoBehaviour
 {
-    [SerializeField]
-    UiStateManager uiStateManager;
-    
+    [SerializeField] private UiStateManager uiStateManager;
+
+    [SerializeField] private PlayerMovement playerMovement;
+
+
     void Awake()
     {
         uiStateManager.InventoryOpened += LockPlayerMovement;
@@ -16,12 +18,11 @@ public class PlayerLockManager : MonoBehaviour
 
     private void LockPlayerMovement()
     {
-        this.GetComponent<PlayerMovement>().enabled = false;
+        playerMovement.enabled = false;
     }
 
     private void UnlockPlayerMovement()
     {
-        this.GetComponent<PlayerMovement>().enabled = true;
+        playerMovement.enabled = true;
     }
-
 }

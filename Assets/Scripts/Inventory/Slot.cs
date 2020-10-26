@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
+    // Item for inspect item menu and inventory icon
+    public GameObject itemGameObjectForInspect;
+    public Sprite icon;
+
+    // Probably delete later if image static
     public bool empty;
-    public GameObject item;
     public int iD;
     public string type;
     public string description;
-    public Sprite icon;
 
 
-    //
-    public GameObject itemGameObjectForInspectPaulo;
 
 
 }

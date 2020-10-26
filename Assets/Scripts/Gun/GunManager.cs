@@ -100,14 +100,7 @@ public class GunManager : MonoBehaviour
 
         }
 
-        //for (int i = 0; i < 2; i++)
-        //{
-        //    ownedGuns[i].gunScript.gameObject.SetActive(false);
-        //    Debug.Log(ownedGuns[i].gunScript.gameObject.name);
-        //}
-
-
-        //test.SetActive(true);
+        
         ownedGuns[gunIndex].gunScript.gameObject.SetActive(true); // ... but this one   NOT ACTIVATING
 
 

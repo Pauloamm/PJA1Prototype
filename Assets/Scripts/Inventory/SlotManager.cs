@@ -6,14 +6,12 @@ using UnityEngine.UI;
 public class SlotManager : MonoBehaviour
 {
     List<GameObject> slots;
-    ItemPickUp itemPickUpScript;
+    //ItemPickUp itemPickUpScript;
     [SerializeField] GameObject referenceSlot;
 
     private void Awake()
     {
         slots = new List<GameObject>();
-        itemPickUpScript = GameObject.Find("Player").GetComponent<ItemPickUp>();
-        itemPickUpScript.OnPickUpEvent += AddSlot;
     }
 
 
@@ -23,12 +21,12 @@ public class SlotManager : MonoBehaviour
         GameObject temp = Instantiate(referenceSlot, this.transform);
         Slot tempSlot = temp.GetComponent<Slot>();
 
-        tempSlot.item = item;
+        //tempSlot.item = item;
         tempSlot.iD = itemItem.iD;
         tempSlot.type = itemItem.type;
         tempSlot.description = itemItem.description;
         tempSlot.icon = itemItem.icon;
-        tempSlot.itemGameObjectForInspectPaulo = itemItem.itemGameObjectForInspectPaulo;
+        tempSlot.itemGameObjectForInspect = itemItem.itemGameObjectForInspect;
 
         slots.Add(temp);
 

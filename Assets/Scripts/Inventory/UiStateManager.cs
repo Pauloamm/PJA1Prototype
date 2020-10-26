@@ -13,7 +13,7 @@ public class UiStateManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) )
         {
             inventoryEnabled = !inventoryEnabled;
             OpenCloseInventory();
@@ -28,4 +28,6 @@ public class UiStateManager : MonoBehaviour
         else
             InventoryClosed?.Invoke();
     }
+    
+   
 }

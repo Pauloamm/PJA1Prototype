@@ -47,6 +47,7 @@ public class InspectMode : MonoBehaviour
 
     private void CloseInspectMode()
     {
+        Destroy(currentSlot.gameObject);
         InspectClosed?.Invoke();
         //InspectClosedPaulo?.Invoke(null);
     }

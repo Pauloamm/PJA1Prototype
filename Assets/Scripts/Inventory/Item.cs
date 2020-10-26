@@ -4,24 +4,21 @@ using UnityEngine;
 
 //[CreateAssetMenu(menuName ="Interactable/Item")]
 
-public class Item : MonoBehaviour
+public class Item :MonoBehaviour, IRaycastable
 {
-    public bool pickedUp;
+
+    // Item for inspect item menu and inventory icon
+    public GameObject itemGameObjectForInspect;
+    public Sprite icon;
+
+    // Probably delete later if image static
     public int iD;
     public string type;
     public string description;
-    public Sprite icon;
 
-    //
-    public GameObject itemGameObjectForInspectPaulo;
-
-    //public Item(bool pickedUp, int iD, string type, string description, Sprite icon)
-    //{
-    //    this.pickedUp = pickedUp;
-    //    this.iD = iD;
-    //    this.type = type;
-    //    this.description = description;
-    //    this.icon = icon;
-    //}
+    public void DragBody()
+    {
+       
+    }
 }
 

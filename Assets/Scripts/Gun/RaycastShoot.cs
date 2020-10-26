@@ -97,10 +97,8 @@ public class RaycastShoot : MonoBehaviour
  
     void Update()
     {
-        Debug.Log(fpsCam);
-
-        // Draws a debugging ray starting at the center of our camera's viewport and ending at the distance of weaponRangee
-        Debug.DrawRay(fpsCam.ViewportToWorldPoint (new Vector3(0.5f, 0.5f, 0.0f)), fpsCam.transform.forward * gunRange, Color.green);
+        // // Draws a debugging ray starting at the center of our camera's viewport and ending at the distance of weaponRangee
+        // Debug.DrawRay(fpsCam.ViewportToWorldPoint (new Vector3(0.5f, 0.5f, 0.0f)), fpsCam.transform.forward * gunRange, Color.green);
     
         // Gradually restore position and rotation after shooting kickback and recoil, respectively
         this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defaultLocalPosition, Time.deltaTime * 4f);
@@ -263,7 +261,7 @@ public class RaycastShoot : MonoBehaviour
         {
 
             // Gradually zoom out
-            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 60.0f, zoomingOutVelocity); // ERROR
+            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 60.0f, zoomingOutVelocity); 
 
             // Gradually decrease crosshair
             crosshair.sizeDelta = Vector2.Lerp(crosshair.sizeDelta, new Vector2(5f, 5f), zoomingOutVelocity);

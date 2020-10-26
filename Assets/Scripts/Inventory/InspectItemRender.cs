@@ -5,7 +5,7 @@ using UnityEngine;
 public class InspectItemRender : MonoBehaviour
 {
     Slot slot;
-    GameObject itemGameObjectForInspectPaulo;
+    GameObject itemGameObjectForInspect;
     GameObject instantiatedItem;
 
     [SerializeField]
@@ -21,16 +21,23 @@ public class InspectItemRender : MonoBehaviour
     public void ItemLoad(Slot slot)
     {
         this.slot = slot;
-        itemGameObjectForInspectPaulo = slot.itemGameObjectForInspectPaulo;
+        itemGameObjectForInspect = slot.itemGameObjectForInspect;
 
         Debug.Log("Spawn");
-        instantiatedItem = Instantiate(itemGameObjectForInspectPaulo, this.transform.position, Quaternion.identity);
+        instantiatedItem = Instantiate(itemGameObjectForInspect, this.transform.position, Quaternion.identity);
         //instantiatedItem.layer = 5;
     }
 
-    public void ItemDestroy()
+    void Update()
     {
-        Debug.Log(instantiatedItem);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ItemDestroy();
+        }
+    }
+
+     void ItemDestroy()
+    {
         GameObject.Destroy(instantiatedItem);
     }
 }
