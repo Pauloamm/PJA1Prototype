@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SlotManager : MonoBehaviour
 {
     List<GameObject> slots;
-    //ItemPickUp itemPickUpScript;
+    
+    // Prefab slot for instantiate
     [SerializeField] GameObject referenceSlot;
 
     private void Awake()
@@ -14,35 +15,51 @@ public class SlotManager : MonoBehaviour
         slots = new List<GameObject>();
     }
 
-
     public void AddSlot(GameObject item)
     {
-        Item itemItem = item.GetComponent<Item>();
-        GameObject temp = Instantiate(referenceSlot, this.transform);
-        Slot tempSlot = temp.GetComponent<Slot>();
+        // Gets script from pickUp object
+        Item itemInfo = item.GetComponent<Item>();
+        
+        // Creates new slot object with slot script for info storage
+        GameObject newSlotObject = Instantiate(referenceSlot, this.transform);
+        Slot newSlotScript = newSlotObject.GetComponent<Slot>();
 
-        //tempSlot.item = item;
-        tempSlot.iD = itemItem.iD;
-        tempSlot.type = itemItem.type;
-        tempSlot.description = itemItem.description;
-        tempSlot.icon = itemItem.icon;
-        tempSlot.itemGameObjectForInspect = itemItem.itemGameObjectForInspect;
+        // Stores data in slot script
+        StoreSlotProperties(newSlotScript, itemInfo, newSlotObject);
+        
+        // Update object image 
+        StoreImageInSlotObject(newSlotObject, newSlotScript);
 
-        slots.Add(temp);
 
-        DisplaySlotUpdate(temp, tempSlot);
+        // DEBUG
         Debug.Log("slot Added");
-        DestroyItem(item);
+        
+        // Destroy object from scene after pickUp 
+        Destroy(item);
     }
 
-    public void DestroyItem(GameObject item)
+    private void StoreSlotProperties(Slot newSlotScript, Item itemInfo, GameObject newSlotObject)
     {
-        GameObject.Destroy(item);
+
+        // Item for inspect item menu and inventory icon
+        newSlotScript.itemGameObjectForInspect = itemInfo.itemGameObjectForInspect;
+        newSlotScript.icon = itemInfo.icon;
+
+        // Probably delete later if image static
+        newSlotScript.iD = itemInfo.iD;
+        newSlotScript.type = itemInfo.type;
+        newSlotScript.description = itemInfo.description;
+
+        newSlotScript.slotActions = itemInfo.itemActions;
+        
+
+        // Adds slot script to the list
+        slots.Add(newSlotObject);
     }
-
-
-    private void DisplaySlotUpdate(GameObject currentSlot, Slot tempSlot)
+    
+    private void StoreImageInSlotObject(GameObject currentSlot, Slot tempSlot)
     {
         currentSlot.GetComponent<Image>().sprite = tempSlot.icon;
+
     }
 }

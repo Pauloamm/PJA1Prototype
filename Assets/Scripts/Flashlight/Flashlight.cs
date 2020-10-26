@@ -150,13 +150,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
         {
             RemainingCharges--;
             currentChargeDurationRemaining = chargeDuration;
-
         }
-
-
-
-
-
 
 
     }

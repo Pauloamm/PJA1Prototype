@@ -68,8 +68,6 @@
      <Compile Include="Assets\Scripts\Inventory\DisplayPanel.cs" />
      <Compile Include="Assets\Scripts\Inventory\InspectItemRender.cs" />
      <Compile Include="Assets\Scripts\Inventory\InspectMode.cs" />
-     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
-     <Compile Include="Assets\Scripts\Inventory\ItemInspect.cs" />
      <Compile Include="Assets\Scripts\Inventory\PlayerLockManager.cs" />
      <Compile Include="Assets\Scripts\Inventory\Slot.cs" />
      <Compile Include="Assets\Scripts\Inventory\SlotManager.cs" />
@@ -87,7 +85,9 @@
      <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Separation.cs" />
      <Compile Include="Assets\Scripts\Movement\SteeringBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\DragRigidBody.cs" />
-     <Compile Include="Assets\Scripts\Player\Interactables\IRaycastable.cs" />
+     <Compile Include="Assets\Scripts\Player\Interactables\Item\Action.cs" />
+     <Compile Include="Assets\Scripts\Player\Interactables\Item\Item.cs" />
+     <Compile Include="Assets\Scripts\Player\Interactables\Item\ItemInspect.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\UI\Crosshair.cs" />

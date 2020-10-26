@@ -29,7 +29,7 @@ public class InspectMode : MonoBehaviour
 
     void OnEnable()
     {
-        openInspectButton.onClick.AddListener(OpenInspectMode);
+        //openInspectButton.onClick.AddListener(OpenInspectMode);
         leaveInspectButton.onClick.AddListener(CloseInspectMode);
     }
 

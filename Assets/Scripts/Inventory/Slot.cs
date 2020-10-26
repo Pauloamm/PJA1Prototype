@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
+    // List of actions for the item
+    [SerializeField]
+    public List<Action> slotActions;
+
+    public string actionSlot;
+    
     // Item for inspect item menu and inventory icon
     public GameObject itemGameObjectForInspect;
     public Sprite icon;
