@@ -26,7 +26,9 @@ public class UiStateManager : MonoBehaviour
         if (inventoryEnabled)
             InventoryOpened?.Invoke();
         else
+        {
             InventoryClosed?.Invoke();
+        }
     }
     
    

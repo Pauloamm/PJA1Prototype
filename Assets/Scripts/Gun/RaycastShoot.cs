@@ -248,7 +248,7 @@ public class RaycastShoot : MonoBehaviour
     public void ZoomingIn(float zoomingInVelocity)
     {
         // Gradually zoom in
-        fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 45.0f, zoomingInVelocity);
+        fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 37.5f, zoomingInVelocity);
         
         // Gradually increase crosshair
         crosshair.sizeDelta = Vector2.Lerp(crosshair.sizeDelta, new Vector2(10f, 10f), zoomingInVelocity);
@@ -261,7 +261,7 @@ public class RaycastShoot : MonoBehaviour
         {
 
             // Gradually zoom out
-            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 60.0f, zoomingOutVelocity); 
+            fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 45.0f, zoomingOutVelocity); 
 
             // Gradually decrease crosshair
             crosshair.sizeDelta = Vector2.Lerp(crosshair.sizeDelta, new Vector2(5f, 5f), zoomingOutVelocity);

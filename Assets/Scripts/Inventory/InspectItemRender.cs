@@ -4,39 +4,52 @@ using UnityEngine;
 
 public class InspectItemRender : MonoBehaviour
 {
-    Slot slot;
-    GameObject itemGameObjectForInspect;
+
+
+    // Current slot for inspect
+    public Slot slotForInspect;
+
+    // Script for the event to load the gameObject from current slot
+    [SerializeField] private DisplayPanel displayPanel;
+    
+    // Item from slot to inspect 
     GameObject instantiatedItem;
 
-    [SerializeField]
-    InspectMode inspectMode;
 
+    // Event for leaving inspect mode
+    public delegate void ChangeUI();
+    public event ChangeUI InspectClosed;
+    
+    
     void Awake()
     {
-        //inspectMode.InspectClosedPaulo += ItemDestroy;
-        inspectMode.InspectOpenedForLoadItem += ItemLoad;
-        inspectMode.InspectClosed += ItemDestroy;
+        displayPanel.inspectOpen += ItemLoad;
+        InspectClosed += ItemDestroy;
+
     }
 
-    public void ItemLoad(Slot slot)
+    public void ItemLoad()
     {
-        this.slot = slot;
-        itemGameObjectForInspect = slot.itemGameObjectForInspect;
+        GameObject itemGameObjectForInspect = slotForInspect.itemGameObjectForInspect;
 
         Debug.Log("Spawn");
         instantiatedItem = Instantiate(itemGameObjectForInspect, this.transform.position, Quaternion.identity);
-        //instantiatedItem.layer = 5;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        // Used for rotation of item
+        slotForInspect?.slotActions[0].RespectiveAction(instantiatedItem);
+
+        // Check for Esc key to leave (destroys item and changes to InventoryUI)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ItemDestroy();
+            InspectClosed?.Invoke();
+            
         }
     }
 
-     void ItemDestroy()
+    void ItemDestroy()
     {
         GameObject.Destroy(instantiatedItem);
     }

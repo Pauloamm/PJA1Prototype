@@ -18,14 +18,12 @@ public class DisplayPanel : MonoBehaviour
 
     
     [SerializeField]
-    InspectMode inspectMode;
-
+    private InspectItemRender inspectItemRender;
     [SerializeField] private GameObject buttonPrefab;
 
     bool isOpen = false;
     void Awake()
     {
-        inspectMode.SlotSelected += ReturnSlot;
     }
 
     void Update()
@@ -68,6 +66,10 @@ public class DisplayPanel : MonoBehaviour
     }
 
 
+    public delegate void OnAction();
+
+    public event OnAction inspectOpen;
+    
     private Slot ReturnSlot() => currentSlot;
 
     private void CreatePanelWithActions()
@@ -78,14 +80,28 @@ public class DisplayPanel : MonoBehaviour
             Button newButton = Instantiate(buttonPrefab, transform.GetChild(0)).GetComponent<Button>();
             
             // CHANGES CHARECTERISTICS
-            newButton.GetComponentInChildren<Text>().text = action.name;
+            newButton.GetComponentInChildren<Text>().text = action.actionName;
+
             
             
+            ///////////////////////////////////////////
             // button.onclick(action.RespectiveAction)
             newButton.onClick.AddListener(
-                delegate { action.RespectiveAction(slotSelected); });
-
-
+                delegate
+                {
+                    action.RespectiveAction(slotSelected);
+                    
+                    switch (action.actionName)
+                    {
+                        case "Inspect":
+                        inspectItemRender.slotForInspect = currentSlot;
+                        inspectOpen?.Invoke();
+                        break;
+                        case "Use":
+                    
+                        break;
+                    }
+                });
         }
     }
 

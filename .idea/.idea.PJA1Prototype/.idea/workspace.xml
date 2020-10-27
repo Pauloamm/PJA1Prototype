@@ -17,11 +17,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/UiStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/DragRigidBody.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemInspect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/PlayerLockManager.cs" />
@@ -34,6 +31,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectMode.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/DisplayPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/UiStateManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
       </list>
     </option>
   </component>
@@ -93,6 +94,7 @@
       <workItem from="1603725620075" duration="228000" />
       <workItem from="1603725876879" duration="3739000" />
       <workItem from="1603729992140" duration="6434000" />
+      <workItem from="1603824770603" duration="11767000" />
     </task>
     <servers />
   </component>
@@ -177,9 +179,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603725674664" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603725434738">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603834775503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603725434738" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603834775503" />
   </component>
 </project>

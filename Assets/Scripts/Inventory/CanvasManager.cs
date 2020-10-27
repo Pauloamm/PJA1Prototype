@@ -1,69 +1,103 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CanvasManager : MonoBehaviour
 {
-    [SerializeField]
-    UiStateManager uiStateManager;
-    [SerializeField]
-    Camera playerCamera, inspectCamera;
-    [SerializeField]
-    DisplayPanel displayPanel;
-    [SerializeField]
-    GameObject inventory;
-    [SerializeField]
-    GameObject backButton;
+    [SerializeField] Camera inspectCamera;
 
-    [SerializeField]
-    InspectMode inspectMode;
+    // [SerializeField] GameObject backButton;
+
+    // Scripts with events for changing UI
+    [SerializeField] private UiStateManager uiStateManager;
+    [SerializeField] private DisplayPanel displayPanel;
+    [SerializeField] private InspectItemRender inspectItemRender;
+
+
+    // Canvas Sections 
+    [SerializeField] private GameObject inventoryUI;
+
+    [SerializeField] private GameObject inGameUI;
+
+    [SerializeField] private GameObject inspectUI; // NOT BEING USED FOR NOW
+
+    [SerializeField] private PlayerMovement playerMovement;
 
     void Awake()
     {
         uiStateManager.InventoryOpened += ToInventory;
-        uiStateManager.InventoryClosed += ToIngame;
-        inspectMode.InspectOpened += ToInspect;
-        inspectMode.InspectClosed += ToInventory;
+        uiStateManager.InventoryClosed += ToInGame;
+        // inspectMode.InspectOpened += ToInspect;
+        // inspectMode.InspectClosed += ToInventory;
+
+        displayPanel.inspectOpen += ToInspect;
+
+        inspectItemRender.InspectClosed += ToInventory;
     }
 
     // Inicial State do caralho que o foda
     void Start()
     {
-        ToIngame();
+        ToInGame();
     }
 
     public void ToInspect()
     {
         EnableMouse(); // Enables mouse cursor
+        DisablePlayerMovement(); // Disables player movement Script
 
         inspectCamera.depth = 2; // Changes Camera to Inspect Camera
-        inventory.SetActive(false); // Turns OFF Inventory 
-        backButton.SetActive(true); // Turns ON Back Button 
+
+        inspectUI.SetActive(true);    // Turns ON Inspect UI
+        inventoryUI.SetActive(false); // Turns OFF Inventory UI
+        inGameUI.SetActive(false);    // Turns OFF InGame UI
     }
+
     public void ToInventory()
     {
         EnableMouse(); // Enables mouse cursor
+        DisablePlayerMovement(); // Disables player movement Script
 
         inspectCamera.depth = 0; // Changes Camera to Main Camera
-        inventory.gameObject.SetActive(true);   // Turns ON Inventory 
-        backButton.gameObject.SetActive(false); // Turns OFF Back Button 
+
+        inventoryUI.SetActive(true); // Turns ON Inventory UI
+        inGameUI.SetActive(false);   // Turns OFF InGame UI
+        inspectUI.SetActive(false);  // Turns OFF Inspect UI
     }
-    public void ToIngame()
-    {
-        DisableMouse(); // Disables mouse cursor
 
-        inspectCamera.depth = 0; // Changes Camera to Main Camera
-        inventory.gameObject.SetActive(false);  // Turns OFF Inventory 
-        backButton.gameObject.SetActive(false); // Turns ON Back Button 
+    public void ToInGame()
+    {
+        
+        DisableMouse(); // Disables mouse cursor
+        EnablePlayerMovement(); // Enables player movement Script
+
+        inspectCamera.depth = 0; // Changes Camera to Main Camera(in case of direct inspect from inGame)
+
+        inGameUI.SetActive(true);     // Turns ON InGame UI
+        inventoryUI.SetActive(false); // Turns OFF Inventory UI
+        Debug.Log(inventoryUI.activeSelf);
+        inspectUI.SetActive(false);   // Turns OFF Inspect UI
     }
 
     private void EnableMouse()
     {
         Cursor.lockState = CursorLockMode.None;
     }
+
     private void DisableMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
+    
 
+    private void EnablePlayerMovement()
+    {
+        playerMovement.enabled = true;
+    }
+    
+    private void DisablePlayerMovement()
+    {
+        playerMovement.enabled = false;
+    }
 }
