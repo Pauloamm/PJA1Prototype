@@ -36,7 +36,7 @@ public class CanvasManager : MonoBehaviour
         inspectItemRender.InspectClosed += ToInventory;
     }
 
-    // Inicial State do caralho que o foda
+    // Inicial State of the inGame
     void Start()
     {
         ToInGame();

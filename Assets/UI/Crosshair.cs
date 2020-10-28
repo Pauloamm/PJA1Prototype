@@ -24,7 +24,7 @@ public class Crosshair : MonoBehaviour
 
         if (Physics.Raycast(playerAim, out hit, PickupRange) )
         {
-            if (hit.collider != null && hit.collider.CompareTag("Dragable"))
+            if (hit.collider != null && (hit.collider.CompareTag("Dragable") || hit.collider.CompareTag("Item")))
             {             
                 crosshair.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, currentSize = (currentSize < maxSize) ? ++currentSize : currentSize);
                 crosshair.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentSize);
