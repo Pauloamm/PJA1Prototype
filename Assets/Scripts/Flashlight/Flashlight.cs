@@ -44,9 +44,11 @@ public class Flashlight : MonoBehaviour, IRechargeable
         }
     }
 
+    
+    
     int chargeDuration;
-
-    public float currentChargeDurationRemaining;
+    float currentChargeDurationRemaining;
+    public int CurrentChargePercentageRemaining => (int) ((currentChargeDurationRemaining / chargeDuration) * 100);
 
     //--------------------------------------------------
 

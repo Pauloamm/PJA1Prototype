@@ -22,7 +22,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemInspect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/PlayerLockManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Slot.cs" />
@@ -35,6 +34,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/UiStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FlashlightCapacity.cs" />
       </list>
     </option>
   </component>
@@ -95,6 +96,7 @@
       <workItem from="1603725876879" duration="3739000" />
       <workItem from="1603729992140" duration="6434000" />
       <workItem from="1603824770603" duration="11767000" />
+      <workItem from="1603903730621" duration="875000" />
     </task>
     <servers />
   </component>

@@ -57,6 +57,9 @@
             </e>
             <e p="PlayerMovement.cs" t="Include" />
           </e>
+          <e p="UI" t="Include">
+            <e p="FlashlightCapacity.cs" t="Include" />
+          </e>
         </e>
         <e p="UI" t="Include">
           <e p="Crosshair.cs" t="Include" />

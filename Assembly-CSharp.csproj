@@ -88,6 +88,7 @@
      <Compile Include="Assets\Scripts\Player\Interactables\Item\ItemInspect.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\UI\FlashlightCapacity.cs" />
      <Compile Include="Assets\UI\Crosshair.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
