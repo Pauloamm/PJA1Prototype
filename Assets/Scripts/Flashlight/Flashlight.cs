@@ -15,7 +15,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
     [SerializeField]
     private Light flashlightLight;
 
-
+    public int currentBatteryPercentage =>(int) ((currentChargeDurationRemaining / chargeDuration) * 100);
     // TEST
     [SerializeField]
     Transform player, playerCamera;
@@ -66,8 +66,8 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
 
         RemainingCharges = 0;
-        currentChargeDurationRemaining = 300;
-        chargeDuration = 300;
+        currentChargeDurationRemaining = 100;
+        chargeDuration = 100;
         isRecharging = false;
         canBeUsed = true;
 
@@ -75,6 +75,8 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
     void Update()
     {
+
+        Debug.Log(currentBatteryPercentage);
         // TEST    small rotation upwards and down with camera movement
         UpdatePosition();
 

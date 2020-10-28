@@ -2285,7 +2285,7 @@ MonoBehaviour:
     velocity: {x: 0, y: 0, z: 0}
     rotation: 0
     rotationV2: {x: 0, y: 0}
-  remainingCharges: 0
+  remainingCharges: 1
   currentChargeDurationRemaining: 0
 --- !u!4 &2083006179
 Transform:
@@ -2315,7 +2315,7 @@ GameObject:
   - component: {fileID: 2036269799511490820}
   - component: {fileID: 2036269799511490819}
   m_Layer: 5
-  m_Name: MiniBateria3
+  m_Name: MiniBateria1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2333,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2036269800697332603}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2410,8 +2410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 5, y: 0}
+  m_SizeDelta: {x: 40, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036269799715585512
 MonoBehaviour:
@@ -2444,7 +2444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0%
+  m_Text: 100%
 --- !u!222 &2036269799715585513
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2553,9 +2553,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2036269800923748778}
-  - {fileID: 2036269800369357651}
   - {fileID: 2036269799511490818}
+  - {fileID: 2036269800369357651}
+  - {fileID: 2036269800923748778}
   - {fileID: 2036269800837085742}
   m_Father: {fileID: 2036269801309752239}
   m_RootOrder: 2
@@ -2645,7 +2645,7 @@ GameObject:
   - component: {fileID: 2036269800923748780}
   - component: {fileID: 2036269800923748779}
   m_Layer: 5
-  m_Name: MiniBateria1
+  m_Name: MiniBateria3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2663,11 +2663,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2036269800697332603}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.70001, y: -0.1000061}
+  m_AnchoredPosition: {x: -81.70001, y: -0.10000229}
   m_SizeDelta: {x: 15, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036269800923748779
@@ -2788,6 +2788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2036269801309752239}
+  - component: {fileID: 2036269801309752240}
   m_Layer: 0
   m_Name: FlashLightUI
   m_TagString: Untagged
@@ -2803,7 +2804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036269801309752238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -268, y: -248, z: 0}
+  m_LocalPosition: {x: -268, y: -204.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2036269801233629665}
@@ -2812,6 +2813,24 @@ Transform:
   m_Father: {fileID: 2662712837378964865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036269801309752240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036269801309752238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5dcbd0ee3d8024689ace2520ca8473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniB1: {fileID: 2036269799511490817}
+  miniB2: {fileID: 2036269800369357650}
+  miniB3: {fileID: 2036269800923748777}
+  miniB4: {fileID: 2036269800837085741}
+  Text1: {fileID: 2036269799715585510}
+  flashlight: {fileID: 2083006178}
 --- !u!114 &2662712836504191300
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -65,6 +65,7 @@
     <Compile Include="Assets\Enemies\Enemy.cs" />
     <Compile Include="Assets\Interactables\DragRigidBody.cs" />
     <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
+    <Compile Include="Assets\Scripts\Flashlight\FlashlightCapacity.cs" />
     <Compile Include="Assets\Scripts\Gun\GunManager.cs" />
     <Compile Include="Assets\Scripts\Gun\RaycastShoot.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
