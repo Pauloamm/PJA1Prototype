@@ -89,8 +89,8 @@ public class RaycastShoot : MonoBehaviour
         
         pelletHoleManager = new PelletHoleManager();
         
-        defaultLocalPosition = this.transform.localPosition;
-        defaultLocalRotation = this.transform.localRotation;
+        //defaultLocalPosition = this.transform.localPosition;
+        //defaultLocalRotation = this.transform.localRotation;
         
     }
 
@@ -101,8 +101,8 @@ public class RaycastShoot : MonoBehaviour
         // Debug.DrawRay(fpsCam.ViewportToWorldPoint (new Vector3(0.5f, 0.5f, 0.0f)), fpsCam.transform.forward * gunRange, Color.green);
     
         // Gradually restore position and rotation after shooting kickback and recoil, respectively
-        this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defaultLocalPosition, Time.deltaTime * 4f);
-        this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, defaultLocalRotation, Time.deltaTime * 4f);
+        //this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defaultLocalPosition, Time.deltaTime * 4f);
+        //this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, defaultLocalRotation, Time.deltaTime * 4f);
         
         // If there is a delay for the next shot
         if(nextShotCooldown > 0)

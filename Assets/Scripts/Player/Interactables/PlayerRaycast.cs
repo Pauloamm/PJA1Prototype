@@ -11,18 +11,19 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField] private Camera playerCamera;
 
     [SerializeField] private SlotManager slotManager;
-    
+
     [SerializeField] private DragRigidBody dragRb;
     private bool isHolding = true;
 
-    
-    
+    [SerializeField]
+    private GunManager gunManager;
+
 
     private float range = 10f;
     private float pickUpRange, dragRange;
 
-    
-    
+
+
     // Events
     public delegate void OnInteract(GameObject objectHit);
 
@@ -30,12 +31,12 @@ public class PlayerRaycast : MonoBehaviour
     public event OnInteract OnPickUp;
 
 
-   
+
 
     void FixedUpdate()
     {
         playerRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        
+
         RaycastHit hit;
 
         if (Physics.Raycast(playerRay, out hit))
@@ -62,6 +63,11 @@ public class PlayerRaycast : MonoBehaviour
                                 // DragBody();
                                 dragRb.DragBody(objectHit);
                                 break;
+
+                            case "Equipment":
+                                gunManager.AddWeapon(objectHit, playerCamera.transform);
+                                break;
+
                         }
 
                     }
@@ -76,7 +82,7 @@ public class PlayerRaycast : MonoBehaviour
         }
     }
 
-   
 
-    
+
+
 }
