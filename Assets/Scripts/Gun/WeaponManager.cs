@@ -15,6 +15,10 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] private GameObject previousGun;
 
+    // Input keycodes 
+    private readonly KeyCode shootKeycode = KeyCode.Mouse0;
+    private readonly KeyCode reloadKeycode = KeyCode.R;
+    
     private void Awake()
     {
         ownedGuns = new List<WeaponInfo>();
@@ -46,13 +50,12 @@ public class WeaponManager : MonoBehaviour
         if (equipedGun == null) return;
 
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetKeyDown(shootKeycode))
         {
-            Debug.Log(equipedGun.weapon.weaponKeyCode);
             equipedGun.weapon.Shooting();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(reloadKeycode))
         {
             equipedGun.weapon.ChangeMagazine(equipedGun.remainingMagazines);
             if (equipedGun.remainingMagazines > 0)

@@ -48,28 +48,23 @@ public class PlayerRaycast : MonoBehaviour
                     GameObject objectHit = hit.collider.gameObject; //.GetComponent<IRaycastable>();
                     float currentDistance = (hit.point - this.transform.position).magnitude;
 
+                  
 
                     if (currentDistance < range)
                     {
-                        switch (objectHit.tag)
+                        if (objectHit.CompareTag("Dragable"))
                         {
-                            case "Item":
-                                slotManager.AddSlot(objectHit);
-                                break;
-
-                            case "Dragable":
-                                // isHolding = true;    
-                                dragRb.ChangeHolding();
-                                // DragBody();
-                                dragRb.DragBody(objectHit);
-                                break;
-
-                            case "Equipment":
-                                weaponManager.AddWeapon(objectHit, playerCamera.transform);
-                                break;
-
+                            // isHolding = true;    
+                            dragRb.ChangeHolding();
+                            // DragBody();
+                            dragRb.DragBody(objectHit);
                         }
-
+                        else
+                        {
+                            Storable storableObject = objectHit.GetComponent<Storable>();
+                            storableObject?.StoreItem();
+                        }
+                        
                     }
 
                 }

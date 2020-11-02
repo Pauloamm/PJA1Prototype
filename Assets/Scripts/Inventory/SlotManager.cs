@@ -18,7 +18,7 @@ public class SlotManager : MonoBehaviour
     public void AddSlot(GameObject item)
     {
         // Gets script from pickUp object
-        Item itemInfo = item.GetComponent<Item>();
+        Storable itemInfo = item.GetComponent<Storable>();
         
         // Creates new slot object with slot script for info storage
         GameObject newSlotObject = Instantiate(referenceSlot, this.transform);
@@ -35,27 +35,23 @@ public class SlotManager : MonoBehaviour
         Debug.Log("slot Added");
 
 
-       if(item.CompareTag("Item")) Destroy(item);
-
-        
-        // Destroy object from scene after pickUp 
     }
     
     
 
-    private void StoreSlotProperties(Slot newSlotScript, Item itemInfo, GameObject newSlotObject)
+    private void StoreSlotProperties(Slot newSlotScript, Storable itemInfo, GameObject newSlotObject)
     {
 
         // Item for inspect item menu and inventory icon
-        newSlotScript.itemGameObjectForInspect = itemInfo.itemGameObjectForInspect;
-        newSlotScript.icon = itemInfo.icon;
+        newSlotScript.itemGameObjectForInspect = itemInfo.ItemGameObjectForInspect;
+        newSlotScript.icon = itemInfo.Icon;
 
-        // Probably delete later if image static
-        newSlotScript.iD = itemInfo.iD;
-        newSlotScript.type = itemInfo.type;
-        newSlotScript.description = itemInfo.description;
+        // // Probably delete later if image static
+        // newSlotScript.iD = itemInfo.iD;
+        // newSlotScript.type = itemInfo.type;
+        // newSlotScript.description = itemInfo.description;
 
-        newSlotScript.slotActions = itemInfo.itemActions;
+        newSlotScript.slotActions = itemInfo.ItemActions;
         
 
         // Adds slot script to the list

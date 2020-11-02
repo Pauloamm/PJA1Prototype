@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class Weapon : MonoBehaviour
+public  class Weapon : Storable
 {
-
     private int numberOfBullets;
 
     public int bullets = 30;        // Bullets available in this gun
@@ -33,11 +32,16 @@ public  class Weapon : MonoBehaviour
     
     private PelletHoleManager pelletHoleManager;
 
+    // Default position and rotation for recoil animation
     private Vector3 defaultLocalPosition;
     private Quaternion defaultLocalRotation;
 
 
+    // Keycode associated to weapon for fast equiping
     [SerializeField] public KeyCode weaponKeyCode;
+    
+    // Equiping manager
+    [SerializeField] private WeaponManager weaponManager;
     
     private void Update()
     {
@@ -139,10 +143,12 @@ public  class Weapon : MonoBehaviour
 
     }
 
-    public void OnPickUpDefaultInit(Quaternion LocalRetotation, Vector3 LocalPosition)
+    
+    
+    public void OnPickUpDefaultInit(Quaternion localRotation, Vector3 localPosition)
     {
-        defaultLocalRotation = LocalRetotation;
-        defaultLocalPosition = LocalPosition;
+        defaultLocalRotation = localRotation;
+        defaultLocalPosition = localPosition;
     }
 
    
@@ -150,8 +156,8 @@ public  class Weapon : MonoBehaviour
     {
         if(spareMagazines>0)
         {
-            float FillPercentage = RandomNonLinearProbabilityPercentage();
-            bullets = (int)(magazineSize * FillPercentage);
+            float fillPercentage = RandomNonLinearProbabilityPercentage();
+            bullets = (int)(magazineSize * fillPercentage);
             // Play the reloading sound effect
             gunAudio.PlayOneShot(gunSounds[1]);
         }
@@ -168,5 +174,14 @@ public  class Weapon : MonoBehaviour
         }
 
         return randNonLinearProbabilityPercentage;
+    }
+
+    
+    
+    public override void StoreItem()
+    {
+        slotManager.AddSlot(this.gameObject);
+        weaponManager.AddWeapon(this.gameObject, fpsCam.transform);
+        
     }
 }
