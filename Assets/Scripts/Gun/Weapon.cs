@@ -5,7 +5,7 @@ using UnityEngine;
 public  class Weapon : MonoBehaviour
 {
 
-    private int NumberOfBullets;
+    private int numberOfBullets;
 
     public int bullets = 30;        // Bullets available in this gun
     public int magazineSize = 30;   // Size of the magazine
@@ -28,12 +28,17 @@ public  class Weapon : MonoBehaviour
     private RectTransform crosshair;    // Holds a reference to the crosshair's transform
 
     [SerializeField]
-    private  AudioSource gunAudio;   // Holds a reference to the audio source which will play our shooting and reloading sound effects
+    private AudioSource gunAudio;   // Holds a reference to the audio source which will play our shooting and reloading sound effects
+    
+    
     private PelletHoleManager pelletHoleManager;
 
     private Vector3 defaultLocalPosition;
     private Quaternion defaultLocalRotation;
 
+
+    [SerializeField] public KeyCode weaponKeyCode;
+    
     private void Update()
     {
         // Gradually restore position and rotation after shooting kickback and recoil, respectively
@@ -47,7 +52,7 @@ public  class Weapon : MonoBehaviour
             nextShotCooldown -= Time.deltaTime;
         }
     }
-    public void shooting()
+    public void Shooting()
     {
         
         // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
@@ -140,35 +145,10 @@ public  class Weapon : MonoBehaviour
         defaultLocalPosition = LocalPosition;
     }
 
-    //public void ZoomingIn(float zoomingInVelocity)
-    //{
-    //    // Gradually zoom in
-    //    fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 37.5f, zoomingInVelocity);
-
-    //    // Gradually increase crosshair
-    //    crosshair.sizeDelta = Vector2.Lerp(crosshair.sizeDelta, new Vector2(10f, 10f), zoomingInVelocity);
-    //}
-
-    //public void ZoomingOut(float zoomingOutVelocity)
-    //{
-
-    //    if (fpsCam != null && crosshair != null)
-    //    {
-
-    //        // Gradually zoom out
-    //        fpsCam.fieldOfView = Mathf.Lerp(fpsCam.fieldOfView, 45.0f, zoomingOutVelocity);
-
-    //        // Gradually decrease crosshair
-    //        crosshair.sizeDelta = Vector2.Lerp(crosshair.sizeDelta, new Vector2(5f, 5f), zoomingOutVelocity);
-    //    }
-
-
-    //}
-
-
-    public void ChangeMagazine(int SpareMagazines)
+   
+    public void ChangeMagazine(int spareMagazines)
     {
-        if(SpareMagazines>0)
+        if(spareMagazines>0)
         {
             float FillPercentage = RandomNonLinearProbabilityPercentage();
             bullets = (int)(magazineSize * FillPercentage);

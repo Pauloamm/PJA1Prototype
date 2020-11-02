@@ -33,10 +33,15 @@ public class SlotManager : MonoBehaviour
 
         // DEBUG
         Debug.Log("slot Added");
+
+
+       if(item.CompareTag("Item")) Destroy(item);
+
         
         // Destroy object from scene after pickUp 
-        Destroy(item);
     }
+    
+    
 
     private void StoreSlotProperties(Slot newSlotScript, Item itemInfo, GameObject newSlotObject)
     {

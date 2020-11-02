@@ -16,7 +16,7 @@ public class PlayerRaycast : MonoBehaviour
     private bool isHolding = true;
 
     [SerializeField]
-    private GunManager gunManager;
+    private WeaponManager weaponManager;
 
 
     private float range = 10f;
@@ -65,7 +65,7 @@ public class PlayerRaycast : MonoBehaviour
                                 break;
 
                             case "Equipment":
-                                gunManager.AddWeapon(objectHit, playerCamera.transform);
+                                weaponManager.AddWeapon(objectHit, playerCamera.transform);
                                 break;
 
                         }

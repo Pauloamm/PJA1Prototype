@@ -14,8 +14,13 @@
             <e p="Flashlight.cs" t="Include" />
           </e>
           <e p="Gun" t="Include">
-            <e p="GunManager.cs" t="Include" />
-            <e p="RaycastShoot.cs" t="Include" />
+            <e p="PelletHoles" t="Include">
+              <e p="PelletHole.cs" t="Include" />
+              <e p="PelletHoleManager.cs" t="Include" />
+            </e>
+            <e p="Weapon.cs" t="Include" />
+            <e p="WeaponInfo.cs" t="Include" />
+            <e p="WeaponManager.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
             <e p="Interface1.cs" t="Include" />
