@@ -122,17 +122,10 @@ public class PlayerMovement : MonoBehaviour
         // Rotates all player right-left
         playerTransform.Rotate(playerTransform.up, info.orientationV2.x * Mathf.Rad2Deg);
 
-        // Onbly rotates camera up-down
+        // Only rotates camera up-down
         cameraTransform.Rotate(cameraTransform.right, info.orientationV2.y * Mathf.Rad2Deg, Space.World);
     }
 
-    private void PlayerFollowFlashlight()
-    {
-
-        //this.transform.rotation = Quaternion.identity;
-        //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, flashlight.transform.rotation, 3.0f * Time.deltaTime);
-        //this.transform.Rotate(this.transform.up, )
-
-    }
+   
 
 }

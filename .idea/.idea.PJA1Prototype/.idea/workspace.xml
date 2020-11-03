@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/9c/3a9c8028/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/cc/a4605969/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/ed/88a9c046/Input.cs" root0="SKIP_HIGHLIGHTING" />
@@ -32,7 +33,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/DisplayPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/UiStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FlashlightCapacity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/GunManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
@@ -48,6 +48,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/FlashlightOrientation.cs" />
       </list>
     </option>
   </component>
@@ -111,6 +114,7 @@
       <workItem from="1603903730621" duration="875000" />
       <workItem from="1604334001937" duration="6693000" />
       <workItem from="1604341736825" duration="4979000" />
+      <workItem from="1604434390149" duration="5448000" />
     </task>
     <servers />
   </component>

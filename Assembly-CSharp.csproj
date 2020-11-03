@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
+     <Compile Include="Assets\Scripts\Flashlight\FlashlightOrientation.cs" />
      <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHole.cs" />
      <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHoleManager.cs" />
      <Compile Include="Assets\Scripts\Gun\Weapon.cs" />

@@ -78,7 +78,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
     void Update()
     {
         // TEST    small rotation upwards and down with camera movement
-        UpdatePosition();
+        //UpdatePosition();
 
         // Timer counting battery time left
         if (flashlightLight.enabled)
