@@ -39,7 +39,7 @@ public class DisplayPanel : MonoBehaviour
 				if (slotSelected != null)
 				{
 
-					currentSlot = slotSelected.GetComponent<Slot>(); // Get Slot
+					currentSlot = slotSelected.GetComponent<InventorySlot>().slot; // Get Slot
 					currentSlotActions = currentSlot.slotActions;
 					CreatePanelWithActions();
 

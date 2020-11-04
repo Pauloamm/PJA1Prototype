@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Inventory\SlotSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\Storable.cs" />
     <Compile Include="Assets\Scripts\Inventory\UiStateManager.cs" />
+    <Compile Include="Assets\Scripts\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementInfo.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementManager.cs" />
     <Compile Include="Assets\Scripts\Movement\Steering.cs" />

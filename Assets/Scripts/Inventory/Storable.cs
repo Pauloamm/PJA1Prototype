@@ -14,15 +14,15 @@ public abstract class Storable : MonoBehaviour
     [SerializeField] protected GameObject itemGameObjectForInspect;
     [SerializeField] protected Sprite icon;
 
-    
-    // // Probably delete later if image static
-    // public int iD;
-    // public string type;
-    // public string description;
 
-    
-    // Acessers
-    [SerializeField] public List<Action> ItemActions => itemActions;
+	// // Probably delete later if image static
+	//public int id;
+	public string type;
+	// public string description;
+
+
+	// Acessers
+	[SerializeField] public List<Action> ItemActions => itemActions;
     [SerializeField] public GameObject ItemGameObjectForInspect => itemGameObjectForInspect;
     [SerializeField] public Sprite Icon => icon;
 
