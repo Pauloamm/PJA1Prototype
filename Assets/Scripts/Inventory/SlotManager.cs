@@ -10,7 +10,8 @@ public class SlotManager : MonoBehaviour
     // Prefab slot for instantiate
     [SerializeField] GameObject referenceSlot;
 
-    private void Awake()
+
+	private void Awake()
     {
         slots = new List<GameObject>();
     }
@@ -63,4 +64,7 @@ public class SlotManager : MonoBehaviour
         currentSlot.GetComponent<Image>().sprite = tempSlot.icon;
 
     }
+
+	public void RemoveFromList(GameObject currentSlot) => slots.Remove(currentSlot);
+
 }

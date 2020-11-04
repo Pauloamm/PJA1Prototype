@@ -6,10 +6,7 @@ using UnityEngine;
 [Serializable]
 public abstract class Action : ScriptableObject
 {
-
       [SerializeField]
       public string actionName;
       public abstract void RespectiveAction(GameObject itemObject);
-
-
 }
