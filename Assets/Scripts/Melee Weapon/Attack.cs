@@ -12,6 +12,8 @@ public class Attack : MonoBehaviour
     [SerializeField]
     GameObject bat;
 
+    private float AttackTimer;
+
     public void Start()
     {
          Attacking += Func; 
@@ -31,19 +33,21 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attacking?.Invoke();
-      
+        AttackTimer += Time.deltaTime;
+        Attacking?.Invoke();     
     }
 
     private void Func()
     {
         if (bat.activeSelf == true)
-        {
-
-            if (Input.GetMouseButtonDown(0))
+        {          
+            if (Input.GetMouseButtonDown(0) && AttackTimer >= 2f)
+            {
                 anim.SetBool("Attacking", true);
-            if (Input.GetMouseButtonUp(0))
-                anim.SetBool("Attacking", false);
+                AttackTimer = 0f;
+            }
+            if (Input.GetMouseButtonUp(0))            
+                anim.SetBool("Attacking", false);           
         }
     }
 }

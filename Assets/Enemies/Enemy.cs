@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float meleeDMG;
 
+
+    
+
     private Color[] colors = {Color.black, Color.red, Color.yellow, Color.green};
 
     public void Damage(float damageAmount)
@@ -44,9 +47,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "melee")
+        if (other.tag == "melee" )
         {
             Damage(meleeDMG);
+            other.enabled = false;
         }
 
     }
