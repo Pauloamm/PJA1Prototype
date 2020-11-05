@@ -15,13 +15,18 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] private GameObject previousGun;
 
+    public delegate void swap(WeaponInfo weaponInfo);
+
+    public event  swap swaping;
+
     // Input keycodes 
     private readonly KeyCode shootKeycode = KeyCode.Mouse0;
     private readonly KeyCode reloadKeycode = KeyCode.R;
-    
+
     private void Awake()
     {
         ownedGuns = new List<WeaponInfo>();
+
     }
 
     private void Update()
@@ -83,9 +88,10 @@ public class WeaponManager : MonoBehaviour
             weaponToEquipObject.SetActive(true);
             equipedGun = weaponToEquip;
             previousGun = weaponToEquipObject;
+            swaping?.Invoke(weaponToEquip);
         }
-        
-       
+
+
     }
 
     public void AddWeapon(GameObject newWeapon, Transform parentCamera)
@@ -97,21 +103,21 @@ public class WeaponManager : MonoBehaviour
         };
 
         ownedGuns.Add(weaponInfo);
-        
+
         // Sets position and rotation to parent
         newWeapon.transform.position = Vector3.zero;
         newWeapon.transform.SetParent(parentCamera);
         newWeapon.transform.localRotation = Quaternion.identity;
         newWeapon.transform.localPosition = defaultOffSet;
         newWeapon.transform.LookAt(parentCamera.position + (parentCamera.forward * 50f));
-        
+
         // Initiates default position and rotation 
         weaponInfo.weapon.OnPickUpDefaultInit(Quaternion.identity, defaultOffSet);
-        
+
         //Switches for new weapon
         equipedGun = weaponInfo;
         SwitchWeapon(weaponInfo);
     }
 
-    
+
 }

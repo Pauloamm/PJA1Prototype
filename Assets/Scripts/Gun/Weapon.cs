@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class Weapon : Storable
+public class Weapon : Storable
 {
     private int numberOfBullets;
 
-    public int bullets = 30;        // Bullets available in this gun
+    public int bullets = 10;        // Bullets available in this gun
     public int magazineSize = 30;   // Size of the magazine
     public int pelletDamage = 1;    // Set the number of hitpoints that each pellet will take away from shot objects with a health script
     public float fireRate = 0.25f;  // Number in seconds which controls how often the player can fire
@@ -28,8 +28,10 @@ public  class Weapon : Storable
 
     [SerializeField]
     private AudioSource gunAudio;   // Holds a reference to the audio source which will play our shooting and reloading sound effects
-    
-    
+
+    public delegate void OnShooting( int bullets);
+    public event OnShooting shot;
+
     private PelletHoleManager pelletHoleManager;
 
     // Default position and rotation for recoil animation
@@ -39,10 +41,10 @@ public  class Weapon : Storable
 
     // Keycode associated to weapon for fast equiping
     [SerializeField] public KeyCode weaponKeyCode;
-    
+
     // Equiping manager
     [SerializeField] private WeaponManager weaponManager;
-    
+
     private void Update()
     {
         // Gradually restore position and rotation after shooting kickback and recoil, respectively
@@ -58,7 +60,7 @@ public  class Weapon : Storable
     }
     public void Shooting()
     {
-        
+
         // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
         if (nextShotCooldown <= 0 && bullets > 0)
         {
@@ -139,22 +141,23 @@ public  class Weapon : Storable
             //fpsCam.fieldOfView = 61.0f;
 
             Debug.Log($"bullets: {bullets}");
+            shot?.Invoke(bullets);
         }
 
     }
 
-    
-    
+
+
     public void OnPickUpDefaultInit(Quaternion localRotation, Vector3 localPosition)
     {
         defaultLocalRotation = localRotation;
         defaultLocalPosition = localPosition;
     }
 
-   
+
     public void ChangeMagazine(int spareMagazines)
     {
-        if(spareMagazines>0)
+        if (spareMagazines > 0)
         {
             float fillPercentage = RandomNonLinearProbabilityPercentage();
             bullets = (int)(magazineSize * fillPercentage);
@@ -176,12 +179,12 @@ public  class Weapon : Storable
         return randNonLinearProbabilityPercentage;
     }
 
-    
-    
+
+
     public override void StoreItem()
     {
         slotManager.AddSlot(this.gameObject);
         weaponManager.AddWeapon(this.gameObject, fpsCam.transform);
-        
+
     }
 }
