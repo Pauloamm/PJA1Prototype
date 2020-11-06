@@ -19,9 +19,13 @@
               <e p="PelletHole.cs" t="Include" />
               <e p="PelletHoleManager.cs" t="Include" />
             </e>
-            <e p="Weapon.cs" t="Include" />
-            <e p="WeaponInfo.cs" t="Include" />
-            <e p="WeaponManager.cs" t="Include" />
+            <e p="WeaponHierarchy" t="Include">
+              <e p="Pistol.cs" t="Include" />
+              <e p="Shotgun.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
+              <e p="WeaponInfo.cs" t="Include" />
+              <e p="WeaponManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Interfaces" t="Include">
             <e p="Interface1.cs" t="Include" />

@@ -63,9 +63,11 @@
      <Compile Include="Assets\Scripts\Flashlight\FlashlightOrientation.cs" />
      <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHole.cs" />
      <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHoleManager.cs" />
-     <Compile Include="Assets\Scripts\Gun\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponInfo.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponManager.cs" />
+     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Pistol.cs" />
+     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Shotgun.cs" />
+     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Weapon.cs" />
+     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\WeaponInfo.cs" />
+     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\Interface1.cs" />
      <Compile Include="Assets\Scripts\Inventory\CanvasManager.cs" />

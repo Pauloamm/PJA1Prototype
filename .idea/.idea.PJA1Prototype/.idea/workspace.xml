@@ -51,6 +51,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/FlashlightOrientation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Shotgun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Pistol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Weapon.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +119,7 @@
       <workItem from="1604334001937" duration="6693000" />
       <workItem from="1604341736825" duration="4979000" />
       <workItem from="1604434390149" duration="5448000" />
+      <workItem from="1604691189175" duration="1143000" />
     </task>
     <servers />
   </component>
