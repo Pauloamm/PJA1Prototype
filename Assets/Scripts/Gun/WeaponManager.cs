@@ -52,7 +52,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(shootKeycode))
         {
-            equipedGun.weapon.Shooting();
+            equipedGun.weapon.Attacking();
         }
 
         if (Input.GetKeyDown(reloadKeycode))
