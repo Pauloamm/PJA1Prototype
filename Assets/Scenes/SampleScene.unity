@@ -4406,7 +4406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &4547777103214202470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4416,11 +4416,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4547777103214202469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae21a0b3e468aa44b8555e91fac341fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b7282c320376241877647e66a26e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotManager: {fileID: 2662712837736468849}
-<<<<<<< Updated upstream
   itemActions: []
   itemGameObjectForInspect: {fileID: 0}
   icon: {fileID: 0}
@@ -4430,30 +4429,14 @@ MonoBehaviour:
   fireRate: 0.25
   recoil: 20
   kickback: 0.15
-=======
-  itemActions:
-  - {fileID: 11400000, guid: 62a2919abc360ca4e870a445aec6866a, type: 2}
-  itemGameObjectForInspect: {fileID: 3693311984785417927, guid: 925ced2b37d8b6b44972edcf45a04d70,
-    type: 3}
-  icon: {fileID: 21300000, guid: fe796f3ff70961e428e1dc55aa11d214, type: 3}
-  type: Shotgun
-  BulletsinCurrentMagazine: 5
-  DefaultMagazineSize: 5
-  BulletDamage: 5
-  defaultShotCooldown: 1.25
-  recoil: 25
-  WeaponKickRecoil: 0.35
->>>>>>> Stashed changes
   pelletSpreadRadiusMultiplier: 1
   pelletsPerBulletShot: 5
-  gunRange: 20
+  gunRange: 50
   hitForce: 100
   gunSounds:
-  - {fileID: 8300000, guid: b8793ecedbbe49c49969ebcafb232631, type: 3}
   - {fileID: 8300000, guid: 5192d314c7b95c6429a52d080db98fa8, type: 3}
-  nextShotCooldown: 0
+  - {fileID: 8300000, guid: 5192d314c7b95c6429a52d080db98fa8, type: 3}
   fpsCam: {fileID: 534669904}
-  rayOrigin: {x: 0, y: 0, z: 0}
   gunAudio: {fileID: 4547777103214202475}
   weaponKeyCode: 50
   weaponManager: {fileID: 973707727}
@@ -5041,7 +5024,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7856230480279730887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baa09ead664f47f42a4f5973c42feaef, type: 3}
+  m_Script: {fileID: 11500000, guid: 50b7282c320376241877647e66a26e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotManager: {fileID: 2662712837736468849}
@@ -5050,30 +5033,20 @@ MonoBehaviour:
   itemGameObjectForInspect: {fileID: 90757263728571554, guid: bf73878b4d51f7e458f8632df86b55c1,
     type: 3}
   icon: {fileID: 21300000, guid: f55b97b1106edd344b4b1445eca14428, type: 3}
-<<<<<<< Updated upstream
   bullets: 30
   magazineSize: 30
   pelletDamage: 1
   fireRate: 0.25
-=======
-  type: Pistol
-  BulletsinCurrentMagazine: 10
-  DefaultMagazineSize: 10
-  BulletDamage: 1
-  defaultShotCooldown: 0.25
->>>>>>> Stashed changes
   recoil: 20
-  WeaponKickRecoil: 0.15
+  kickback: 0.15
   pelletSpreadRadiusMultiplier: 1
   pelletsPerBulletShot: 5
   gunRange: 50
   hitForce: 100
   gunSounds:
   - {fileID: 8300000, guid: 2d9bc65478e5bfd4e8436765bf00bb9a, type: 3}
-  - {fileID: 8300000, guid: 5192d314c7b95c6429a52d080db98fa8, type: 3}
-  nextShotCooldown: 0
+  - {fileID: 8300000, guid: b8793ecedbbe49c49969ebcafb232631, type: 3}
   fpsCam: {fileID: 534669904}
-  rayOrigin: {x: 0, y: 0, z: 0}
   gunAudio: {fileID: 7856230480279730909}
   weaponKeyCode: 49
   weaponManager: {fileID: 973707727}
