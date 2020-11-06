@@ -14,21 +14,7 @@
             <e p="Flashlight.cs" t="Include" />
             <e p="FlashlightOrientation.cs" t="Include" />
           </e>
-          <e p="Gun" t="Include">
-            <e p="PelletHoles" t="Include">
-              <e p="PelletHole.cs" t="Include" />
-              <e p="PelletHoleManager.cs" t="Include" />
-            </e>
-            <e p="WeaponHierarchy" t="Include">
-              <e p="Pistol.cs" t="Include" />
-              <e p="Shotgun.cs" t="Include" />
-              <e p="Weapon.cs" t="Include" />
-              <e p="WeaponInfo.cs" t="Include" />
-              <e p="WeaponManager.cs" t="Include" />
-            </e>
-          </e>
           <e p="Interfaces" t="Include">
-            <e p="Interface1.cs" t="Include" />
             <e p="IRechargeable.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
@@ -70,6 +56,23 @@
           </e>
           <e p="UI" t="Include">
             <e p="FlashlightCapacity.cs" t="Include" />
+          </e>
+          <e p="Weapons" t="Include">
+            <e p="PelletHoles" t="Include">
+              <e p="PelletHole.cs" t="Include" />
+              <e p="PelletHoleManager.cs" t="Include" />
+            </e>
+            <e p="WeaponHierarchy" t="Include">
+              <e p="Pistol.cs" t="Include" />
+              <e p="Shotgun.cs" t="Include" />
+              <e p="Weapon.cs" t="Include" />
+              <e p="WeaponInfo.cs" t="Include" />
+              <e p="WeaponManager.cs" t="Include" />
+            </e>
+            <e p="WeaponUI" t="Include">
+              <e p="WeaponUI.cs" t="Include" />
+              <e p="WeaponUIManager.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="UI" t="Include">

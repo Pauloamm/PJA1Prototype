@@ -61,15 +61,7 @@
      <Compile Include="Assets\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
      <Compile Include="Assets\Scripts\Flashlight\FlashlightOrientation.cs" />
-     <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHole.cs" />
-     <Compile Include="Assets\Scripts\Gun\PelletHoles\PelletHoleManager.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Pistol.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Shotgun.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\Weapon.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\WeaponInfo.cs" />
-     <Compile Include="Assets\Scripts\Gun\WeaponHierarchy\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
-     <Compile Include="Assets\Scripts\Interfaces\Interface1.cs" />
      <Compile Include="Assets\Scripts\Inventory\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\Inventory\DisplayPanel.cs" />
      <Compile Include="Assets\Scripts\Inventory\InspectItemRender.cs" />
@@ -96,6 +88,15 @@
      <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\UI\FlashlightCapacity.cs" />
+     <Compile Include="Assets\Scripts\Weapons\PelletHoles\PelletHole.cs" />
+     <Compile Include="Assets\Scripts\Weapons\PelletHoles\PelletHoleManager.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Pistol.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Shotgun.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Weapon.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponInfo.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponManager.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponUI\WeaponUI.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponUI\WeaponUIManager.cs" />
      <Compile Include="Assets\UI\Crosshair.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

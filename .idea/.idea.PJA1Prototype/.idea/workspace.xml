@@ -16,7 +16,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/ed/88a9c046/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHoleManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -53,8 +52,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/FlashlightOrientation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Shotgun.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Pistol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
       </list>
     </option>
   </component>
@@ -120,6 +122,7 @@
       <workItem from="1604341736825" duration="4979000" />
       <workItem from="1604434390149" duration="5448000" />
       <workItem from="1604691189175" duration="1143000" />
+      <workItem from="1604698152141" duration="5596000" />
     </task>
     <servers />
   </component>
