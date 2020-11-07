@@ -40,9 +40,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHoleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Storable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
@@ -57,6 +54,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Storable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Shotgun.cs" />
       </list>
     </option>
   </component>
@@ -123,6 +125,7 @@
       <workItem from="1604434390149" duration="5448000" />
       <workItem from="1604691189175" duration="1143000" />
       <workItem from="1604698152141" duration="5596000" />
+      <workItem from="1604711923488" duration="1690000" />
     </task>
     <servers />
   </component>
@@ -203,14 +206,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603725854884" />
+    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1604712570686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604712570686" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603725674664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603725674664" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1604335961179">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1604713626466">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604335961179" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604713626466" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603834775503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

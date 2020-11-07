@@ -21,10 +21,10 @@
             <e p="CanvasManager.cs" t="Include" />
             <e p="DisplayPanel.cs" t="Include" />
             <e p="InspectItemRender.cs" t="Include" />
+            <e p="IStorable.cs" t="Include" />
             <e p="Slot.cs" t="Include" />
             <e p="SlotManager.cs" t="Include" />
             <e p="SlotSelection.cs" t="Include" />
-            <e p="Storable.cs" t="Include" />
             <e p="UiStateManager.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">

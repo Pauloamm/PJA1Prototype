@@ -27,7 +27,7 @@ public class Shotgun : Weapon
             // Declare a raycast hit to store information about what our raycast has hit
             RaycastHit hit;
 
-            Vector3 pelletDirection = this.WeaponSpread();
+            Vector3 pelletDirection = WeaponSpread();
 
             // Check if our raycast has hit anything
             if (Physics.Raycast(rayOrigin, pelletDirection, out hit, gunRange))

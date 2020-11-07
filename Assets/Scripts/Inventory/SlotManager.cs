@@ -18,7 +18,7 @@ public class SlotManager : MonoBehaviour
     public void AddSlot(GameObject item)
     {
         // Gets script from pickUp object
-        Storable itemInfo = item.GetComponent<Storable>();
+        IStorable itemInfo = item.GetComponent<IStorable>();
         
         // Creates new slot object with slot script for info storage
         GameObject newSlotObject = Instantiate(referenceSlot, this.transform);
@@ -39,7 +39,7 @@ public class SlotManager : MonoBehaviour
     
     
 
-    private void StoreSlotProperties(Slot newSlotScript, Storable itemInfo, GameObject newSlotObject)
+    private void StoreSlotProperties(Slot newSlotScript, IStorable itemInfo, GameObject newSlotObject)
     {
 
         // Item for inspect item menu and inventory icon

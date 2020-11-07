@@ -1,10 +1,30 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class Weapon : Storable
+public  class Weapon : MonoBehaviour, IStorable
 {
 
+    // -------------------------------------IStorable---------------------------------------------//
+    
+    // Slot manager
+    [SerializeField] protected SlotManager slotManager;
+
+    // List of actions for the item
+    [SerializeField] protected List<Action> itemActions;
+
+    // Item for inspect item menu and inventory icon
+    [SerializeField] protected GameObject itemGameObjectForInspect;
+    [SerializeField] protected Sprite icon;
+
+     public SlotManager SlotManager => slotManager;
+     public List<Action> ItemActions => itemActions;
+     public GameObject ItemGameObjectForInspect => itemGameObjectForInspect;
+     public Sprite Icon => icon;
+    
+    // -------------------------------------------------------------------------------------------//
+    
+    
     // Magazine/bullets variables
     [SerializeField] protected int bulletsinCurrentMagazine;       
     [SerializeField] protected int defaultMagazineSize = 10;   
@@ -176,7 +196,7 @@ public  class Weapon : Storable
     
 
     //Stores the weapon on the inventory
-    public override void StoreItem()
+    public void StoreItem()
     {
         slotManager.AddSlot(this.gameObject);
         weaponManager.AddWeapon(this.gameObject, playerCamera.transform);
