@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/ed/88a9c046/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -57,8 +58,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Storable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Shotgun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponManager.cs" />
       </list>
     </option>
   </component>
@@ -126,6 +131,7 @@
       <workItem from="1604691189175" duration="1143000" />
       <workItem from="1604698152141" duration="5596000" />
       <workItem from="1604711923488" duration="1690000" />
+      <workItem from="1604781836276" duration="5522000" />
     </task>
     <servers />
   </component>

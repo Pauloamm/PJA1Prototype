@@ -75,10 +75,13 @@ public  class Weapon : MonoBehaviour, IStorable
     
     //ACESSORS
     public int BulletsInCurrentMagazine => bulletsinCurrentMagazine;
-   
+
+    public int DefaultMagazineSize => defaultMagazineSize;
+
     private void Awake()
     {
         pelletHoleManager = new PelletHoleManager();
+        bulletsinCurrentMagazine = defaultMagazineSize;
     }
     
     

@@ -56,6 +56,10 @@
           </e>
           <e p="UI" t="Include">
             <e p="FlashlightCapacity.cs" t="Include" />
+            <e p="WeaponUI" t="Include">
+              <e p="WeaponUI.cs" t="Include" />
+              <e p="WeaponUIManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Weapons" t="Include">
             <e p="PelletHoles" t="Include">
@@ -68,10 +72,6 @@
               <e p="Weapon.cs" t="Include" />
               <e p="WeaponInfo.cs" t="Include" />
               <e p="WeaponManager.cs" t="Include" />
-            </e>
-            <e p="WeaponUI" t="Include">
-              <e p="WeaponUI.cs" t="Include" />
-              <e p="WeaponUIManager.cs" t="Include" />
             </e>
           </e>
         </e>

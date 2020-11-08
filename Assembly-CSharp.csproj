@@ -88,6 +88,8 @@
      <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\UI\FlashlightCapacity.cs" />
+     <Compile Include="Assets\Scripts\UI\WeaponUI\WeaponUI.cs" />
+     <Compile Include="Assets\Scripts\UI\WeaponUI\WeaponUIManager.cs" />
      <Compile Include="Assets\Scripts\Weapons\PelletHoles\PelletHole.cs" />
      <Compile Include="Assets\Scripts\Weapons\PelletHoles\PelletHoleManager.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Pistol.cs" />
@@ -95,8 +97,6 @@
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponInfo.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponManager.cs" />
-     <Compile Include="Assets\Scripts\Weapons\WeaponUI\WeaponUI.cs" />
-     <Compile Include="Assets\Scripts\Weapons\WeaponUI\WeaponUIManager.cs" />
      <Compile Include="Assets\UI\Crosshair.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

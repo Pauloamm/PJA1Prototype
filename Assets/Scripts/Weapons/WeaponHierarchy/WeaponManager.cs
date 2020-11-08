@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] private List<WeaponInfo> ownedGuns; // SERIALIZED FOR DEBUGGING
 
-    [SerializeField] private WeaponInfo equippedWeapon; // SERIALIZED FOR DEBUGGING
+    /*[SerializeField]*/ private WeaponInfo equippedWeapon; // SERIALIZED FOR DEBUGGING
 
     [SerializeField] private GameObject previousGun;
 

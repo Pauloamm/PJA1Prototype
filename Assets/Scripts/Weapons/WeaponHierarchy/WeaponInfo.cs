@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-// Keeps track of which bullets are for each gun
+
+[Serializable]
 public class WeaponInfo
 {
     public int remainingMagazines;
