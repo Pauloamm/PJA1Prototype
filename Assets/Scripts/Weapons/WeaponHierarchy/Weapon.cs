@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour, IStorable
 	public event OnShooting Shot;
 
 	// Visual shot hit effect manager
-	private PelletHoleManager pelletHoleManager;
+	protected PelletHoleManager pelletHoleManager;
 
 	// Keycode associated to weapon for fast equiping
 	[SerializeField] public KeyCode weaponKeyCode;

@@ -8,9 +8,11 @@ public class Shotgun : Weapon
 	void Awake()
 	{
 		this.type = "Shotgun";
+		pelletHoleManager = new PelletHoleManager();
+
 	}
 
-    public override void Attacking()
+	public override void Attacking()
     {
         // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
         if (nextShotCooldown > 0 || bulletsinCurrentMagazine <= 0) return;
