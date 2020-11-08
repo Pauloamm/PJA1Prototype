@@ -5,62 +5,87 @@ using UnityEngine.UI;
 
 public class SlotManager : MonoBehaviour
 {
-    List<GameObject> slots;
-    
-    // Prefab slot for instantiate
-    [SerializeField] GameObject referenceSlot;
+	//List<GameObject> slots;
 
-    private void Awake()
-    {
-        slots = new List<GameObject>();
-    }
+	Dictionary<string, GameObject> inventory;
 
-    public void AddSlot(GameObject item)
-    {
-        // Gets script from pickUp object
-        IStorable itemInfo = item.GetComponent<IStorable>();
-        
-        // Creates new slot object with slot script for info storage
-        GameObject newSlotObject = Instantiate(referenceSlot, this.transform);
-        Slot newSlotScript = newSlotObject.GetComponent<Slot>();
+	// Prefab slot for instantiate
+	[SerializeField] GameObject referenceSlot;
 
-        // Stores data in slot script
-        StoreSlotProperties(newSlotScript, itemInfo, newSlotObject);
-        
-        // Update object image 
-        StoreImageInSlotObject(newSlotObject, newSlotScript);
+	private void Awake()
+	{
+		inventory = new Dictionary<string, GameObject>();
+
+		//slots = new List<GameObject>();
+	}
+
+	public void AddSlot(GameObject item)
+	{
+		// Gets script from pickUp object
+		IStorable itemInfo = item.GetComponent<IStorable>();
 
 
-        // DEBUG
-        Debug.Log("slot Added");
+		// Creates new slot object with slot script for info storage
+		if (inventory.ContainsKey(itemInfo.Type))
+		{
+			IStorable temp = inventory[itemInfo.Type].GetComponent<IStorable>();
+			Debug.Log(temp);
+			temp.Quantity++;
+			UpdateQuantity(inventory[itemInfo.Type], temp);
+
+			return;
+		}
 
 
-    }
-    
-    
+		// Creates new slot object with slot script for info storage
+		GameObject newSlotObject = Instantiate(referenceSlot, this.transform);
 
-    private void StoreSlotProperties(Slot newSlotScript, IStorable itemInfo, GameObject newSlotObject)
-    {
 
-        // Item for inspect item menu and inventory icon
-        newSlotScript.itemGameObjectForInspect = itemInfo.ItemGameObjectForInspect;
-        newSlotScript.icon = itemInfo.Icon;
+		Slot newSlotScript = newSlotObject.GetComponent<Slot>();
 
-        // // Probably delete later if image static
-        // newSlotScript.iD = itemInfo.iD;
-        // newSlotScript.type = itemInfo.type;
-        // newSlotScript.description = itemInfo.description;
+		// Stores data in slot script
+		StoreSlotProperties(newSlotScript, itemInfo, newSlotObject);
 
-        newSlotScript.slotActions = itemInfo.ItemActions;
-        
+		// Update object image 
+		StoreImageInSlotObject(newSlotObject, newSlotScript);
 
-        // Adds slot script to the list
-        slots.Add(newSlotObject);
-    }
-    
-    private void StoreImageInSlotObject(GameObject currentSlot, Slot tempSlot)
-    {
-        currentSlot.GetComponent<Image>().sprite = tempSlot.icon;
 
-    }
+		// DEBUG
+		Debug.Log("slot Added");
+
+
+	}
+
+
+
+	private void StoreSlotProperties(Slot newSlotScript, IStorable itemInfo, GameObject newSlotObject)
+	{
+
+		// Item for inspect item menu and inventory icon
+		newSlotScript.itemGameObjectForInspect = itemInfo.ItemGameObjectForInspect;
+		newSlotScript.icon = itemInfo.Icon;
+
+		// // Probably delete later if image static
+		// newSlotScript.iD = itemInfo.iD;
+		newSlotScript.type = itemInfo.Type;
+		// newSlotScript.description = itemInfo.description;
+
+		newSlotScript.slotActions = itemInfo.ItemActions;
+		Debug.Log(newSlotScript.type);
+		inventory.Add(newSlotScript.type, newSlotObject);
+		// Adds slot script to the list
+		//slots.Add(newSlotObject);
+	}
+
+	public void UpdateQuantity(GameObject currentSlot, IStorable inventorySlot)
+	{
+		currentSlot.GetComponentInChildren<Text>().text = "x" + inventorySlot.Quantity.ToString();
+	}
+
+
+	private void StoreImageInSlotObject(GameObject currentSlot, Slot tempSlot)
+	{
+		currentSlot.GetComponent<Image>().sprite = tempSlot.icon;
+
+	}
 }

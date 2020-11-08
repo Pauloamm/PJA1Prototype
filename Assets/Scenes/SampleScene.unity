@@ -849,6 +849,8 @@ MonoBehaviour:
   itemActions: []
   itemGameObjectForInspect: {fileID: 0}
   icon: {fileID: 21300000, guid: fe796f3ff70961e428e1dc55aa11d214, type: 3}
+  quantity: 1
+  type: Item
 --- !u!1 &141788534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1458,121 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303501866}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &313809378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313809379}
+  - component: {fileID: 313809383}
+  - component: {fileID: 313809382}
+  - component: {fileID: 313809381}
+  - component: {fileID: 313809380}
+  m_Layer: 0
+  m_Name: Cube (4)
+  m_TagString: Item
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313809379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313809378}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8242359, y: -0.57571006, z: -0.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613298225}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313809380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313809378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08eab52ead81ff43a042952831fda86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotManager: {fileID: 2662712837736468849}
+  itemActions:
+  - {fileID: 11400000, guid: 62a2919abc360ca4e870a445aec6866a, type: 2}
+  - {fileID: 11400000, guid: 2dd8e06974aac784eb74918e8834c210, type: 2}
+  itemGameObjectForInspect: {fileID: 90757263728571554, guid: bf73878b4d51f7e458f8632df86b55c1,
+    type: 3}
+  icon: {fileID: 21300000, guid: c2830a54ff5ae8840b01d42a5e2d0b6b, type: 3}
+  quantity: 1
+  type: Item
+--- !u!65 &313809381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313809378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &313809382
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313809378}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &313809383
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313809378}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &353935168
 GameObject:
@@ -3301,9 +3418,12 @@ MonoBehaviour:
   slotManager: {fileID: 2662712837736468849}
   itemActions:
   - {fileID: 11400000, guid: 62a2919abc360ca4e870a445aec6866a, type: 2}
+  - {fileID: 11400000, guid: 2dd8e06974aac784eb74918e8834c210, type: 2}
   itemGameObjectForInspect: {fileID: 90757263728571554, guid: bf73878b4d51f7e458f8632df86b55c1,
     type: 3}
   icon: {fileID: 21300000, guid: c2830a54ff5ae8840b01d42a5e2d0b6b, type: 3}
+  quantity: 1
+  type: Item
 --- !u!65 &927907683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3395,6 +3515,7 @@ GameObject:
   - component: {fileID: 973707725}
   - component: {fileID: 973707726}
   - component: {fileID: 973707727}
+  - component: {fileID: 973707723}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3520,6 +3641,19 @@ MonoBehaviour:
   lastFrameForward: {x: 0, y: 0, z: 0}
   playerCamera: {fileID: 534669902}
   flashlight: {fileID: 2083006177}
+--- !u!114 &973707723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973707716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29e84a40a1ae0c408458023ace381f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayPanel: {fileID: 2662712837049471234}
 --- !u!114 &973707725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5172,6 +5306,7 @@ Transform:
   - {fileID: 2077768160}
   - {fileID: 710899267}
   - {fileID: 141446117}
+  - {fileID: 313809379}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8503,6 +8638,8 @@ MonoBehaviour:
   itemGameObjectForInspect: {fileID: 90757263728571554, guid: bf73878b4d51f7e458f8632df86b55c1,
     type: 3}
   icon: {fileID: 21300000, guid: fe796f3ff70961e428e1dc55aa11d214, type: 3}
+  remainingMagazines: 0
+  type: Weapon
   bulletsinCurrentMagazine: 5
   defaultMagazineSize: 5
   bulletDamage: 1
@@ -9115,6 +9252,8 @@ MonoBehaviour:
   itemGameObjectForInspect: {fileID: 90757263728571554, guid: bf73878b4d51f7e458f8632df86b55c1,
     type: 3}
   icon: {fileID: 21300000, guid: f55b97b1106edd344b4b1445eca14428, type: 3}
+  remainingMagazines: 0
+  type: Weapon
   bulletsinCurrentMagazine: 10
   defaultMagazineSize: 10
   bulletDamage: 1

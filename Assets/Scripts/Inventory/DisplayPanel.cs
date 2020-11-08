@@ -5,106 +5,110 @@ using UnityEngine.UI;
 
 public class DisplayPanel : MonoBehaviour
 {
-    public GameObject panel;
+	public GameObject panel;
 
-    // Returns the slot in which the mouse is hovering
-    public delegate GameObject OnClick();
-    public event OnClick OnMouseClick;
-    
-    // Slot selected
-    GameObject slotSelected;
-    Slot currentSlot;
-    private List<Action> currentSlotActions;
+	// Returns the slot in which the mouse is hovering
+	public delegate GameObject OnClick();
+	public event OnClick OnMouseClick;
 
-    
-    [SerializeField]
-    private InspectItemRender inspectItemRender;
-    [SerializeField] private GameObject buttonPrefab;
-
-    bool isOpen = false;
-    void Awake()
-    {
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!isOpen)
-            {
-                // Gets slot where mouse is selected 
-                slotSelected = OnMouseClick?.Invoke();
-                if (slotSelected != null)
-                {
-                    
-                    currentSlot = slotSelected.GetComponent<Slot>(); // Get Slot
-                    currentSlotActions = currentSlot.slotActions;
-                    CreatePanelWithActions();
-                    
-                    panel.transform.position = Input.mousePosition; // Mete o o painel junto ao rato
-                    panel.SetActive(true); // ativa painel
-
-                    isOpen = !isOpen; // Altera o bool do painel 
-
-                }
-            }
-            else
-            {
-                panel.SetActive(false);
-                Transform childPannel = transform.GetChild(0);
-
-                for (int i = 0; i < childPannel.childCount; i++)
-                {
-                    Destroy(childPannel.GetChild(i).gameObject);
-                }
-                
-                
-                isOpen = !isOpen;
-            }
-
-        }
-    }
+	// Slot selected
+	GameObject slotSelected;
+	Slot currentSlot;
+	private List<Action> currentSlotActions;
 
 
-    public delegate void OnAction();
+	[SerializeField]
+	private InspectItemRender inspectItemRender;
+	[SerializeField] private GameObject buttonPrefab;
 
-    public event OnAction inspectOpen;
-    
-    private Slot ReturnSlot() => currentSlot;
+	bool isOpen = false;
+	void Awake()
+	{
+	}
 
-    private void CreatePanelWithActions()
-    {
-        foreach (Action action in currentSlotActions)
-        {
-            // CREATE BUTTON
-            Button newButton = Instantiate(buttonPrefab, transform.GetChild(0)).GetComponent<Button>();
-            
-            // CHANGES CHARECTERISTICS
-            newButton.GetComponentInChildren<Text>().text = action.actionName;
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(1))
+		{
+			if (!isOpen)
+			{
+				// Gets slot where mouse is selected 
+				slotSelected = OnMouseClick?.Invoke();
+				if (slotSelected != null)
+				{
 
-            
-            
-            ///////////////////////////////////////////
-            // button.onclick(action.RespectiveAction)
-            newButton.onClick.AddListener(
-                delegate
-                {
-                    action.RespectiveAction(slotSelected);
-                    
-                    switch (action.actionName)
-                    {
-                        case "Inspect":
-                        inspectItemRender.slotForInspect = currentSlot;
-                        inspectOpen?.Invoke();
-                        break;
-                        case "Use":
-                    
-                        break;
-                    }
-                });
-        }
-    }
+					currentSlot = slotSelected.GetComponent<Slot>(); // Get Slot
+					currentSlotActions = currentSlot.slotActions;
+					CreatePanelWithActions();
 
-    
-    
+					panel.transform.position = Input.mousePosition; // Mete o o painel junto ao rato
+					panel.SetActive(true); // ativa painel
+
+					isOpen = !isOpen; // Altera o bool do painel 
+
+				}
+			}
+			else
+			{
+				panel.SetActive(false);
+				Transform childPannel = transform.GetChild(0);
+
+				for (int i = 0; i < childPannel.childCount; i++)
+				{
+					Destroy(childPannel.GetChild(i).gameObject);
+				}
+
+
+				isOpen = !isOpen;
+			}
+
+		}
+	}
+
+
+	public delegate void OnAction();
+
+	public event OnAction inspectOpen;
+	public event OnAction HealthPlus;
+	private Slot ReturnSlot() => currentSlot;
+
+	private void CreatePanelWithActions()
+	{
+		foreach (Action action in currentSlotActions)
+		{
+			// CREATE BUTTON
+			Button newButton = Instantiate(buttonPrefab, transform.GetChild(0)).GetComponent<Button>();
+
+			// CHANGES CHARECTERISTICS
+			newButton.GetComponentInChildren<Text>().text = action.actionName;
+
+
+
+			///////////////////////////////////////////
+			// button.onclick(action.RespectiveAction)
+			newButton.onClick.AddListener(
+				delegate
+				{
+					action.RespectiveAction(slotSelected);
+
+					switch (action.actionName)
+					{
+						case "Inspect":
+							inspectItemRender.slotForInspect = currentSlot;
+							inspectOpen?.Invoke();
+							DisablePanel(); // Disables panel
+
+							break;
+						case "Heal":
+							DisablePanel(); // Disables panel
+							HealthPlus?.Invoke();
+							break;
+					}
+				});
+		}
+	}
+
+	private void DisablePanel() => this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
+
 }

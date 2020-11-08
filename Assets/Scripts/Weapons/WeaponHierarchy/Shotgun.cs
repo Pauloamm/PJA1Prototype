@@ -5,6 +5,11 @@ using UnityEngine;
 public class Shotgun : Weapon
 {
 
+	void Awake()
+	{
+		this.type = "Shotgun";
+	}
+
     public override void Attacking()
     {
         // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
