@@ -101,7 +101,7 @@ public class DisplayPanel : MonoBehaviour
 							DisablePanel(); // Disables panel
 							break;
 						case "Use":
-							slotManager.RemoveFromList(slotSelected.gameObject);
+							//slotManager.RemoveFromList(slotSelected.gameObject);
 							HealthPlus?.Invoke();
 							DisablePanel(); // Disables panel
 							break;

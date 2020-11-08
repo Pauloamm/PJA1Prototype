@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SlotManager : MonoBehaviour
 {
-	List<GameObject> slots;
+	//List<GameObject> slots;
 
 	Dictionary<string, GameObject> inventory;
 
@@ -15,7 +15,7 @@ public class SlotManager : MonoBehaviour
 
 	private void Awake()
 	{
-		slots = new List<GameObject>();
+		//slots = new List<GameObject>();
 		inventory = new Dictionary<string, GameObject>();
 	}
 
@@ -80,7 +80,7 @@ public class SlotManager : MonoBehaviour
 		inventory.Add(newSlotScript.type, newSlotObject);
 
 		// Adds slot script to the list
-		slots.Add(newSlotObject);
+		//slots.Add(newSlotObject);
 	}
 
 
@@ -96,6 +96,6 @@ public class SlotManager : MonoBehaviour
 		currentSlot.GetComponent<Image>().sprite = tempSlot.icon;
 	}
 
-	public void RemoveFromList(GameObject currentSlot) => slots.Remove(currentSlot);
+	//public void RemoveFromList(GameObject currentSlot) => slots.Remove(currentSlot);
 
 }
