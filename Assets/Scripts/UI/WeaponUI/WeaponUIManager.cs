@@ -38,8 +38,8 @@ public class WeaponUIManager : MonoBehaviour
         }
     }
 
-    private void OnWeaponShot(WeaponInfo weaponInfo) => currentWeaponUI.WeaponShotUIChange();
+    private void OnWeaponShot(WeaponInfo weaponInfo) => currentWeaponUI?.WeaponShotUIChange();
 
-    private void OnWeaponReload(WeaponInfo weaponInfo) => currentWeaponUI.WeaponReloadedUIChange();
+    private void OnWeaponReload(WeaponInfo weaponInfo) => currentWeaponUI?.WeaponReloadedUIChange();
     
 }

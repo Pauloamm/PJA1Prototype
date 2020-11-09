@@ -62,6 +62,7 @@ public class PlayerRaycast : MonoBehaviour
                         else
                         {
                             IStorable storableObject = objectHit.GetComponent<IStorable>();
+                            Debug.Log(storableObject);
                             storableObject?.StoreItem();
                         }
                         

@@ -33,6 +33,7 @@ public class WeaponUI : MonoBehaviour
 
     public void WeaponShotUIChange()
     {
+        if(bulletsUI.Count>0)
         bulletsUI[bulletsUI.Count - (correspondentWeapon.weapon.BulletsInCurrentMagazine + 1)].SetActive(false);
     }
 }
