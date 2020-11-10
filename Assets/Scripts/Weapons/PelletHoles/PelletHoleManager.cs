@@ -14,15 +14,14 @@ public class PelletHoleManager
     {
         pelletHoles = new List<PelletHole>();
         
-        pelletHolePrefab = Resources.Load("Prefabs/Pellet Hole") as GameObject;
+        pelletHolePrefab = Resources.Load("Prefabs/WFX_BImpact Concrete + Hole Lit") as GameObject;
         
         playerCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     public void NewPelletHole(Vector3 hitPoint, GameObject hitObject)
     {
-		Debug.Log(hitPoint);
-        GameObject newPelletHole = Object.Instantiate(pelletHolePrefab, hitPoint, playerCamera.transform.rotation);
+        GameObject newPelletHole = Object.Instantiate(pelletHolePrefab, hitPoint - playerCamera.transform.forward * 0.01f, playerCamera.transform.rotation);
         
         newPelletHole.transform.parent = hitObject.transform;
         
@@ -40,6 +39,15 @@ public class PelletHoleManager
                 GameObject.Destroy(pelletHoles[i].pelletHoleObj);
                 pelletHoles.RemoveAt(i);
             }
+        }
+    }
+
+    public void DeleteAllPelletHoles()
+    {
+        for (int i = 0; i < pelletHoles.Count; i++)
+        {
+            GameObject.Destroy(pelletHoles[i].pelletHoleObj);
+            pelletHoles.RemoveAt(i);
         }
     }
 }

@@ -8,6 +8,7 @@ public class Pistol : Weapon
 	{
 		this.type = "Pistol";
 		pelletHoleManager = new PelletHoleManager();
+		bulletsInCurrentMagazine = defaultMagazineSize;
 	}
 	protected override Vector3 WeaponSpread()
     {     

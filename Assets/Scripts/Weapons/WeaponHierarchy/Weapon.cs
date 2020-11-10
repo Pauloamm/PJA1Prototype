@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum WeaponState
+{
+	NotOwned,
+	Idle,
+	Attacking,
+	Reloading
+}
+
 public class Weapon : MonoBehaviour, IStorable
 {
 
@@ -32,14 +40,13 @@ public class Weapon : MonoBehaviour, IStorable
 
 
 	// Magazine/bullets variables
-	[SerializeField] protected int bulletsinCurrentMagazine;
+	[SerializeField] protected int bulletsInCurrentMagazine;
 	[SerializeField] protected int defaultMagazineSize = 10;
-	[SerializeField] protected int bulletDamage = 1;
+	[SerializeField] protected int bulletDamage = 10;
 
 	// Variables for shooting
 	[SerializeField] protected float defaultShotCooldown = 0.25f;  // Number in seconds which controls how often the player can fire
 	[SerializeField] public float nextShotCooldown; // Float to store the time left until the player will be allowed to fire again, after firing
-	[SerializeField] protected int pelletsPerBulletShot = 5;  // Number of pellets per bullet shoot
 
 	// Bullet spread variables
 	[SerializeField] protected float pelletSpreadRadiusMultiplier = 1.0f;   // Maximum spread radius per pellet (multiplier)
@@ -48,8 +55,8 @@ public class Weapon : MonoBehaviour, IStorable
 	[SerializeField] protected float recoil = 20.0f;    // Recoil angle after shooting
 	[SerializeField] protected float weaponKickRecoil = 0.15f;  // Kickback intensity after shooting
 
-	private Vector3 defaultLocalPosition;
-	private Quaternion defaultLocalRotation;
+	private readonly Vector3 defaultLocalPosition = new Vector3(0.47f, -0.12f, 0.7f);
+	private readonly Quaternion defaultLocalRotation = Quaternion.identity;
 
 
 	// Gun specific values
@@ -67,10 +74,13 @@ public class Weapon : MonoBehaviour, IStorable
 
 	// Weapon Events
 	public delegate void OnShooting(int bullets);
-	public event OnShooting Shot;
+	public event OnShooting Shot; // ESTÁ A SER USADO ???
 
 	// Visual shot hit effect manager
 	protected PelletHoleManager pelletHoleManager;
+	[SerializeField] protected ParticleSystem muzzleFlash;
+	[SerializeField] public WeaponState weaponState = WeaponState.NotOwned; // SERIALIZE FOR DEBUGGING
+	[SerializeField] private Animation weaponAnimations;
 
 	// Keycode associated to weapon for fast equiping
 	[SerializeField] public KeyCode weaponKeyCode;
@@ -80,46 +90,81 @@ public class Weapon : MonoBehaviour, IStorable
 
 
 	//ACESSORS
-	public int BulletsInCurrentMagazine => bulletsinCurrentMagazine;
+	public int BulletsInCurrentMagazine => bulletsInCurrentMagazine;
 
 	public int DefaultMagazineSize => defaultMagazineSize;
+
+	// Weapon localPosition and localRotation Lerping
+	protected float lerpInitialTime;
+	protected float lerpCompletedPercentage;
+
 
 	private void Awake()
 	{
 		pelletHoleManager = new PelletHoleManager();
-		bulletsinCurrentMagazine = defaultMagazineSize;
+		bulletsInCurrentMagazine = defaultMagazineSize;
 	}
 
 
 	private void Update()
 	{
-		// Gradually restore position and rotation after shooting kickback and recoil, respectively
-		this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defaultLocalPosition, Time.deltaTime * 4f);
-		this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, defaultLocalRotation, Time.deltaTime * 4f);
-
-		// If there is a delay for the next shot
-		if (nextShotCooldown > 0)
+		switch(weaponState)
 		{
-			// Keep decreasing the delay
-			nextShotCooldown -= Time.deltaTime;
+			case WeaponState.Idle:
+				if(lerpCompletedPercentage < 1.0f)
+				{
+					ResetLocalPosAndRot(false);
+
+					/*Debug.Log(Vector3.Distance(this.transform.localPosition, defaultLocalPosition)
+					+ " | " + Quaternion.Angle(this.transform.localRotation, defaultLocalRotation));
+					Debug.Log(lerpCompletedPercentage);*/
+				}
+
+				break;
+			
+			case WeaponState.Attacking:
+				// If there is a delay for the next shot
+				if (nextShotCooldown > 0)
+				{
+					// Keep decreasing the delay
+					nextShotCooldown -= Time.deltaTime;
+				}
+				else
+				{
+					weaponState = WeaponState.Idle;
+				}
+				
+				ResetLocalPosAndRot(false);
+				
+				break;
+
+			case WeaponState.Reloading:
+				if (!weaponAnimations.isPlaying)
+				{
+					weaponState = WeaponState.Idle;
+				}
+
+				break;
 		}
 	}
-	public virtual void Attacking()
+	public virtual bool Attack()
 	{
-
 		// Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
-		if (nextShotCooldown > 0 || bulletsinCurrentMagazine <= 0) return;
+		if (weaponState != WeaponState.Idle || bulletsInCurrentMagazine <= 0) return false;
+		
+		weaponState = WeaponState.Attacking;
+		// Trigger lerp with initial conditions
+		lerpInitialTime = Time.time;
+		lerpCompletedPercentage = 0f;
 
 		// Update the time when our player can fire next
 		nextShotCooldown = defaultShotCooldown;
-
-		PlayShootingSound();
 
 		// Create a vector at the center of our camera's viewport
 		rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
 		// Reduce the bullets available
-		bulletsinCurrentMagazine--;
+		bulletsInCurrentMagazine--;
 
 		// Declare a raycast hit to store information about what our raycast has hit
 		RaycastHit hit;
@@ -140,54 +185,88 @@ public class Weapon : MonoBehaviour, IStorable
 			ApplyWeaponForce(hit, impactPercentageWithDistance);
 
 			HoleCreation(hit);
-
-
-
 		}
+		
+		Debug.Log($"bullets: {bulletsInCurrentMagazine}");
+		ShotEvent();
+		
+		PlayShootingSound();
+		muzzleFlash.Play();
 
 		WeaponRecoil();
-		Debug.Log($"bullets: {bulletsinCurrentMagazine}");
-		ShotEvent();
+
+		return true;
 	}
 
 
 
 	//CReates the holes
-	protected void HoleCreation(RaycastHit hit) => pelletHoleManager.NewPelletHole(hit.point, hit.collider.gameObject);
+	//protected void HoleCreation(RaycastHit hit) => pelletHoleManager.NewPelletHole(hit.point, hit.collider.gameObject);
 
+	protected void HoleCreation(RaycastHit hit)
+	{
+		GameObject pelletHolePrefab = Resources.Load("Prefabs/Pellet Hole") as GameObject;
+		
+		GameObject newPelletHole = Object.Instantiate(pelletHolePrefab, hit.point - playerCamera.transform.forward * 0.01f, playerCamera.transform.rotation);
+        
+        newPelletHole.transform.parent = hit.collider.gameObject.transform;
+
+		Destroy(newPelletHole, 2.0f);
+	}
+	
 	//Invokes the shot Event
 	protected void ShotEvent()
 	{
-		Shot?.Invoke(bulletsinCurrentMagazine);
+		Shot?.Invoke(bulletsInCurrentMagazine); // ESTÁ A SER USADO ???
 	}
 
 	//Responsable for the weaponRecoil
 	protected void WeaponRecoil()
 	{
-		this.transform.localRotation = defaultLocalRotation;
-		this.transform.localPosition = defaultLocalPosition;
-		this.transform.localPosition -= this.transform.forward * weaponKickRecoil;
+		ResetLocalPosAndRot(true);
+		this.transform.position -= this.transform.forward * weaponKickRecoil;
 		this.transform.Rotate(-recoil, 0f, 0f);
 	}
 
-	//OnPickUp overrrides the default values
-	public void OnPickUpDefaultInit(Quaternion localRotation, Vector3 localPosition)
+	//Resets localPosition and localRotation to default values
+	public void ResetLocalPosAndRot(bool instantReset)
 	{
-		defaultLocalRotation = localRotation;
-		defaultLocalPosition = localPosition;
+		if (instantReset)
+		{
+			// Instant reset
+			this.transform.localPosition = defaultLocalPosition;
+			this.transform.localRotation = defaultLocalRotation;
+		}
+		else
+		{
+			float lerpMaxTime = defaultShotCooldown * 5;
+			float lerpElapsedTime = Time.time - lerpInitialTime;
+            lerpCompletedPercentage = lerpElapsedTime / lerpMaxTime;
+			
+			// Gradual reset (to use after weapon attacked)
+			this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, defaultLocalPosition, lerpCompletedPercentage);
+			this.transform.localRotation = Quaternion.Lerp(this.transform.localRotation, defaultLocalRotation, lerpCompletedPercentage);
+		}
 	}
 
 
 	//Changes the magazine for the current weapon with a magazine thats has random bullets in her
-
-	public void ChangeMagazine()
+	public bool ChangeMagazine()
 	{
+		if (weaponState != WeaponState.Idle) return false;
+
+		weaponState = WeaponState.Reloading;
+		ResetLocalPosAndRot(true);
+		weaponAnimations.Play("ReloadAnimation");
+
 		float fillPercentage = RandomNonLinearProbabilityPercentage();
-		bulletsinCurrentMagazine = (int)(defaultMagazineSize * fillPercentage);
+		bulletsInCurrentMagazine = (int)(defaultMagazineSize * fillPercentage);
+		remainingMagazines--;
+
 		// Play the reloading sound effect
 		gunAudio.PlayOneShot(gunSounds[1]);
 
-
+		return true;
 	}
 
 	//Calculates the % of next magazines bullets 
@@ -219,8 +298,8 @@ public class Weapon : MonoBehaviour, IStorable
 	//Responsable for doing the math for the weapon Spread
 	protected virtual Vector3 WeaponSpread()
 	{
+		// spread pellet according to the current gun recoil
 		float recoilSpreadFactor;
-		// Else, if there's only 1 pellet per bullet shot, spread it according to the current gun recoil
 		float currentRecoil = 360.0f - this.transform.localEulerAngles.x;
 		if (currentRecoil >= 360f) currentRecoil = 0.0f;
 		recoilSpreadFactor = currentRecoil;

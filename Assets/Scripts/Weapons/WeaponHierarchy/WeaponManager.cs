@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    // Value obtained by hand testing best position
-    private readonly Vector3 defaultOffSet = new Vector3(0.47f, -0.12f, 0.7f);
-
     [SerializeField] private List<WeaponInfo> ownedGuns; // SERIALIZED FOR DEBUGGING
 
-    /*[SerializeField]*/ private WeaponInfo equippedWeapon; // SERIALIZED FOR DEBUGGING
+    /*[SerializeField]*/ private WeaponInfo equipedWeapon; // SERIALIZED FOR DEBUGGING
 
     [SerializeField] private GameObject previousGun;
 
@@ -19,7 +16,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private readonly KeyCode reloadKeycode = KeyCode.R;
 
     // ACESSORS
-    public WeaponInfo EquippedWeapon => equippedWeapon;
+    public WeaponInfo EquippedWeapon => equipedWeapon;
 
     // Events for UI change
     public delegate void WeaponAction(WeaponInfo weaponInfo);
@@ -55,31 +52,28 @@ public class WeaponManager : MonoBehaviour
     private void WeaponActionInput()
     {
         // Guard clause
-        if (equippedWeapon == null) return;
+        if (equipedWeapon == null) return;
 
 
         if (Input.GetKeyDown(shootKeycode))
         {
-            equippedWeapon.weapon.Attacking();
-            WeaponShot?.Invoke(equippedWeapon);
+            if (equipedWeapon.weapon.Attack())
+                WeaponShot?.Invoke(equipedWeapon);
         }
 
-        if (Input.GetKeyDown(reloadKeycode))
+        if (Input.GetKeyDown(reloadKeycode) && equipedWeapon.remainingMagazines > 0)
         {
-            if (equippedWeapon.remainingMagazines > 0)
-            {
-                equippedWeapon.weapon.ChangeMagazine();
-                equippedWeapon.remainingMagazines--;
-                WeaponReloaded?.Invoke(equippedWeapon);
-
-
-            }
+            if (equipedWeapon.weapon.ChangeMagazine())
+                WeaponReloaded?.Invoke(equipedWeapon);
         }
     }
 
 
     private void SwitchWeapon(WeaponInfo weaponToEquip)
     {
+        if(equipedWeapon == null 
+        || equipedWeapon.weapon.weaponState != WeaponState.Idle) return;
+        
         GameObject weaponToEquipObject = weaponToEquip.weapon.gameObject;
 
         try
@@ -96,37 +90,48 @@ public class WeaponManager : MonoBehaviour
         {
             // Equips new weapon and deactivates previous equiped one
             weaponToEquipObject.SetActive(true);
-            equippedWeapon = weaponToEquip;
+            equipedWeapon = weaponToEquip;
             previousGun = weaponToEquipObject;
             
-            WeaponSwitched?.Invoke(equippedWeapon);
+            WeaponSwitched?.Invoke(equipedWeapon);
+
+            // Resets localPosition and localRotation to default values
+            equipedWeapon.weapon.ResetLocalPosAndRot(true);
+            equipedWeapon.weapon.weaponState = WeaponState.Idle;
         }
+
+        /*
+        if(equipedWeapon == null 
+        || equipedWeapon.weapon.weaponState != WeaponState.Idle) return;
+
+        equipedWeapon.weapon.gameObject.SetActive(false);
+        weaponToEquip.weapon.gameObject.SetActive(true);
+        equipedWeapon = weaponToEquip;
+        
+        WeaponSwitched?.Invoke(equipedWeapon);
+
+        // Resets localPosition and localRotation to default values
+        equipedWeapon.weapon.ResetLocalPosAndRot(true);
+        */
     }
 
     public void AddWeapon(GameObject newWeapon, Transform parentCamera)
     {
         WeaponInfo weaponInfo = new WeaponInfo
         {
-            remainingMagazines = 1,
+            remainingMagazines = 50,
             weapon = newWeapon.GetComponent<Weapon>(),
         };
 
         ownedGuns.Add(weaponInfo);
 
-        // Sets position and rotation to parent
-        newWeapon.transform.position = Vector3.zero;
-        newWeapon.transform.SetParent(parentCamera);
-        newWeapon.transform.localRotation = Quaternion.identity;
-        newWeapon.transform.localPosition = defaultOffSet;
-        newWeapon.transform.LookAt(parentCamera.position + (parentCamera.forward * 50f));
-
-        // Initiates default position and rotation 
-        weaponInfo.weapon.OnPickUpDefaultInit(Quaternion.identity, defaultOffSet);
+        // Initiates default localPosition and localRotation to parent
+		weaponInfo.weapon.transform.SetParent(parentCamera);
+        weaponInfo.weapon.ResetLocalPosAndRot(true);
+        weaponInfo.weapon.weaponState = WeaponState.Idle;
 
         //Switches for new weapon
-        equippedWeapon = weaponInfo;
+        equipedWeapon = weaponInfo;
         SwitchWeapon(weaponInfo);
-        
-        
     }
 }
