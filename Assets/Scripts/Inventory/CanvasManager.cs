@@ -76,7 +76,6 @@ public class CanvasManager : MonoBehaviour
 
         inGameUI.SetActive(true);     // Turns ON InGame UI
         inventoryUI.SetActive(false); // Turns OFF Inventory UI
-        Debug.Log(inventoryUI.activeSelf);
         inspectUI.SetActive(false);   // Turns OFF Inspect UI
     }
 

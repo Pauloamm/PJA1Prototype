@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Player\Health.cs" />
     <Compile Include="Assets\Scripts\Player\HealthManager.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\DragRigidBody.cs" />
+    <Compile Include="Assets\Scripts\Player\Interactables\IRaycastResponse.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\Action.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\HealAction.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\Item.cs" />

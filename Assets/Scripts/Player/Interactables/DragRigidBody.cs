@@ -5,106 +5,97 @@ using UnityEngine;
 [System.Serializable]
 public class DoorGrabClass
 {
-    public float m_DoorPickupRange = 2f;
+    public float m_DoorPickupRange = 0.3f;
     public float m_DoorThrow = 10f;
-    public float m_DoorDistance = 2f;
-    public float m_DoorMaxGrab = 3f;
+    public float m_DoorDistance = 0.3f;
+    public float m_DoorMaxGrab = 0.3f;
 }
 
-public class DragRigidBody : MonoBehaviour
+public class DragRigidBody : MonoBehaviour, IRaycastResponse
 {
-
 
     public GameObject playerCam;
     public DoorGrabClass DoorGrab = new DoorGrabClass();
 
-    private float PickupRange = 3f;
+    private float PickupRange = 0.3f;
     private float ThrowStrength = 50f;
-    private float distance = 3f;
-    private float maxDistanceGrab = 4f;
+    private float distance = 0.3f;
+    private float maxDistanceGrab = 0.3f;
 
     private Ray playerAim;
-    private GameObject objectHeld;
     public bool isObjectHeld;
     private bool tryPickupObject;
 
-    
-
-    //------LUis
-    private bool isHolding2 = false;
-
-    public void ChangeHolding() {
-        isHolding2 = !isHolding2;
-        
-    }
-    public bool IsHolding2 => isHolding2;
-    //------LUis
+    //TESTE
+    [SerializeField]
+    PlayerMovement playerMovement;
 
     private void Awake()
     {
         isObjectHeld = false;
         tryPickupObject = false;
-        objectHeld = null;
     }
-    
-    public  void DragBody(GameObject objectHit)
+
+    public void IsBeingDragged()
     {
-        objectHeld = objectHit;
-
-            if (!isObjectHeld)
-            {
-                TryPickObject();
-                // tryPickupObject = true;
-            }
-            else
-            {
-                HoldObject();
-            }
-        
-        
-
+        Debug.Log(isObjectHeld);
+        if (!isObjectHeld)
+        {
+            Debug.Log("entrou");
+            TryPickObject();
+        }
+        else
+        {
+            HoldObject();
+        }
     }
 
     public void TryPickObject()
     {
         isObjectHeld = true;
-        objectHeld.GetComponent<Rigidbody>().useGravity = true;
-        objectHeld.GetComponent<Rigidbody>().freezeRotation = false;
-        
-        
-        PickupRange = DoorGrab.m_DoorPickupRange;
-        ThrowStrength = DoorGrab.m_DoorThrow;
-        
-        
-        distance = DoorGrab.m_DoorDistance;
-        maxDistanceGrab = DoorGrab.m_DoorMaxGrab;
+        this.GetComponent<Rigidbody>().useGravity = true;
+        this.GetComponent<Rigidbody>().freezeRotation = false;
+
+        //if is door  use door values
+        //PickupRange = DoorGrab.m_DoorPickupRange;
+        //ThrowStrength = DoorGrab.m_DoorThrow;
+        //distance = DoorGrab.m_DoorDistance;
+        //maxDistanceGrab = DoorGrab.m_DoorMaxGrab;
     }
-    
+
     public void HoldObject()
     {
-        Ray playerAim = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        Transform Temp;
 
-        Vector3 nextPos = playerCam.transform.position + playerAim.direction * distance;
-        Vector3 currPos = objectHeld.transform.position;
+        Temp = this.transform;
 
-        objectHeld.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * 10;
+        Temp.Rotate(Vector3.up, (Input.GetAxis("Mouse Y") * Time.deltaTime) * 300f, Space.Self);
 
-        if (Vector3.Distance(objectHeld.transform.position, playerCam.transform.position) > maxDistanceGrab)
+        Quaternion.Slerp(this.transform.rotation, Temp.rotation, 1f);
+
+        if (Vector3.Distance(this.transform.position, playerCam.transform.position) > maxDistanceGrab)
         {
             DropObject();
-            isHolding2 = !isHolding2; // false
-            Debug.Log("ola");
         }
-
     }
 
     public void DropObject()
     {
-        
         isObjectHeld = false;
         // tryPickupObject = false;
-        objectHeld.GetComponent<Rigidbody>().useGravity = true;
-        objectHeld.GetComponent<Rigidbody>().freezeRotation = false;
-        objectHeld = null;
+        this.GetComponent<Rigidbody>().useGravity = true;
+        this.GetComponent<Rigidbody>().freezeRotation = false;
+    }
+
+    public void OnRaycastSelect()
+    {
+        playerMovement.enabled = false;
+        IsBeingDragged();
+    }
+
+    public void OnRaycastDiselect()
+    {
+        playerMovement.enabled = true;
+        DropObject();
     }
 }

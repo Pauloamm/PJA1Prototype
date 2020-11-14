@@ -7,6 +7,7 @@ public class PlayerRaycast : MonoBehaviour
 {
     static public Ray playerRay;
 
+    private IRaycastResponse lastObject;
 
     [SerializeField] private Camera playerCamera;
 
@@ -16,10 +17,13 @@ public class PlayerRaycast : MonoBehaviour
     private bool isHolding = true;
 
     [SerializeField]
+    private Vector3 MouseP;
+
+    [SerializeField]
     private WeaponManager weaponManager;
 
 
-    private float range = 10f;
+    private float range = 3f;
     private float pickUpRange, dragRange;
 
 
@@ -35,47 +39,55 @@ public class PlayerRaycast : MonoBehaviour
 
     void FixedUpdate()
     {
+        Vector2 Mouse2D = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+        MouseP = new Vector3(Mouse2D.x, Mouse2D.y, 0f);
+
         playerRay = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
 
         RaycastHit hit;
 
-        if (Physics.Raycast(playerRay, out hit))
+        bool isHitting = Physics.Raycast(playerRay, out hit);
+        bool hasCollider = hit.collider != null;
+        bool hasInput = Input.GetKey(KeyCode.E);
+
+
+        if (isHitting && hasCollider && hasInput)
         {
-            if (hit.collider != null)
+            GameObject objectHit = hit.collider.gameObject; //.GetComponent<IRaycastable>();
+            float currentDistance = (hit.point - this.transform.position).magnitude;
+
+            if (currentDistance < range)
             {
-                if (Input.GetKey(KeyCode.E))
+                IRaycastResponse temp = objectHit.GetComponent<IRaycastResponse>();
+
+                Debug.Log(lastObject);
+                if (temp != null)
                 {
-                    GameObject objectHit = hit.collider.gameObject; //.GetComponent<IRaycastable>();
-                    float currentDistance = (hit.point - this.transform.position).magnitude;
-
-                  
-
-                    if (currentDistance < range)
-                    {
-                        if (objectHit.CompareTag("Dragable"))
-                        {
-                            // isHolding = true;    
-                            dragRb.ChangeHolding();
-                            // DragBody();
-                            dragRb.DragBody(objectHit);
-                        }
-                        else
-                        {
-                            IStorable storableObject = objectHit.GetComponent<IStorable>();
-                            Debug.Log(storableObject);
-                            storableObject?.StoreItem();
-                        }
-                        
-                    }
-
+                    temp.OnRaycastSelect();
+                    lastObject = temp;
                 }
-                else if (dragRb.IsHolding2)
+                else
                 {
-                    dragRb.DropObject();
-                    dragRb.ChangeHolding();
+                    lastObject?.OnRaycastDiselect();
+                    lastObject = null;
                 }
+
+
             }
+            else
+            {
+                lastObject?.OnRaycastDiselect();
+                lastObject = null;
+            }
+
         }
+        else
+        {
+            lastObject?.OnRaycastDiselect();
+            lastObject = null;
+        }
+
     }
 
 

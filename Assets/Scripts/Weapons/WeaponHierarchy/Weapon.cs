@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IStorable
+public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
 {
 
     // -------------------------------------IStorable---------------------------------------------//
@@ -256,6 +256,16 @@ public class Weapon : MonoBehaviour, IStorable
             // Add force to the rigidbody we hit, in the direction from which it was hit
             hit.rigidbody.AddForce(-hit.normal * hitForce * impactPercentageWithDistance);
         }
+    }
+
+    public void OnRaycastSelect()
+    {
+        StoreItem();
+    }
+
+    public void OnRaycastDiselect()
+    {
+        //pra nao dar erro XD
     }
 }
 

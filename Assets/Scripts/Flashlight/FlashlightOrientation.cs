@@ -15,12 +15,12 @@ public class FlashlightOrientation : MonoBehaviour
     {
         fakePlayerTransform = transform;
         
-        offSet = fakePlayerTransform.position - playerCamera.transform.position;
+        //offSet = fakePlayerTransform.position - playerCamera.transform.position;
     }
 
     void Update()
     {
-        fakePlayerTransform.position = playerCamera.position + offSet;
+        //fakePlayerTransform.position = playerCamera.position + offSet;
         fakePlayerTransform.rotation = Quaternion.Slerp(fakePlayerTransform.rotation, playerCamera.transform.rotation, speed * Time.deltaTime);
     }
     

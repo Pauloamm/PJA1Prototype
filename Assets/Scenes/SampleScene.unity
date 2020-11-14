@@ -1901,7 +1901,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 534669904}
   slotManager: {fileID: 2662712837736468849}
-  dragRb: {fileID: 973707725}
+  dragRb: {fileID: 0}
+  MouseP: {x: 0, y: 0, z: 0}
   weaponManager: {fileID: 973707727}
 --- !u!1 &549621533
 GameObject:
@@ -3382,7 +3383,6 @@ GameObject:
   - component: {fileID: 973707717}
   - component: {fileID: 973707722}
   - component: {fileID: 973707721}
-  - component: {fileID: 973707725}
   - component: {fileID: 973707726}
   - component: {fileID: 973707727}
   - component: {fileID: 973707723}
@@ -3510,7 +3510,7 @@ MonoBehaviour:
   walkVelocity: 8
   lastFrameForward: {x: 0, y: 0, z: 0}
   playerCamera: {fileID: 534669902}
-  flashlight: {fileID: 2083006177}
+  body: {fileID: 1753110892}
 --- !u!114 &973707723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3524,25 +3524,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayPanel: {fileID: 2662712837049471234}
---- !u!114 &973707725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973707716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bf724fd2e2f44488c9963afb3b6e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 534669902}
-  DoorGrab:
-    m_DoorPickupRange: 2
-    m_DoorThrow: 10
-    m_DoorDistance: 2
-    m_DoorMaxGrab: 3
-  isObjectHeld: 0
 --- !u!114 &973707726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6886,6 +6867,7 @@ GameObject:
   - component: {fileID: 2111169558367597766}
   - component: {fileID: 2111169558367597765}
   - component: {fileID: 2111169558367597769}
+  - component: {fileID: 2111169558367597770}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Equipment
@@ -6982,10 +6964,24 @@ BoxCollider:
   m_GameObject: {fileID: 2111169558367597764}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 2, z: 1.0000001}
   m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940696}
+--- !u!64 &2111169558367597770
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111169558367597764}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2662712836513284440
 GameObject:
   m_ObjectHideFlags: 0
@@ -8365,7 +8361,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: -0.4}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 10.918699, y: 1.26, z: 12.801732}
+  m_ConnectedAnchor: {x: 8.29398, y: 1.26, z: 3.4503412}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -8379,7 +8375,7 @@ HingeJoint:
   m_UseLimits: 1
   m_Limits:
     min: -90
-    max: 1
+    max: 90
     bounciness: 0.05
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -8403,6 +8399,7 @@ GameObject:
   - component: {fileID: 3630934751174513294}
   - component: {fileID: 3630934751174513295}
   - component: {fileID: 3630934751174513288}
+  - component: {fileID: 3630934751174513290}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Dragable
@@ -8410,6 +8407,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3630934751174513290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630934751174513289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bf724fd2e2f44488c9963afb3b6e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 534669902}
+  DoorGrab:
+    m_DoorPickupRange: 0.3
+    m_DoorThrow: 10
+    m_DoorDistance: 0.3
+    m_DoorMaxGrab: 0.3
+  isObjectHeld: 0
+  playerMovement: {fileID: 973707722}
 --- !u!33 &3630934751174513292
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8494,7 +8511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3630934751174513289}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 1.122283, y: 0.15428996, z: -0.41613388}
+  m_LocalPosition: {x: -8.28, y: 0.15428996, z: 2.02}
   m_LocalScale: {x: 0.23236, y: 2.444, z: 1}
   m_Children: []
   m_Father: {fileID: 839446842}

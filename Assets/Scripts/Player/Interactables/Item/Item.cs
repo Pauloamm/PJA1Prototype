@@ -4,7 +4,7 @@ using UnityEngine;
 
 //[CreateAssetMenu(menuName ="Interactable/Item")]
 
-public class Item : MonoBehaviour, IStorable
+public class Item : MonoBehaviour, IStorable,IRaycastResponse
 {
 	// -------------------------------------IStorable---------------------------------------------//
 
@@ -33,4 +33,16 @@ public class Item : MonoBehaviour, IStorable
         slotManager.AddSlot(this.gameObject);
         Destroy(this.gameObject);
     }
+
+    public void OnRaycastSelect()
+    {
+        StoreItem();
+    }
+
+    public void OnRaycastDiselect()
+    {
+        //pra nao dar erro XD
+    }
+
+
 }

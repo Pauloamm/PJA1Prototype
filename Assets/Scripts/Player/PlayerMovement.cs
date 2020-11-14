@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 lastFrameForward;
 
     [SerializeField]
-    private GameObject playerCamera, flashlight;
+    private GameObject playerCamera, body;
     private Vector3 offset;
 
     void Awake()
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         info.velocity = Vector3.ClampMagnitude(info.velocity, maxVelocity);
 
         // Update Unity Information
-        transform.position = info.position;
+        body.transform.position = info.position;
     }
 
     private void PlayerLookUpdate(Steering nextFrameSteering, Transform playerTransform, Transform cameraTransform)
