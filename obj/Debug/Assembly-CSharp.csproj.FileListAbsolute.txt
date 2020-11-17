@@ -234,3 +234,7 @@ D:\UnityProjects\PJA1Prototype\obj\Debug\Assembly-CSharp.csproj.CoreCompileInput
 D:\UnityProjects\PJA1Prototype\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\UnityProjects\PJA1Prototype\obj\Debug\Assembly-CSharp.dll
 D:\UnityProjects\PJA1Prototype\obj\Debug\Assembly-CSharp.pdb
+E:\Ficheiros\Faculdade\5º Semestre\Projeto Aplicado I\PJA1Prototype\PJA1Prototype\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+E:\Ficheiros\Faculdade\5º Semestre\Projeto Aplicado I\PJA1Prototype\PJA1Prototype\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+E:\Ficheiros\Faculdade\5º Semestre\Projeto Aplicado I\PJA1Prototype\PJA1Prototype\obj\Debug\Assembly-CSharp.dll
+E:\Ficheiros\Faculdade\5º Semestre\Projeto Aplicado I\PJA1Prototype\PJA1Prototype\obj\Debug\Assembly-CSharp.pdb

@@ -30,6 +30,4 @@ public class UiStateManager : MonoBehaviour
             InventoryClosed?.Invoke();
         }
     }
-    
-   
 }
