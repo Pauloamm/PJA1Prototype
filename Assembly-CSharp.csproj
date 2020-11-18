@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\Inventory\SlotSelection.cs" />
     <Compile Include="Assets\Scripts\Inventory\UiStateManager.cs" />
     <Compile Include="Assets\Scripts\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Keys\IUnlockable.cs" />
+    <Compile Include="Assets\Scripts\Keys\UnlockManager.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementInfo.cs" />
     <Compile Include="Assets\Scripts\Movement\MovementManager.cs" />
     <Compile Include="Assets\Scripts\Movement\Steering.cs" />
@@ -88,12 +90,13 @@
     <Compile Include="Assets\Scripts\Movement\SteeringBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\Health.cs" />
     <Compile Include="Assets\Scripts\Player\HealthManager.cs" />
-    <Compile Include="Assets\Scripts\Player\Interactables\DragRigidBody.cs" />
+    <Compile Include="Assets\Scripts\Player\Interactables\DragDoorRigidBody.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\IRaycastResponse.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\Action.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\HealAction.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\Item\ItemInspect.cs" />
+    <Compile Include="Assets\Scripts\Player\Interactables\PickUpRigidBody.cs" />
     <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\UI\FlashlightCapacity.cs" />

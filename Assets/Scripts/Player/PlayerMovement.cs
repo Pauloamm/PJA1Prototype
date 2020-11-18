@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 lastFrameForward;
 
     [SerializeField]
-    private GameObject playerCamera, body;
+    private GameObject playerCamera;
     private Vector3 offset;
 
     void Awake()
@@ -53,13 +53,10 @@ public class PlayerMovement : MonoBehaviour
         Steering steering = new Steering();
         PlayerMovementUpdate(steering);
         PlayerLookUpdate(steering,this.transform,playerCamera.transform);
-       
-
     }
 
     private void PlayerMovementUpdate(Steering nextFrameSteering)
     {
-
         // Update our position according to current velocity vector 
         info.position += info.velocity * Time.deltaTime;
 
@@ -80,7 +77,9 @@ public class PlayerMovement : MonoBehaviour
         info.velocity = Vector3.ClampMagnitude(info.velocity, maxVelocity);
 
         // Update Unity Information
-        body.transform.position = info.position;
+        //this.transform.position = info.position;
+        //O stor em vez de adicionar a posicao atual ele dizia que a posicao era aquela.
+        this.transform.position += info.velocity * Time.deltaTime;
     }
 
     private void PlayerLookUpdate(Steering nextFrameSteering, Transform playerTransform, Transform cameraTransform)

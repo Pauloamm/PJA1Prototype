@@ -18,4 +18,5 @@ public class MovementInfo
     public float rotation;
     public Vector2 rotationV2;
 
+
 }

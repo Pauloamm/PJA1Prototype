@@ -13,7 +13,7 @@ public class PlayerRaycast : MonoBehaviour
 
     [SerializeField] private SlotManager slotManager;
 
-    [SerializeField] private DragRigidBody dragRb;
+    [SerializeField] private DragDoorRigidBody dragRb;
     private bool isHolding = true;
 
     [SerializeField]
@@ -35,8 +35,6 @@ public class PlayerRaycast : MonoBehaviour
     public event OnInteract OnPickUp;
 
 
-
-
     void FixedUpdate()
     {
         Vector2 Mouse2D = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -51,7 +49,6 @@ public class PlayerRaycast : MonoBehaviour
         bool hasCollider = hit.collider != null;
         bool hasInput = Input.GetKey(KeyCode.E);
 
-
         if (isHitting && hasCollider && hasInput)
         {
             GameObject objectHit = hit.collider.gameObject; //.GetComponent<IRaycastable>();
@@ -61,7 +58,6 @@ public class PlayerRaycast : MonoBehaviour
             {
                 IRaycastResponse temp = objectHit.GetComponent<IRaycastResponse>();
 
-                Debug.Log(lastObject);
                 if (temp != null)
                 {
                     temp.OnRaycastSelect();
@@ -72,8 +68,6 @@ public class PlayerRaycast : MonoBehaviour
                     lastObject?.OnRaycastDiselect();
                     lastObject = null;
                 }
-
-
             }
             else
             {
@@ -89,8 +83,5 @@ public class PlayerRaycast : MonoBehaviour
         }
 
     }
-
-
-
 
 }

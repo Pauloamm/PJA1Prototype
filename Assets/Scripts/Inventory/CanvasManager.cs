@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private InspectItemRender inspectItemRender;
 
 
+
     // Canvas Sections 
     [SerializeField] private GameObject inventoryUI;
 
@@ -23,6 +24,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private GameObject inspectUI; // NOT BEING USED FOR NOW
 
     [SerializeField] private PlayerMovement playerMovement;
+
+    [SerializeField] private FlashlightOrientation flashlightOrientation;
 
     void Awake()
     {
@@ -59,6 +62,7 @@ public class CanvasManager : MonoBehaviour
         EnableMouse(); // Enables mouse cursor
         DisablePlayerMovement(); // Disables player movement Script
 
+
         inspectCamera.depth = 0; // Changes Camera to Main Camera
 
         inventoryUI.SetActive(true); // Turns ON Inventory UI
@@ -93,10 +97,12 @@ public class CanvasManager : MonoBehaviour
     private void EnablePlayerMovement()
     {
         playerMovement.enabled = true;
+        flashlightOrientation.enabled = true;
     }
     
     private void DisablePlayerMovement()
     {
         playerMovement.enabled = false;
+        flashlightOrientation.enabled = false;
     }
 }
