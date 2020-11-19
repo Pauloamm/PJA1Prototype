@@ -13,7 +13,6 @@ public class PlayerRaycast : MonoBehaviour
 
     [SerializeField] private SlotManager slotManager;
 
-    [SerializeField] private DragRigidBody dragRb;
     private bool isHolding = true;
 
     [SerializeField]

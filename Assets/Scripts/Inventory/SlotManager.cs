@@ -26,7 +26,7 @@ public class SlotManager : MonoBehaviour
 
 
 		// Creates new slot object with slot script for info storage
-		if (inventory.ContainsKey(itemInfo.Type))
+		if (IsStored(itemInfo.Type))
 		{
 			IStorable temp = inventory[itemInfo.Type].GetComponent<IStorable>();
 			Debug.Log(temp);
@@ -56,7 +56,10 @@ public class SlotManager : MonoBehaviour
 
 	}
 
-
+    public bool IsStored(string key)
+    {
+        return inventory.ContainsKey(key);
+    }
 
 	private void StoreSlotProperties(Slot newSlotScript, IStorable itemInfo, GameObject newSlotObject)
 	{
