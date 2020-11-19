@@ -8567,6 +8567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: KeyHeart
+  dragDoor: {fileID: 3630934751174513290}
   slotManager: {fileID: 2662712837736468849}
 --- !u!33 &3630934751174513292
 MeshFilter:

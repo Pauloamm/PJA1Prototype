@@ -4,41 +4,25 @@ using UnityEngine;
 
 public class UnlockManager : MonoBehaviour, IRaycastResponse
 {
-    HingeJoint doorJoint;
-    Rigidbody doorBody;
     [SerializeField]
     string requiredKey;
+
+    [SerializeField]
+    DragDoorRigidBody dragDoor;
 
     [SerializeField]
     SlotManager slotManager;
 
     public void OnRaycastSelect()
     {
-        if (!slotManager.IsStored(requiredKey)) return;
+        if (slotManager.IsStored(requiredKey))
+            dragDoor.UnlockJoints();
 
-        JointLimits limits = doorJoint.limits;
-        limits.min = -90;
-        limits.bounciness = 0;
-        limits.bounceMinVelocity = 0;
-        limits.max = 1;
-        doorJoint.limits = limits;
-        doorJoint.useLimits = true;
-        
-        doorBody.constraints = RigidbodyConstraints.None;
-        Destroy(this);
+            dragDoor.OnSelect();
     }
 
     public void OnRaycastDiselect()
     {
-       
+        dragDoor.OnDiselect();
     }
-
-
-    private void Awake()
-    {
-        doorJoint = this.GetComponent<HingeJoint>();
-        doorBody = this.GetComponent<Rigidbody>();
-    }
-
-
 }

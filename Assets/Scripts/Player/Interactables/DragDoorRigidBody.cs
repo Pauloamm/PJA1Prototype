@@ -1,12 +1,15 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class DragDoorRigidBody : MonoBehaviour, IRaycastResponse
+public class DragDoorRigidBody : MonoBehaviour
 {
 
     public GameObject playerCam;
+
+    HingeJoint doorJoint;
+    Rigidbody doorBody;
 
     //private float PickupRange = 0.3f;
     //private float ThrowStrength = 50f;
@@ -26,7 +29,11 @@ public class DragDoorRigidBody : MonoBehaviour, IRaycastResponse
     private void Awake()
     {
         isObjectHeld = false;
+        doorJoint = this.GetComponent<HingeJoint>();
+        doorBody = this.GetComponent<Rigidbody>();
     }
+
+
 
     public void IsBeingDragged()
     {
@@ -47,11 +54,6 @@ public class DragDoorRigidBody : MonoBehaviour, IRaycastResponse
         isObjectHeld = true;
         this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<Rigidbody>().freezeRotation = false;
-        //if is door  use door values
-        //PickupRange = DoorGrab.m_DoorPickupRange;
-        //ThrowStrength = DoorGrab.m_DoorThrow;
-        //distance = DoorGrab.m_DoorDistance;
-        //maxDistanceGrab = DoorGrab.m_DoorMaxGrab;
     }
 
     public void HoldObject()
@@ -70,6 +72,19 @@ public class DragDoorRigidBody : MonoBehaviour, IRaycastResponse
         }
     }
 
+
+    public void UnlockJoints()
+    {
+        JointLimits limits = doorJoint.limits;
+        limits.min = -90;
+        limits.bounciness = 0;
+        limits.bounceMinVelocity = 0;
+        limits.max = 1;
+        doorJoint.limits = limits;
+        doorJoint.useLimits = true;
+        doorBody.constraints = RigidbodyConstraints.None;
+    }
+
     public void DropObject()
     {
         isObjectHeld = false;
@@ -77,13 +92,13 @@ public class DragDoorRigidBody : MonoBehaviour, IRaycastResponse
         this.GetComponent<Rigidbody>().freezeRotation = false;
     }
 
-    public void OnRaycastSelect()
+    public void OnSelect()
     {
         playerMovement.enabled = false;
         IsBeingDragged();
     }
 
-    public void OnRaycastDiselect()
+    public void OnDiselect()
     {
         playerMovement.enabled = true;
         DropObject();
