@@ -7,7 +7,7 @@ public class InspectItemRender : MonoBehaviour
 
 
     // Current slot for inspect
-    public Slot slotForInspect;
+    public InventorySlot inventorySlotForInspect;
 
     // Script for the event to load the gameObject from current slot
     [SerializeField] private DisplayPanel displayPanel;
@@ -30,7 +30,7 @@ public class InspectItemRender : MonoBehaviour
 
     public void ItemLoad()
     {
-        GameObject itemGameObjectForInspect = slotForInspect.itemGameObjectForInspect;
+        GameObject itemGameObjectForInspect = inventorySlotForInspect.StoredItem.ItemGameObjectForInspect;
 
         Debug.Log("Spawn");
         instantiatedItem = Instantiate(itemGameObjectForInspect, this.transform.position, Quaternion.identity);
@@ -39,7 +39,7 @@ public class InspectItemRender : MonoBehaviour
     void Update()
     {
         // Used for rotation of item
-        slotForInspect?.slotActions[0].RespectiveAction(instantiatedItem);
+        inventorySlotForInspect?.StoredItem.ItemActions[0].RespectiveAction(instantiatedItem);
 
         // Check for Esc key to leave (destroys item and changes to InventoryUI)
         if (Input.GetKeyDown(KeyCode.Escape))

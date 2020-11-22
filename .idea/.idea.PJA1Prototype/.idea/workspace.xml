@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/9c/3a9c8028/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/cc/a4605969/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
@@ -21,19 +22,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/DragRigidBody.cs" />
-        <option value="$PROJECT_DIR$/Assets/Enemies/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemInspect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/PlayerLockManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectMode.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/DisplayPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/UiStateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FlashlightCapacity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/GunManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoleManager.cs" />
@@ -41,7 +29,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHoleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponManager.cs" />
@@ -56,14 +43,36 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Storable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Shotgun.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponInfo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ISelectable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/DisplayPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotSelection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/HealAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IPickUpable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/PelletHoles/PelletHoleManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Slot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/WeaponSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/EquipmentSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/ItemSlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/Slot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlotable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IStorable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/EquipmentInventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IPickUpable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Shotgun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Pistol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Melee/Melee.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
       </list>
     </option>
   </component>
@@ -132,6 +141,10 @@
       <workItem from="1604698152141" duration="5596000" />
       <workItem from="1604711923488" duration="1690000" />
       <workItem from="1604781836276" duration="5522000" />
+      <workItem from="1605898709187" duration="2328000" />
+      <workItem from="1605978127123" duration="6518000" />
+      <workItem from="1606062630561" duration="6988000" />
+      <workItem from="1606075863437" duration="8329000" />
     </task>
     <servers />
   </component>
@@ -212,18 +225,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603725854884" />
-    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1604712570686">
+    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1606080769727">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604712570686" />
+    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606080769727" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603725674664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603725674664" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1604713626466">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605980292155">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604713626466" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605980292155" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603834775503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

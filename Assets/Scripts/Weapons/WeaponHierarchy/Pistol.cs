@@ -8,10 +8,10 @@ public class Pistol : Weapon
 	{
 		this.type = "Pistol";
 		pelletHoleManager = new PelletHoleManager();
+		
+		defaultLocalPosition = this.transform.position;
+		defaultLocalRotation = this.transform.rotation;
 	}
-	protected override Vector3 WeaponSpread()
-    {     
-        return base.WeaponSpread();
-    }
+	
 
 }

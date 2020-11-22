@@ -11,9 +11,9 @@ public class DisplayPanel : MonoBehaviour
 	public delegate GameObject OnClick();
 	public event OnClick OnMouseClick;
 
-	// Slot selected
+	// InventorySlot selected
 	GameObject slotSelected;
-	Slot currentSlot;
+	InventorySlot currentInventorySlot;
 	private List<Action> currentSlotActions;
 
 
@@ -22,9 +22,7 @@ public class DisplayPanel : MonoBehaviour
 	[SerializeField] private GameObject buttonPrefab;
 
 	bool isOpen = false;
-	void Awake()
-	{
-	}
+	
 
 	void Update()
 	{
@@ -34,11 +32,12 @@ public class DisplayPanel : MonoBehaviour
 			{
 				// Gets slot where mouse is selected 
 				slotSelected = OnMouseClick?.Invoke();
+				
 				if (slotSelected != null)
 				{
 
-					currentSlot = slotSelected.GetComponent<Slot>(); // Get Slot
-					currentSlotActions = currentSlot.slotActions;
+					currentInventorySlot = slotSelected.GetComponent<InventorySlot>(); // Get InventorySlot
+					currentSlotActions = currentInventorySlot.StoredItem.ItemActions;
 					CreatePanelWithActions();
 
 					panel.transform.position = Input.mousePosition; // Mete o o painel junto ao rato
@@ -70,7 +69,7 @@ public class DisplayPanel : MonoBehaviour
 
 	public event OnAction inspectOpen;
 	public event OnAction HealthPlus;
-	private Slot ReturnSlot() => currentSlot;
+	private InventorySlot ReturnSlot() => currentInventorySlot;
 
 	private void CreatePanelWithActions()
 	{
@@ -94,7 +93,7 @@ public class DisplayPanel : MonoBehaviour
 					switch (action.actionName)
 					{
 						case "Inspect":
-							inspectItemRender.slotForInspect = currentSlot;
+							inspectItemRender.inventorySlotForInspect = currentInventorySlot;
 							inspectOpen?.Invoke();
 							DisablePanel(); // Disables panel
 

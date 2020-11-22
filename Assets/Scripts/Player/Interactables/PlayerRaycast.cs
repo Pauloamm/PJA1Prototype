@@ -11,7 +11,7 @@ public class PlayerRaycast : MonoBehaviour
 
     [SerializeField] private Camera playerCamera;
 
-    [SerializeField] private SlotManager slotManager;
+    [SerializeField] private Inventory inventory;
 
     private bool isHolding = true;
 

@@ -8,9 +8,9 @@ public class WeaponManager : MonoBehaviour
     // Value obtained by hand testing best position
     private readonly Vector3 defaultOffSet = new Vector3(0.47f, -0.12f, 0.7f);
 
-    [SerializeField] private List<WeaponInfo> ownedGuns; // SERIALIZED FOR DEBUGGING
+    [SerializeField] private List<Weapon> ownedGuns; // SERIALIZED FOR DEBUGGING
 
-    /*[SerializeField]*/ private WeaponInfo equippedWeapon; // SERIALIZED FOR DEBUGGING
+    /*[SerializeField]*/ private Weapon equippedWeapon; // SERIALIZED FOR DEBUGGING
 
     [SerializeField] private GameObject previousGun;
 
@@ -19,17 +19,17 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private readonly KeyCode reloadKeycode = KeyCode.R;
 
     // ACESSORS
-    public WeaponInfo EquippedWeapon => equippedWeapon;
+    public Weapon EquippedWeapon => equippedWeapon;
 
     // Events for UI change
-    public delegate void WeaponAction(WeaponInfo weaponInfo);
+    public delegate void WeaponAction(Weapon weaponInfo);
     public event WeaponAction WeaponSwitched;
     public event WeaponAction WeaponReloaded;
     public event WeaponAction WeaponShot;
     
     private void Awake()
     {
-        ownedGuns = new List<WeaponInfo>();
+        ownedGuns = new List<Weapon>();
     }
 
     private void Update()
@@ -42,9 +42,9 @@ public class WeaponManager : MonoBehaviour
     private void WeaponSelectionInput()
     {
         // Check for input if u pressed any of the weapons associated keys
-        foreach (WeaponInfo weaponInfo in ownedGuns)
+        foreach (Weapon weaponInfo in ownedGuns)
         {
-            if (Input.GetKeyDown(weaponInfo.weapon.weaponKeyCode))
+            if (Input.GetKeyDown(weaponInfo.weaponKeyCode))
             {
                 // If so switch for respective weapon
                 SwitchWeapon(weaponInfo);
@@ -58,29 +58,26 @@ public class WeaponManager : MonoBehaviour
         if (equippedWeapon == null) return;
 
 
-        if (Input.GetKeyDown(shootKeycode))
+        if (Input.GetKeyDown(shootKeycode) && equippedWeapon.CanShoot)
         {
-            equippedWeapon.weapon.Attacking();
-            WeaponShot?.Invoke(equippedWeapon);
+                equippedWeapon.Attacking();
+                WeaponShot?.Invoke(equippedWeapon);
+            
+            
         }
 
-        if (Input.GetKeyDown(reloadKeycode))
+        if (Input.GetKeyDown(reloadKeycode) && equippedWeapon.CanReload)
         {
-            if (equippedWeapon.remainingMagazines > 0)
-            {
-                equippedWeapon.weapon.ChangeMagazine();
-                equippedWeapon.remainingMagazines--;
+                equippedWeapon.ChangeMagazine();
                 WeaponReloaded?.Invoke(equippedWeapon);
 
-
-            }
         }
     }
 
 
-    private void SwitchWeapon(WeaponInfo weaponToEquip)
+    private void SwitchWeapon(Weapon weaponToEquip)
     {
-        GameObject weaponToEquipObject = weaponToEquip.weapon.gameObject;
+        GameObject weaponToEquipObject = weaponToEquip.gameObject;
 
         try
         {
@@ -105,13 +102,9 @@ public class WeaponManager : MonoBehaviour
 
     public void AddWeapon(GameObject newWeapon, Transform parentCamera)
     {
-        WeaponInfo weaponInfo = new WeaponInfo
-        {
-            remainingMagazines = 1,
-            weapon = newWeapon.GetComponent<Weapon>(),
-        };
+        Weapon weaponToAdd = newWeapon.GetComponent<Weapon>();
 
-        ownedGuns.Add(weaponInfo);
+        ownedGuns.Add(weaponToAdd);
 
         // Sets position and rotation to parent
         newWeapon.transform.position = Vector3.zero;
@@ -121,11 +114,11 @@ public class WeaponManager : MonoBehaviour
         newWeapon.transform.LookAt(parentCamera.position + (parentCamera.forward * 50f));
 
         // Initiates default position and rotation 
-        weaponInfo.weapon.OnPickUpDefaultInit(Quaternion.identity, defaultOffSet);
+        weaponToAdd.OnPickUpDefaultInit(Quaternion.identity, defaultOffSet);
 
         //Switches for new weapon
-        equippedWeapon = weaponInfo;
-        SwitchWeapon(weaponInfo);
+        equippedWeapon = weaponToAdd;
+        SwitchWeapon(weaponToAdd);
         
         
     }

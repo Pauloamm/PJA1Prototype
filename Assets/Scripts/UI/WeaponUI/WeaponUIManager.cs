@@ -23,11 +23,11 @@ public class WeaponUIManager : MonoBehaviour
     
     
 
-    private void OnWeaponSwap(WeaponInfo weaponInfo)
+    private void OnWeaponSwap(Weapon equippedWeapon)
     {
         foreach (WeaponUI weaponUI in weaponsUI)
         {
-            if (weaponUI.CorrespondentWeapon.weapon == weaponInfo.weapon)
+            if (weaponUI.CorrespondentWeapon == equippedWeapon)
             {
                 previousWeaponUI?.gameObject.SetActive(false);
                 weaponUI.gameObject.SetActive(true);
@@ -38,8 +38,8 @@ public class WeaponUIManager : MonoBehaviour
         }
     }
 
-    private void OnWeaponShot(WeaponInfo weaponInfo) => currentWeaponUI?.WeaponShotUIChange();
+    private void OnWeaponShot(Weapon weaponInfo) => currentWeaponUI?.WeaponShotUIChange();
 
-    private void OnWeaponReload(WeaponInfo weaponInfo) => currentWeaponUI?.WeaponReloadedUIChange();
+    private void OnWeaponReload(Weapon weaponInfo) => currentWeaponUI?.WeaponReloadedUIChange();
     
 }

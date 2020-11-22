@@ -9,10 +9,14 @@ public class HealAction : Action
 {
 	public override void RespectiveAction(GameObject itemObject)
 	{
-		if (itemObject.GetComponent<IStorable>().Quantity-- <= 1)
-			Destroy(itemObject);
-		else
-			itemObject.GetComponentInChildren<Text>().text = "x" + 
-				itemObject.GetComponent<IStorable>().Quantity.ToString();
+		ISlot slot = itemObject.GetComponent<ISlot>();
+		
+		itemObject.transform.parent.GetComponent<Inventory>().RemoveSlot(slot.GetType);
+		//HEAL ACTION
+
+		Debug.Log("BIG BIG HEAL");
+
+		
+		
 	}
 }

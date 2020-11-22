@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //[CreateAssetMenu(menuName ="Interactable/Item")]
 
-public class Item : MonoBehaviour, IStorable,IRaycastResponse
+public class Item : MonoBehaviour, IPickUpable, IRaycastResponse
 {
-	// -------------------------------------IStorable---------------------------------------------//
+	// -------------------------------------IPickUpable---------------------------------------------//
 
-	// Slot manager
-	[SerializeField] private SlotManager slotManager;
+	// InventorySlot manager
+	[SerializeField] private Inventory inventory;
 
 	// List of actions for the item
 	[SerializeField] private List<Action> itemActions;
@@ -17,22 +18,25 @@ public class Item : MonoBehaviour, IStorable,IRaycastResponse
 	// Item for inspect item menu and inventory icon
 	[SerializeField] private GameObject itemGameObjectForInspect;
 	[SerializeField] private Sprite icon;
-	[SerializeField] private int quantity = 1;
 	public string type = "Item";
 
-	public SlotManager SlotManager => slotManager;
+	public Inventory Inventory => inventory;
 	public List<Action> ItemActions => itemActions;
 	public GameObject ItemGameObjectForInspect => itemGameObjectForInspect;
 	public Sprite Icon => icon;
-	public int Quantity { get { return this.quantity; } set { quantity = value; } }
 	public string Type { get { return this.type; } set { type = value; } }
+	
+	public Inventory inventoryToStore { get; }
 
-    // -------------------------------------------------------------------------------------------//
+	// -------------------------------------------------------------------------------------------//
     public void StoreItem()
     {
-        slotManager.AddSlot(this.gameObject);
+        inventory.AddItemSlot(this.gameObject);
         Destroy(this.gameObject);
     }
+
+ 
+
 
     public void OnRaycastSelect()
     {
@@ -44,5 +48,29 @@ public class Item : MonoBehaviour, IStorable,IRaycastResponse
         //pra nao dar erro XD
     }
 
+    public void UpdateItemQuantityUI(GameObject currentItem)
+    {
+	    ISlot currentSlot = currentItem.GetComponent<ISlot>();
+	    currentItem.GetComponentInChildren<Text>().text = "x" + currentSlot.Quantity;
+    }
 
+    public void RemoveItem(Dictionary<string, GameObject> inventoryToRemove)
+    {
+	    InventorySlot currentSlot =(InventorySlot) inventoryToRemove[type].GetComponent<ISlot>();
+	    
+	    if (currentSlot.Quantity > 1)
+	    {
+		    currentSlot.Quantity--;
+		    UpdateItemQuantityUI(inventoryToRemove[type]);
+	    }
+	    else
+	    {
+		    inventoryToRemove.Remove(type);
+		    Destroy(currentSlot.gameObject);
+	    } 
+    }
+
+
+    
+    
 }

@@ -15,16 +15,25 @@
             <e p="FlashlightOrientation.cs" t="Include" />
           </e>
           <e p="Interfaces" t="Include">
+            <e p="IPickUpable.cs" t="Include" />
+            <e p="IRaycastResponse.cs" t="Include" />
             <e p="IRechargeable.cs" t="Include" />
+            <e p="ISlot.cs" t="Include" />
+            <e p="IUnlockable.cs" t="Include" />
           </e>
           <e p="Inventory" t="Include">
             <e p="CanvasManager.cs" t="Include" />
             <e p="DisplayPanel.cs" t="Include" />
+            <e p="HeartSprites" t="Include">
+              <e p="HeartAnimation.cs" t="Include" />
+            </e>
             <e p="InspectItemRender.cs" t="Include" />
-            <e p="IStorable.cs" t="Include" />
-            <e p="Slot.cs" t="Include" />
-            <e p="SlotManager.cs" t="Include" />
-            <e p="SlotSelection.cs" t="Include" />
+            <e p="Inventory.cs" t="Include" />
+            <e p="InventoryTabManager.cs" t="Include" />
+            <e p="SlotS" t="Include">
+              <e p="InventorySlot.cs" t="Include" />
+              <e p="SlotSelection.cs" t="Include" />
+            </e>
             <e p="UiStateManager.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">
@@ -43,19 +52,29 @@
             <e p="SteeringBehaviour.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="Health.cs" t="Include" />
+            <e p="HealthManager.cs" t="Include" />
             <e p="Interactables" t="Include">
-              <e p="DragRigidBody.cs" t="Include" />
+              <e p="DragDoorRigidBody.cs" t="Include" />
               <e p="Item" t="Include">
                 <e p="Action.cs" t="Include" />
+                <e p="HealAction.cs" t="Include" />
                 <e p="Item.cs" t="Include" />
                 <e p="ItemInspect.cs" t="Include" />
               </e>
+              <e p="Keys" t="Include">
+                <e p="UnlockManager.cs" t="Include" />
+              </e>
+              <e p="PickUpRigidBody.cs" t="Include" />
               <e p="PlayerRaycast.cs" t="Include" />
             </e>
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="FlashlightCapacity.cs" t="Include" />
+            <e p="Map" t="Include">
+              <e p="MapShowArea.cs" t="Include" />
+            </e>
             <e p="WeaponUI" t="Include">
               <e p="WeaponUI.cs" t="Include" />
               <e p="WeaponUIManager.cs" t="Include" />
@@ -67,6 +86,9 @@
               <e p="PelletHoleManager.cs" t="Include" />
             </e>
             <e p="WeaponHierarchy" t="Include">
+              <e p="Melee" t="Include">
+                <e p="Melee.cs" t="Include" />
+              </e>
               <e p="Pistol.cs" t="Include" />
               <e p="Shotgun.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />

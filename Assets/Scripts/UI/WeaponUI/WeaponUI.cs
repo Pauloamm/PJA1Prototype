@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class WeaponUI : MonoBehaviour
 {
-    [SerializeField] private WeaponInfo correspondentWeapon;
+    [SerializeField] private Weapon correspondentWeapon;
     [SerializeField] private List<GameObject> bulletsUI;
 
     //ACESSORS
-    public WeaponInfo CorrespondentWeapon => correspondentWeapon;
+    public Weapon CorrespondentWeapon => correspondentWeapon;
 
 
     void Awake()
@@ -21,8 +21,8 @@ public class WeaponUI : MonoBehaviour
     
     public void WeaponReloadedUIChange()
     {
-        int reloadedBullets = correspondentWeapon.weapon.BulletsInCurrentMagazine;
-        int magazineSize = correspondentWeapon.weapon.DefaultMagazineSize;
+        int reloadedBullets = correspondentWeapon.BulletsInCurrentMagazine;
+        int magazineSize = correspondentWeapon.DefaultMagazineSize;
 
         for (int i = magazineSize - 1; i >= magazineSize - reloadedBullets; i--)
         {
@@ -33,7 +33,10 @@ public class WeaponUI : MonoBehaviour
 
     public void WeaponShotUIChange()
     {
-        if(bulletsUI.Count>0)
-        bulletsUI[bulletsUI.Count - (correspondentWeapon.weapon.BulletsInCurrentMagazine + 1)].SetActive(false);
+        if(bulletsUI.Count != 0)
+        bulletsUI[bulletsUI.Count - (correspondentWeapon.BulletsInCurrentMagazine + 1)].SetActive(false);
+
     }
+
+    
 }

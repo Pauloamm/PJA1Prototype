@@ -1,36 +1,35 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
+public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
 {
-
-    // -------------------------------------IStorable---------------------------------------------//
-
-    // Slot manager
-    [SerializeField] protected SlotManager slotManager;
-
-    // List of actions for the item
+    
+    // Variables
     [SerializeField] protected List<Action> itemActions;
-
-    // Item for inspect item menu and inventory icon
     [SerializeField] protected GameObject itemGameObjectForInspect;
     [SerializeField] protected Sprite icon;
-    [SerializeField] protected int remainingMagazines;
-    public string type = "Weapon";
+    [SerializeField] protected string type = "Weapon";
 
-    public SlotManager SlotManager => slotManager;
+    // Inventory to be stored
+    [SerializeField] protected Inventory inventory;
+
+    // -------------------------------------IPickUpable---------------------------------------------//
+
+    //ACESSORS
     public List<Action> ItemActions => itemActions;
     public GameObject ItemGameObjectForInspect => itemGameObjectForInspect;
     public Sprite Icon => icon;
-    public int Quantity { get { return this.remainingMagazines; } set { remainingMagazines = value; } }
-    public string Type { get { return this.type; } set { type = value; } }
+    public string Type => type;
 
-
-
+    public Inventory inventoryToStore => inventory;
     // -------------------------------------------------------------------------------------------//
+    
+    public int RemainingMagazines => inventory.GetQuantity(type) - 1;
 
-
+  
+   
+    
     // Magazine/bullets variables
     [SerializeField] protected int bulletsinCurrentMagazine;
     [SerializeField] protected int defaultMagazineSize = 10;
@@ -81,13 +80,20 @@ public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
 
     //ACESSORS
     public int BulletsInCurrentMagazine => bulletsinCurrentMagazine;
-
     public int DefaultMagazineSize => defaultMagazineSize;
+    
+    // Conditions
+    public virtual bool CanShoot => nextShotCooldown <= 0 && bulletsinCurrentMagazine > 0;
+    public virtual bool CanReload => RemainingMagazines  > 0 && bulletsinCurrentMagazine != defaultMagazineSize;
+
 
     private void Awake()
     {
         pelletHoleManager = new PelletHoleManager();
         bulletsinCurrentMagazine = defaultMagazineSize;
+
+        defaultLocalPosition = this.transform.position;
+        defaultLocalRotation = this.transform.rotation;
     }
 
 
@@ -106,10 +112,6 @@ public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
     }
     public virtual void Attacking()
     {
-
-        // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
-        if (nextShotCooldown > 0 || bulletsinCurrentMagazine <= 0) return;
-
         // Update the time when our player can fire next
         nextShotCooldown = defaultShotCooldown;
 
@@ -180,12 +182,17 @@ public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
 
     //Changes the magazine for the current weapon with a magazine thats has random bullets in her
 
-    public virtual void ChangeMagazine()
+    public  void ChangeMagazine()
     {
         float fillPercentage = RandomNonLinearProbabilityPercentage();
         bulletsinCurrentMagazine = (int)(defaultMagazineSize * fillPercentage);
+        
+        
         // Play the reloading sound effect
         gunAudio.PlayOneShot(gunSounds[1]);
+        
+        inventory.RemoveSlot(type);
+
 
 
     }
@@ -204,13 +211,7 @@ public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
     }
 
 
-    //Stores the weapon on the inventory
-    public void StoreItem()
-    {
-        slotManager.AddSlot(this.gameObject);
-        weaponManager.AddWeapon(this.gameObject, playerCamera.transform);
-
-    }
+  
 
     // Play the shooting sound effect
     protected void PlayShootingSound() => gunAudio.PlayOneShot(gunSounds[0]);
@@ -258,14 +259,46 @@ public class Weapon : MonoBehaviour, IStorable, IRaycastResponse
         }
     }
 
+    
+    
+    
     public void OnRaycastSelect()
     {
         StoreItem();
     }
 
+    //Stores the weapon on the inventory
+    public void StoreItem()
+    {
+        inventory.AddItemSlot(this.gameObject);
+        weaponManager.AddWeapon(this.gameObject, playerCamera.transform);
+
+    }
     public void OnRaycastDiselect()
     {
         //pra nao dar erro XD
+    }
+
+
+    public  void RemoveItem(Dictionary<string, GameObject> inventoryToRemove)
+    {
+        if (RemainingMagazines > 0)
+        {
+            Debug.Log(RemainingMagazines);
+            inventoryToRemove[type].GetComponent<ISlot>().Quantity--;
+            UpdateItemQuantityUI(inventoryToRemove[type]);
+        }
+    }
+
+    public void UpdateItemQuantityUI(GameObject currentItem)
+    {
+        
+        if(RemainingMagazines  > 0)
+        currentItem.GetComponentInChildren<Text>().text = "x" + RemainingMagazines ;
+        else
+            currentItem.GetComponentInChildren<Text>().text = " ";
+
+
     }
 }
 

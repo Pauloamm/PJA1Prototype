@@ -9,6 +9,9 @@ public class Shotgun : Weapon
 	{
 		this.type = "Shotgun";
 		pelletHoleManager = new PelletHoleManager();
+        
+        defaultLocalPosition = this.transform.position;
+        defaultLocalRotation = this.transform.rotation;
 
 	}
 

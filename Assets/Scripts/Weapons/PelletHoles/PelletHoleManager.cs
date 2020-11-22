@@ -21,7 +21,6 @@ public class PelletHoleManager
 
     public void NewPelletHole(Vector3 hitPoint, GameObject hitObject)
     {
-		Debug.Log(hitPoint);
         GameObject newPelletHole = Object.Instantiate(pelletHolePrefab, hitPoint, playerCamera.transform.rotation);
         
         newPelletHole.transform.parent = hitObject.transform;

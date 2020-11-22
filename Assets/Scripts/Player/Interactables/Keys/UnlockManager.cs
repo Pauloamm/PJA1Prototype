@@ -11,11 +11,11 @@ public class UnlockManager : MonoBehaviour, IRaycastResponse
     DragDoorRigidBody dragDoor;
 
     [SerializeField]
-    SlotManager slotManager;
+    Inventory inventory;
 
     public void OnRaycastSelect()
     {
-        if (slotManager.IsStored(requiredKey))
+        if (inventory.IsStored(requiredKey))
             dragDoor.UnlockJoints();
 
             dragDoor.OnSelect();
