@@ -49,7 +49,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotSelection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/HealAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IPickUpable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUIManager.cs" />
@@ -64,15 +63,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IStorable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/EquipmentInventorySlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IPickUpable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/InventorySlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Shotgun.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Pistol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Melee/Melee.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/HealAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IPickUpable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
       </list>
     </option>
   </component>
@@ -145,6 +145,7 @@
       <workItem from="1605978127123" duration="6518000" />
       <workItem from="1606062630561" duration="6988000" />
       <workItem from="1606075863437" duration="8329000" />
+      <workItem from="1606315654095" duration="2670000" />
     </task>
     <servers />
   </component>
@@ -225,10 +226,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603725854884" />
-    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1606080769727">
+    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1606317597844">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606080769727" />
+    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606317597844" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603725674664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -11,7 +11,7 @@ public class HealAction : Action
 	{
 		ISlot slot = itemObject.GetComponent<ISlot>();
 		
-		itemObject.transform.parent.GetComponent<Inventory>().RemoveSlot(slot.GetType);
+		slot.StoredItem.RemoveItem();
 		//HEAL ACTION
 
 		Debug.Log("BIG BIG HEAL");

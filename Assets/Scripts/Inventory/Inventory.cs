@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
 			storedItem.Quantity++;
 			Debug.Log(storedItem.Quantity);
 
-			UpdateQuantity(inventory[itemInfo.Type]);
+			UpdateQuantityUI(inventory[itemInfo.Type]);
 
 			return;
 		}
@@ -63,15 +63,32 @@ public class Inventory : MonoBehaviour
 		
 		newSlotObject.GetComponent<Image>().sprite = newSlot.GetIcon;
 		
-		newSlot.StoredItem.UpdateItemQuantityUI(newSlotObject);
-
+		UpdateQuantityUI(newSlotObject);
+	
 
 	}
 
-	public void UpdateQuantity(GameObject currentSlot)
+	public void UpdateQuantityUI(GameObject currentItem)
 	{
-		currentSlot.GetComponent<ISlot>().StoredItem.UpdateItemQuantityUI(currentSlot);
+		ISlot currentSlot = currentItem.GetComponent<ISlot>();
+
+		
+		// Gets number for UI
+		int quantityToUpdate;
+
+		if (currentSlot.StoredItem.IsPermanent) quantityToUpdate = currentSlot.Quantity - 1;
+		else quantityToUpdate = currentSlot.Quantity ;
+		
+		// Updates UI
+		if(quantityToUpdate > 0)
+		currentItem.GetComponentInChildren<Text>().text = "x" + quantityToUpdate;
+		else 
+			currentItem.GetComponentInChildren<Text>().text = "";
+
+
 	}
+	
+	
 
 
 
@@ -82,7 +99,44 @@ public class Inventory : MonoBehaviour
 	
 	public void RemoveSlot(string key)
 	{
-		inventory[key].GetComponent<ISlot>().StoredItem.RemoveItem(inventory);
+		ISlot slotToRemove = inventory[key].GetComponent<ISlot>();
+		bool isPermanent = slotToRemove.StoredItem.IsPermanent;
+
+		int permanentItemLimit = 1;
+		int notPermanentItemLimit = 0;
+
+		// Checks if item 
+		if (isPermanent)
+		{
+			if (slotToRemove.Quantity > permanentItemLimit)
+			{
+				slotToRemove.Quantity--;
+				UpdateQuantityUI(inventory[key]);
+
+				
+			}
+		}
+		else
+		{
+			if (slotToRemove.Quantity > notPermanentItemLimit)
+				slotToRemove.Quantity--;
+			
+
+			// Checks if quantity is lower than the minimum amount (0)
+			if (slotToRemove.Quantity == notPermanentItemLimit)
+			{
+				GameObject toDelete = inventory[key];
+				inventory.Remove(key);
+				Destroy(toDelete);
+
+			}
+			else 
+				UpdateQuantityUI(inventory[key]);
+
+		}
+		
+
+
 	}
 	
 }

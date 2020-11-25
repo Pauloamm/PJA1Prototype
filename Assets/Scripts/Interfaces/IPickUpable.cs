@@ -9,14 +9,14 @@ public interface IPickUpable
     GameObject ItemGameObjectForInspect { get; }
     Sprite Icon { get; }
 	string Type { get; }
+	
+	bool IsPermanent { get; }
 
-	Inventory inventoryToStore { get; }
 	
 	
     // Methods
     void StoreItem();
-    void UpdateItemQuantityUI(GameObject currentItem);
-    void RemoveItem(Dictionary<string,GameObject> inventoryToRemove);
+    void RemoveItem();
     
 
 }

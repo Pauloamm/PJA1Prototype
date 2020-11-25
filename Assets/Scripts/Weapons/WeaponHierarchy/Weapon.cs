@@ -10,6 +10,7 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     [SerializeField] protected GameObject itemGameObjectForInspect;
     [SerializeField] protected Sprite icon;
     [SerializeField] protected string type = "Weapon";
+    [SerializeField] protected bool isPermanent = true;
 
     // Inventory to be stored
     [SerializeField] protected Inventory inventory;
@@ -23,6 +24,8 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     public string Type => type;
 
     public Inventory inventoryToStore => inventory;
+
+    public bool IsPermanent => isPermanent;
     // -------------------------------------------------------------------------------------------//
     
     public int RemainingMagazines => inventory.GetQuantity(type) - 1;
@@ -280,25 +283,11 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     }
 
 
-    public  void RemoveItem(Dictionary<string, GameObject> inventoryToRemove)
+    public  void RemoveItem()
     {
-        if (RemainingMagazines > 0)
-        {
-            Debug.Log(RemainingMagazines);
-            inventoryToRemove[type].GetComponent<ISlot>().Quantity--;
-            UpdateItemQuantityUI(inventoryToRemove[type]);
-        }
+        inventory.RemoveSlot(type);
     }
 
-    public void UpdateItemQuantityUI(GameObject currentItem)
-    {
-        
-        if(RemainingMagazines  > 0)
-        currentItem.GetComponentInChildren<Text>().text = "x" + RemainingMagazines ;
-        else
-            currentItem.GetComponentInChildren<Text>().text = " ";
-
-
-    }
+   
 }
 
