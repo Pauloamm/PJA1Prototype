@@ -94,6 +94,9 @@
               <e p="Weapon.cs" t="Include" />
               <e p="WeaponInfo.cs" t="Include" />
               <e p="WeaponManager.cs" t="Include" />
+              <e p="WeaponsAnimation" t="Include">
+                <e p="WeaponAnimationManager.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>

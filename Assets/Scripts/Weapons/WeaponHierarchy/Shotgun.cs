@@ -7,30 +7,32 @@ public class Shotgun : Weapon
 
 	void Awake()
 	{
-		this.type = "Shotgun";
-		pelletHoleManager = new PelletHoleManager();
-        
         defaultLocalPosition = this.transform.position;
         defaultLocalRotation = this.transform.rotation;
 
+        this.type = "Shotgun";
+
+        
+        weaponAnimationManager = new WeaponAnimationManager(animationComponent, holsterWeaponAnimation,drawWeaponAnimation,reloadWeaponAnimation);
+		pelletHoleManager = new PelletHoleManager();
+        
 	}
 
 	public override void Attacking()
     {
-        // Check if enough time has elapsed since they last fired and if there is at least 1 bullet available
-        if (nextShotCooldown > 0 || bulletsinCurrentMagazine <= 0) return;
 
         // Update the time when our player can fire next
         nextShotCooldown = defaultShotCooldown;
-
-        PlayShootingSound();
-
-        // Create a vector at the center of our camera's viewport
-        rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-
+        
         // Reduce the bullets available
         bulletsinCurrentMagazine--;
 
+        PlayShootingSound();
+
+        
+        
+        // Create a vector at the center of our camera's viewport
+        rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
         for (int i = 0; i < pelletsPerBulletShot; i++)
         {

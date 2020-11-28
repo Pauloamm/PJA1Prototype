@@ -85,13 +85,30 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     public int BulletsInCurrentMagazine => bulletsinCurrentMagazine;
     public int DefaultMagazineSize => defaultMagazineSize;
     
-    // Conditions
-    public virtual bool CanShoot => nextShotCooldown <= 0 && bulletsinCurrentMagazine > 0;
-    public virtual bool CanReload => RemainingMagazines  > 0 && bulletsinCurrentMagazine != defaultMagazineSize;
+   
 
+    // ANIMATIONS
+    [SerializeField] protected Animation animationComponent;
+    protected WeaponAnimationManager weaponAnimationManager;
 
+    [SerializeField] protected AnimationClip holsterWeaponAnimation;
+    [SerializeField] protected AnimationClip drawWeaponAnimation;
+    [SerializeField] protected AnimationClip reloadWeaponAnimation;
+
+    public bool IsAnimationPlaying => weaponAnimationManager.IsAnimationPlaying;
+
+    
+    
+    // Conditions(TIRAR COMENTARIO QUANDO ANIMATIONS PRONTAS)
+    public virtual bool CanShoot => nextShotCooldown <= 0 && bulletsinCurrentMagazine > 0 ;// && !IsAnimationPlaying;
+    public virtual bool CanReload => RemainingMagazines  > 0 && bulletsinCurrentMagazine != defaultMagazineSize; // && !IsAnimationPlaying;
+
+    
+    
     private void Awake()
     {
+        weaponAnimationManager = new WeaponAnimationManager(animationComponent, holsterWeaponAnimation,drawWeaponAnimation,reloadWeaponAnimation);
+        
         pelletHoleManager = new PelletHoleManager();
         bulletsinCurrentMagazine = defaultMagazineSize;
 
@@ -185,7 +202,7 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
 
     //Changes the magazine for the current weapon with a magazine thats has random bullets in her
 
-    public  void ChangeMagazine()
+    public void ChangeMagazine()
     {
         float fillPercentage = RandomNonLinearProbabilityPercentage();
         bulletsinCurrentMagazine = (int)(defaultMagazineSize * fillPercentage);
@@ -194,10 +211,11 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
         // Play the reloading sound effect
         gunAudio.PlayOneShot(gunSounds[1]);
         
+        //DESCOMENTAR QUANDO ANIMATIONS PRONTAS
+        // weaponAnimationManager.PlayReloadAnimation();
+        
         inventory.RemoveSlot(type);
-
-
-
+        
     }
 
     //Calculates the % of next magazines bullets 
@@ -288,6 +306,17 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
         inventory.RemoveSlot(type);
     }
 
+
+    public void PlayHolsterAnimation()
+    {
+        
+    }
+
+    public void PlayDrawAnimation()
+    {
+        
+    }
+    
    
 }
 

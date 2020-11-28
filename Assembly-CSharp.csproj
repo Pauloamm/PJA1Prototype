@@ -109,6 +109,7 @@
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\Weapon.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponInfo.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponManager.cs" />
+     <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponsAnimation\WeaponAnimationManager.cs" />
      <Compile Include="Assets\UI\Crosshair.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

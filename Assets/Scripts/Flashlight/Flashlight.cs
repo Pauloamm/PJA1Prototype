@@ -77,8 +77,6 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
     void Update()
     {
-        // TEST    small rotation upwards and down with camera movement
-        //UpdatePosition();
 
         // Timer counting battery time left
         if (flashlightLight.enabled)
@@ -159,17 +157,7 @@ public class Flashlight : MonoBehaviour, IRechargeable
 
 
   
-    public void UpdatePosition()
-    {
 
-        GameObject lookCube = GameObject.Find("InvisibleTarget");
-
-        Vector3 newForward = lookCube.transform.position - this.transform.position;
-        
-        this.transform.forward = newForward;
-
-
-    }
 
 
 
