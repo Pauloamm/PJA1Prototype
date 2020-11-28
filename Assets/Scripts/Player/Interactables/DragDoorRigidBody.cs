@@ -1,30 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class DragDoorRigidBody : MonoBehaviour
 {
-
     public GameObject playerCam;
+    
+    [SerializeField] private PlayerMovement playerMovementScript;
+    [SerializeField] private FlashlightOrientation flashlightOrientationScript;
 
     HingeJoint doorJoint;
     Rigidbody doorBody;
 
-    //private float PickupRange = 0.3f;
-    //private float ThrowStrength = 50f;
-    //private float distance = 0.3f;
-    //private float maxDistanceGrab = 0.3f;
-
-    public float m_DoorMaxGrab = 0.3f;
+    [SerializeField] private Transform bodyToRotate;
+    
+    public float interactDistance = 0.3f;
 
     private Ray playerAim;
-    public bool isObjectHeld;
-    private bool tryPickupObject;
 
-    //TESTE
-    [SerializeField]
-    PlayerMovement playerMovement;
+
+    public bool isObjectHeld;
+
+    private bool IsInRange =>
+        Vector3.Distance(this.transform.position, playerCam.transform.position) > interactDistance;
+    
+
 
     private void Awake()
     {
@@ -34,42 +36,35 @@ public class DragDoorRigidBody : MonoBehaviour
     }
 
 
-
-    public void IsBeingDragged()
+    private void Update()
     {
-        Debug.Log(isObjectHeld);
-        if (!isObjectHeld)
-        {
-            Debug.Log("entrou");
-            TryPickObject();
-        }
-        else
-        {
-            HoldObject();
-        }
+        if(!isObjectHeld) return;
+        
+        HoldObject();
+        
+        // Checks if stops interacting
+        if (Input.GetKeyUp(KeyCode.E) || !IsInRange)
+            DropObject();
+
     }
 
-    public void TryPickObject()
-    {
-        isObjectHeld = true;
-        this.GetComponent<Rigidbody>().useGravity = true;
-        this.GetComponent<Rigidbody>().freezeRotation = false;
-    }
 
     public void HoldObject()
     {
-        Transform Temp;
+        doorBody.useGravity = true;
+        doorBody.freezeRotation = false;
+        
+        
+        playerMovementScript.enabled = false;
+        flashlightOrientationScript.enabled = false;
 
-        Temp = this.transform;
+        Transform temp = this.transform;
 
-        Temp.Rotate(Vector3.up, (Input.GetAxis("Mouse Y") * Time.deltaTime) * 300f, Space.Self);
+        temp.Rotate(Vector3.up, (Input.GetAxis("Mouse Y") * Time.deltaTime) * 300f, Space.Self);
 
-        Quaternion.Slerp(this.transform.rotation, Temp.rotation, 1f);
+        Quaternion.Slerp(this.transform.rotation, temp.rotation, 1f);
 
-        if (Vector3.Distance(this.transform.position, playerCam.transform.position) > m_DoorMaxGrab)
-        {
-            DropObject();
-        }
+      
     }
 
 
@@ -88,19 +83,11 @@ public class DragDoorRigidBody : MonoBehaviour
     public void DropObject()
     {
         isObjectHeld = false;
-        this.GetComponent<Rigidbody>().useGravity = true;
-        this.GetComponent<Rigidbody>().freezeRotation = false;
-    }
+        
+        doorBody.useGravity = true;
+        doorBody.freezeRotation = false;
 
-    public void OnSelect()
-    {
-        playerMovement.enabled = false;
-        IsBeingDragged();
-    }
-
-    public void OnDiselect()
-    {
-        playerMovement.enabled = true;
-        DropObject();
+        playerMovementScript.enabled = true;
+        flashlightOrientationScript.enabled = true;
     }
 }

@@ -48,7 +48,7 @@ public class PlayerRaycast : MonoBehaviour
 
         bool isHitting = Physics.Raycast(playerRay, out hit);
         bool hasCollider = hit.collider != null;
-        bool hasInput = Input.GetKey(KeyCode.E);
+        bool hasInput = Input.GetKeyDown(KeyCode.E);
 
 
         if (isHitting && hasCollider && hasInput)
@@ -60,33 +60,11 @@ public class PlayerRaycast : MonoBehaviour
             {
                 IRaycastResponse temp = objectHit.GetComponent<IRaycastResponse>();
 
-                Debug.Log(lastObject);
-                if (temp != null)
-                {
-                    temp.OnRaycastSelect();
-                    lastObject = temp;
-                }
-                else
-                {
-                    lastObject?.OnRaycastDiselect();
-                    lastObject = null;
-                }
-
-
+                temp.OnRaycastSelect();
             }
-            else
-            {
-                lastObject?.OnRaycastDiselect();
-                lastObject = null;
-            }
-
+           
         }
-        else
-        {
-            lastObject?.OnRaycastDiselect();
-            lastObject = null;
-        }
-
+       
     }
 
 

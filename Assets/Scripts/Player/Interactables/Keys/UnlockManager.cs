@@ -18,11 +18,11 @@ public class UnlockManager : MonoBehaviour, IRaycastResponse
         if (inventory.IsStored(requiredKey))
             dragDoor.UnlockJoints();
 
-            dragDoor.OnSelect();
+        dragDoor.isObjectHeld = true;
     }
 
     public void OnRaycastDiselect()
     {
-        dragDoor.OnDiselect();
+        
     }
 }

@@ -23,13 +23,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/RaycastShoot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHole.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHoleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
@@ -74,6 +71,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponsAnimation/WeaponAnimationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Keys/UnlockManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/DragDoorRigidBody.cs" />
       </list>
     </option>
   </component>
@@ -148,6 +148,7 @@
       <workItem from="1606075863437" duration="8329000" />
       <workItem from="1606315654095" duration="2670000" />
       <workItem from="1606593056679" duration="5444000" />
+      <workItem from="1606600505325" duration="2491000" />
     </task>
     <servers />
   </component>
