@@ -10,6 +10,30 @@
           <e p="Enemy.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="Book" t="Include">
+            <e p="CanvasManager.cs" t="Include" />
+            <e p="DisplayPanel.cs" t="Include" />
+            <e p="HealthTab" t="Include">
+              <e p="HeartSprites" t="Include">
+                <e p="HeartAnimation.cs" t="Include" />
+              </e>
+            </e>
+            <e p="InspectItemRender.cs" t="Include" />
+            <e p="InventoryTab" t="Include">
+              <e p="Logic" t="Include">
+                <e p="Inventory.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="InventoryTabManager.cs" t="Include" />
+              </e>
+            </e>
+            <e p="SlotS" t="Include">
+              <e p="InventorySlot.cs" t="Include" />
+              <e p="SlotSelection.cs" t="Include" />
+            </e>
+            <e p="UiStateManager.cs" t="Include" />
+          </e>
+          <e p="Crosshair.cs" t="Include" />
           <e p="Flashlight" t="Include">
             <e p="Flashlight.cs" t="Include" />
             <e p="FlashlightOrientation.cs" t="Include" />
@@ -20,21 +44,6 @@
             <e p="IRechargeable.cs" t="Include" />
             <e p="ISlot.cs" t="Include" />
             <e p="IUnlockable.cs" t="Include" />
-          </e>
-          <e p="Inventory" t="Include">
-            <e p="CanvasManager.cs" t="Include" />
-            <e p="DisplayPanel.cs" t="Include" />
-            <e p="HeartSprites" t="Include">
-              <e p="HeartAnimation.cs" t="Include" />
-            </e>
-            <e p="InspectItemRender.cs" t="Include" />
-            <e p="Inventory.cs" t="Include" />
-            <e p="InventoryTabManager.cs" t="Include" />
-            <e p="SlotS" t="Include">
-              <e p="InventorySlot.cs" t="Include" />
-              <e p="SlotSelection.cs" t="Include" />
-            </e>
-            <e p="UiStateManager.cs" t="Include" />
           </e>
           <e p="Movement" t="Include">
             <e p="MovementInfo.cs" t="Include" />
@@ -99,9 +108,6 @@
               </e>
             </e>
           </e>
-        </e>
-        <e p="UI" t="Include">
-          <e p="Crosshair.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

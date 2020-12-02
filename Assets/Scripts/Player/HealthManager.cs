@@ -17,6 +17,7 @@ public class HealthManager : MonoBehaviour
 
 	private void DamageHealth()
 	{
+		
 
 	}
 	private void HealHealth()

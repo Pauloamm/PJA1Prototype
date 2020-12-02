@@ -59,6 +59,16 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Book\CanvasManager.cs" />
+     <Compile Include="Assets\Scripts\Book\DisplayPanel.cs" />
+     <Compile Include="Assets\Scripts\Book\HealthTab\HeartSprites\HeartAnimation.cs" />
+     <Compile Include="Assets\Scripts\Book\InspectItemRender.cs" />
+     <Compile Include="Assets\Scripts\Book\InventoryTab\Logic\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Book\InventoryTab\UI\InventoryTabManager.cs" />
+     <Compile Include="Assets\Scripts\Book\SlotS\InventorySlot.cs" />
+     <Compile Include="Assets\Scripts\Book\SlotS\SlotSelection.cs" />
+     <Compile Include="Assets\Scripts\Book\UiStateManager.cs" />
+     <Compile Include="Assets\Scripts\Crosshair.cs" />
      <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
      <Compile Include="Assets\Scripts\Flashlight\FlashlightOrientation.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPickUpable.cs" />
@@ -66,15 +76,6 @@
      <Compile Include="Assets\Scripts\Interfaces\IRechargeable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ISlot.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IUnlockable.cs" />
-     <Compile Include="Assets\Scripts\Inventory\CanvasManager.cs" />
-     <Compile Include="Assets\Scripts\Inventory\DisplayPanel.cs" />
-     <Compile Include="Assets\Scripts\Inventory\HeartSprites\HeartAnimation.cs" />
-     <Compile Include="Assets\Scripts\Inventory\InspectItemRender.cs" />
-     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
-     <Compile Include="Assets\Scripts\Inventory\InventoryTabManager.cs" />
-     <Compile Include="Assets\Scripts\Inventory\SlotS\InventorySlot.cs" />
-     <Compile Include="Assets\Scripts\Inventory\SlotS\SlotSelection.cs" />
-     <Compile Include="Assets\Scripts\Inventory\UiStateManager.cs" />
      <Compile Include="Assets\Scripts\Movement\MovementInfo.cs" />
      <Compile Include="Assets\Scripts\Movement\MovementManager.cs" />
      <Compile Include="Assets\Scripts\Movement\Steering.cs" />
@@ -110,7 +111,6 @@
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponInfo.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponHierarchy\WeaponsAnimation\WeaponAnimationManager.cs" />
-     <Compile Include="Assets\UI\Crosshair.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityProjects/PJA1Prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -23,7 +23,7 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     public Sprite Icon => icon;
     public string Type => type;
 
-    public Inventory inventoryToStore => inventory;
+    public Inventory InventoryToStore => inventory;
 
     public bool IsPermanent => isPermanent;
     // -------------------------------------------------------------------------------------------//
@@ -288,6 +288,11 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
         StoreItem();
     }
 
+    public void OnRaycastDiselect()
+    {
+        //IF HIGHLIGHT 
+    }
+
     //Stores the weapon on the inventory
     public void StoreItem()
     {
@@ -295,11 +300,7 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
         weaponManager.AddWeapon(this.gameObject, playerCamera.transform);
 
     }
-    public void OnRaycastDiselect()
-    {
-        //pra nao dar erro XD
-    }
-
+   
 
     public  void RemoveItem()
     {
@@ -307,15 +308,7 @@ public abstract class Weapon : MonoBehaviour, IPickUpable, IRaycastResponse
     }
 
 
-    public void PlayHolsterAnimation()
-    {
-        
-    }
-
-    public void PlayDrawAnimation()
-    {
-        
-    }
+   
     
    
 }

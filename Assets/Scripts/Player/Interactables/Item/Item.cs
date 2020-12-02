@@ -31,7 +31,7 @@ public class Item : MonoBehaviour, IPickUpable, IRaycastResponse
 	public string Type => type;
 
 	public bool IsPermanent => isPermanent;
-	public Inventory inventoryToStore { get; }
+	public Inventory InventoryToStore { get; }
 
 
 	// -------------------------------------------------------------------------------------------//

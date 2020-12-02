@@ -60,7 +60,7 @@ public class PlayerRaycast : MonoBehaviour
             {
                 IRaycastResponse temp = objectHit.GetComponent<IRaycastResponse>();
 
-                temp.OnRaycastSelect();
+                temp?.OnRaycastSelect();
             }
            
         }

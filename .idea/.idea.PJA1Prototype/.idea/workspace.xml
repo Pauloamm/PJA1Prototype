@@ -23,14 +23,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHole.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/PelletHoles/PelletHoleManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponInfo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/FlashlightOrientation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Shotgun.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Pistol.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI.cs" />
@@ -62,7 +54,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/HealAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IPickUpable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Melee/Melee.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponManager.cs" />
@@ -70,9 +61,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Pistol.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponsAnimation/WeaponAnimationManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Flashlight/Flashlight.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/HealthManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Keys/UnlockManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/MainInventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Book/InventoryTab/Logic/InventoryManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PlayerRaycast.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Book/InventoryTab/Logic/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Book/InventoryTab/UI/InventoryTabManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Book/SlotS/SlotSelection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PickUpRigidBody.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Keys/UnlockManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/DragDoorRigidBody.cs" />
       </list>
     </option>
@@ -149,6 +149,8 @@
       <workItem from="1606315654095" duration="2670000" />
       <workItem from="1606593056679" duration="5444000" />
       <workItem from="1606600505325" duration="2491000" />
+      <workItem from="1606755959452" duration="4779000" />
+      <workItem from="1606919099006" duration="5010000" />
     </task>
     <servers />
   </component>

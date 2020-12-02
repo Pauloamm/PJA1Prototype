@@ -53,6 +53,8 @@ public class PickUpRigidBody : MonoBehaviour, IRaycastResponse
 
         this.GetComponent<Rigidbody>().velocity = (nextPos - currPos) * 20;
 
+        
+        
         if (Vector3.Distance(this.transform.position, playerCam.transform.position) > maxDistanceGrab)
         {
             DropObject();
