@@ -58,7 +58,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\ActionNode.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\DecisionNode.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\DecisionTree.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\Node.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\BirdAction.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\CanFly.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\CanSwim.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\FishAction.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\HumanAction.cs" />
+     <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\IsBipede.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\States\LookForState.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\States\PatrolState.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\States\State.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\Transitions\ToDeadState.cs" />
+     <Compile Include="Assets\Scripts\AI\StateMachine\Transitions\Transition.cs" />
      <Compile Include="Assets\Scripts\Book\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\Book\DisplayPanel.cs" />
      <Compile Include="Assets\Scripts\Book\HealthTab\HeartSprites\HeartAnimation.cs" />
@@ -69,6 +84,7 @@
      <Compile Include="Assets\Scripts\Book\SlotS\SlotSelection.cs" />
      <Compile Include="Assets\Scripts\Book\UiStateManager.cs" />
      <Compile Include="Assets\Scripts\Crosshair.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
      <Compile Include="Assets\Scripts\Flashlight\Flashlight.cs" />
      <Compile Include="Assets\Scripts\Flashlight\FlashlightOrientation.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IPickUpable.cs" />
@@ -88,7 +104,6 @@
      <Compile Include="Assets\Scripts\Movement\SteeringAlgorithms\Separation.cs" />
      <Compile Include="Assets\Scripts\Movement\SteeringBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\Health.cs" />
-     <Compile Include="Assets\Scripts\Player\HealthManager.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\DragDoorRigidBody.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\Item\Action.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\Item\HealAction.cs" />
@@ -97,6 +112,7 @@
      <Compile Include="Assets\Scripts\Player\Interactables\Keys\UnlockManager.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\PickUpRigidBody.cs" />
      <Compile Include="Assets\Scripts\Player\Interactables\PlayerRaycast.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealthManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\UI\FlashlightCapacity.cs" />
      <Compile Include="Assets\Scripts\UI\Map\MapShowArea.cs" />

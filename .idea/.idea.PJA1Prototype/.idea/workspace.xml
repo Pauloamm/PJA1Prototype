@@ -12,39 +12,23 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponsAnimation/WeaponAnimationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/9c/3a9c8028/KeyCode.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/cc/a4605969/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionTree.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/ActionNode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/ed/88a9c046/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponsAnimation/WeaponAnimationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/CanFly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/cc/a4605969/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/ItemInspect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/BirdAction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Shotgun.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Pistol.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/Weapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponUI/WeaponUIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Gun/WeaponHierarchy/WeaponManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Storable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponInfo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ISelectable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/DisplayPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotSelection.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InspectItemRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IStorable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/IPickUpable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/PelletHoles/PelletHoleManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/WeaponSlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/EquipmentSlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/ItemSlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/Slot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlotable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IStorable.cs" />
@@ -74,6 +58,28 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/PickUpRigidBody.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Keys/UnlockManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/DragDoorRigidBody.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/IState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/ITransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/Transition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealthManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/Transitions/ToDeadState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/States/LookForState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/States/PatrolState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/States/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/Enemy/StateMachine/Transitions/Transition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/Node.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/ActionNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/BirdAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/CanFly.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/FishAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/CanSwim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/HumanAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionTree.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/IsBipede.cs" />
       </list>
     </option>
   </component>
@@ -151,6 +157,7 @@
       <workItem from="1606600505325" duration="2491000" />
       <workItem from="1606755959452" duration="4779000" />
       <workItem from="1606919099006" duration="5010000" />
+      <workItem from="1607181447724" duration="11964000" />
     </task>
     <servers />
   </component>
@@ -239,10 +246,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603725674664" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1605980292155">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1607198431116">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605980292155" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607198431116" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603834775503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

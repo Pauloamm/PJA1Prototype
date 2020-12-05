@@ -6,10 +6,35 @@
     <e p="D:\UnityProjects\PJA1Prototype" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Enemies" t="Include">
-          <e p="Enemy.cs" t="Include" />
-        </e>
         <e p="Scripts" t="Include">
+          <e p="AI" t="Include">
+            <e p="DecisionTree" t="Include">
+              <e p="ActionNode.cs" t="Include" />
+              <e p="DecisionNode.cs" t="Include" />
+              <e p="DecisionTree.cs" t="Include" />
+              <e p="Node.cs" t="Include" />
+              <e p="TESTE" t="Include">
+                <e p="BirdAction.cs" t="Include" />
+                <e p="CanFly.cs" t="Include" />
+                <e p="CanSwim.cs" t="Include" />
+                <e p="FishAction.cs" t="Include" />
+                <e p="HumanAction.cs" t="Include" />
+                <e p="IsBipede.cs" t="Include" />
+              </e>
+            </e>
+            <e p="StateMachine" t="Include">
+              <e p="StateMachine.cs" t="Include" />
+              <e p="States" t="Include">
+                <e p="LookForState.cs" t="Include" />
+                <e p="PatrolState.cs" t="Include" />
+                <e p="State.cs" t="Include" />
+              </e>
+              <e p="Transitions" t="Include">
+                <e p="ToDeadState.cs" t="Include" />
+                <e p="Transition.cs" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="Book" t="Include">
             <e p="CanvasManager.cs" t="Include" />
             <e p="DisplayPanel.cs" t="Include" />
@@ -34,6 +59,9 @@
             <e p="UiStateManager.cs" t="Include" />
           </e>
           <e p="Crosshair.cs" t="Include" />
+          <e p="Enemies" t="Include">
+            <e p="Enemy.cs" t="Include" />
+          </e>
           <e p="Flashlight" t="Include">
             <e p="Flashlight.cs" t="Include" />
             <e p="FlashlightOrientation.cs" t="Include" />
@@ -62,7 +90,6 @@
           </e>
           <e p="Player" t="Include">
             <e p="Health.cs" t="Include" />
-            <e p="HealthManager.cs" t="Include" />
             <e p="Interactables" t="Include">
               <e p="DragDoorRigidBody.cs" t="Include" />
               <e p="Item" t="Include">
@@ -77,6 +104,7 @@
               <e p="PickUpRigidBody.cs" t="Include" />
               <e p="PlayerRaycast.cs" t="Include" />
             </e>
+            <e p="PlayerHealthManager.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
