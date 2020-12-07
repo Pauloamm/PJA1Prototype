@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private GameObject playerCamera;
     private Vector3 offset;
 
+    
+    
+    //TESTES 
+    [SerializeField] private WorldGrid worldGrid;
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -81,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
 
         // Update Unity Information
         this.transform.position += info.velocity * Time.deltaTime;
+        
+
     }
 
     private void PlayerLookUpdate(Steering nextFrameSteering, Transform playerTransform, Transform cameraTransform)

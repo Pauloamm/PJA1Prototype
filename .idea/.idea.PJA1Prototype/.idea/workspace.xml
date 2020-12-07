@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionTree.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/ActionNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A4546799-A4AB-4267-88E4-204C69507924/a4/12ee17d2/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/ed/88a9c046/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponHierarchy/WeaponsAnimation/WeaponAnimationManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,11 +30,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlotable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/IStorable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interfaces/ISlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/EquipmentInventorySlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/SlotS/InventorySlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/WeaponUI/WeaponUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interactables/Item/HealAction.cs" />
@@ -80,6 +76,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/HumanAction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/DecisionTree.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AI/DecisionTree/TESTE/IsBipede.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/VoxelDivision/Cell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/VoxelDivision/PathFindingAStar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/VoxelDivision/HeapStructure.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/AI/VoxelDivision/WorldGrid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -158,6 +159,8 @@
       <workItem from="1606755959452" duration="4779000" />
       <workItem from="1606919099006" duration="5010000" />
       <workItem from="1607181447724" duration="11964000" />
+      <workItem from="1607264988867" duration="26224000" />
+      <workItem from="1607354448415" duration="5051000" />
     </task>
     <servers />
   </component>
@@ -238,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603725854884" />
-    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1606317597844">
+    <state x="788" y="194" key="RiderGenerateDialog" timestamp="1607357652769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606317597844" />
+    <state x="788" y="194" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607357652769" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603725674664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

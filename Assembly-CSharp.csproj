@@ -68,6 +68,10 @@
      <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\FishAction.cs" />
      <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\HumanAction.cs" />
      <Compile Include="Assets\Scripts\AI\DecisionTree\TESTE\IsBipede.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\HeapStructure.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\PathFindingAStar.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\VoxelDivision\Cell.cs" />
+     <Compile Include="Assets\Scripts\AI\PathFinding\VoxelDivision\WorldGrid.cs" />
      <Compile Include="Assets\Scripts\AI\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\AI\StateMachine\States\LookForState.cs" />
      <Compile Include="Assets\Scripts\AI\StateMachine\States\PatrolState.cs" />
